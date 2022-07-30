@@ -1,0 +1,88 @@
+// COLORS
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+$color-white: #fff;
+$color-black: #000;
+
+// FONT
+$default-font-size: 1.6rem;
+
+// GRID
+$grid-width: 114rem;
+$gutter-vertical: 8rem;
+$gutter-vertical-small: 6rem;
+$gutter-horizontal: 6rem;
+
+:root {
+  --light-blue: #2a3260;
+  --dark-blue: #151934;
+  --contact-color: #424a55;
+  --footer-color: #353744;
+  --text-gray: #626974;
+  --yellow: #f7ea90;
+  --light-red: #cf7873;
+  --light-red-disabled: #cf78736b;
+  --dark-navy: #020c1b;
+  --navy: #0a192f;
+  --light-navy: #112240;
+  --lightest-navy: #233554;
+  --navy-shadow: rgba(2, 12, 27, 0.7);
+  --dark-slate: #495670;
+  --slate: #8892b0;
+  --light-slate: #a8b2d1;
+  --lightest-slate: #ccd6f6;
+  --white: #e6f1ff;
+  --green: #64ffda;
+  --green-tint: rgba(100, 255, 218, 0.1);
+  --pink: #f57dff;
+  --blue: #57cbff;
+
+  --font-sans: "Calibre", "Inter", "San Francisco", "SF Pro Text", -apple-system,
+    system-ui, sans-serif;
+  --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+
+  // Font size
+  --fonts-xxxs: 1em;
+  --fonts-xxs: 1.2em;
+  --fonts-xs: 1.4rem;
+  --fonts-sm: 1.8rem;
+  --fonts-md: 2rem;
+  --fonts-lg: 2.4rem;
+  --fonts-xl: 3.2rem;
+  --fonts-xxl: 3.8rem;
+  --fonts-heading: 4.6rem;
+
+  --border-radius: 4px;
+  --nav-height: 10rem;
+  --nav-scroll-height: 7rem;
+
+  --tab-height: 4.2rem;
+  --tab-width: 12rem;
+
+  --easing: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  --hamburger-width: 3rem;
+
+  --ham-before: top 0.1s ease-in 0.25s, opacity 0.1s ease-in;
+  --ham-before-active: top 0.1s ease-out, opacity 0.1s ease-out 0.12s;
+  --ham-after: bottom 0.1s ease-in 0.25s,
+    transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --ham-after-active: bottom 0.1s ease-out,
+    transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+}

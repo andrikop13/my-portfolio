@@ -1,0 +1,84 @@
+nav {
+  @include flex-between;
+  position: relative;
+  width: 100%;
+  color: var(--lightest-slate);
+  font-family: var(--font-mono);
+  z-index: 12;
+
+  & .logo {
+    @include flex_center;
+    margin-top: 0.5rem;
+
+    & a {
+      color: var(--green);
+      width: 6.2rem;
+      height: 6.2rem;
+
+      &:hover,
+      &:focus {
+        & svg {
+          fill: var(--green-tint);
+        }
+
+        &:after {
+          width: 0;
+          height: 0;
+        }
+      }
+
+      & svg {
+        fill: none;
+        transition: var(--transition);
+        user-select: none;
+      }
+    }
+  }
+
+  .nav--links {
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 76.8rem) {
+      display: none;
+    }
+
+    & ol {
+      @include flex-between;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      & li {
+        counter-increment: item 1;
+        margin: 0 5px;
+        position: relative;
+        font-size: var(--fonts-xs);
+
+        & a {
+          padding: 0.5rem;
+          margin-right: 1rem;
+          color: var(--lightest-slate);
+
+          &:hover,
+          &:focus {
+            color: var(--green);
+          }
+        }
+
+        &:before {
+          content: "0" counter(item) ".";
+          color: var(--green);
+          font-size: var(--fonts-xxxs);
+          text-align: right;
+        }
+      }
+    }
+
+    .resume-button {
+      @include flex_center;
+      margin-left: 15px;
+      font-size: var(--fonts-xs);
+    }
+  }
+}

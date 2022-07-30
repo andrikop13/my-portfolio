@@ -1,18 +1,36 @@
 {
   "name": "my-portofolio",
+  "description": "My personal site, written with React.js ecosystem",
+  "author": "Andreas Andrikopoulos",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andrikop13/my-portofolio.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "animejs": "^3.2.1",
+    "node-sass": "^7.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-transition-group": "^4.4.2",
+    "sass": "^1.54.0",
+    "scrollreveal": "^4.0.9",
+    "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start ",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
