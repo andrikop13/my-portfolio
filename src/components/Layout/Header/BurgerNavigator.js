@@ -15,10 +15,10 @@ const StyledMenu = styled.aside`
   bottom: 0px;
   right: 0px;
   padding: 5rem 1rem;
-  width: min(75vw, 400px);
+  width: min(75vw, 450px);
   height: 100vh;
   outline: 0px;
-  background-color: var(--light-navy);
+  background-color: var(--navy);
   box-shadow: -10px 0px 30px -15px var(--navy-shadow);
   z-index: 9;
   transform: ${({ open }) => (open ? "translateX(3%)" : "translateX(103%)")};
@@ -34,7 +34,7 @@ const StyledMenu = styled.aside`
 
     li {
       counter-increment: item 1;
-      font-size: var(--fonts-lg);
+      font-size: var(--fonts-md);
       margin-bottom: 3rem;
 
       &:before {
@@ -84,21 +84,23 @@ const StyledBurger = styled.button`
   }
 
   div {
-    width: 3rem;
-    height: 0.25rem;
+    width: 4rem;
+    height: 0.3rem;
     background: var(--green);
     border-radius: 10px;
     transition: all 0.3s ease-in-out;
     position: relative;
-    transform-origin: 1px;
+    transform-origin: 0.4rem;
 
     :first-child {
       transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};
+      margin-bottom: 0.5rem;
     }
 
     :nth-child(2) {
       opacity: ${({ open }) => (open ? "0" : "1")};
       transform: ${({ open }) => (open ? "translateX(20px)" : "translateX(0)")};
+      margin-bottom: 0.5rem;
     }
 
     :nth-child(3) {

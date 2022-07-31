@@ -38,11 +38,7 @@ const Header = (props) => {
         <a href="/" aria-label="home">
           <MyLogo stroke={12} fontWeight={550} />
         </a>
-      ) : (
-        <Link to="/" aria-label="home">
-          <MyLogo stroke={8} />
-        </Link>
-      )} */}
+      ) */}
       <a href="/" aria-label="home">
         <div className="flexRow">
           <div className="logoText">A</div>

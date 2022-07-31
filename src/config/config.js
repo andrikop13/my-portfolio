@@ -5,7 +5,7 @@ module.exports = {
   responsive: {
     baseDivider: 10,
     phone: [0, 60],
-    tablet: [60, 90],
+    tablet: [60, 100],
     tabletLandscape: [90, 120],
     bigDesk: [180],
   },

@@ -4,7 +4,7 @@ nav {
   height: 100%;
   width: 100%;
   padding-right: 5rem;
-  color: var(--lightest-slate);
+  color: var(--white);
   font-family: var(--font-mono);
   z-index: 12;
 
@@ -55,7 +55,8 @@ nav {
         & a {
           padding: 0.5rem;
           margin-right: 1rem;
-          color: var(--lightest-slate);
+          color: var(--white);
+          margin-top: 1rem;
 
           &:hover,
           &:focus {
@@ -73,6 +74,7 @@ nav {
     }
 
     .resume-button {
+      margin-top: 0.5rem;
       @include flex_center;
       margin-left: 15px;
       font-size: var(--fonts-xs);

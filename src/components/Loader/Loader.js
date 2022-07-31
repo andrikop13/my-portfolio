@@ -48,7 +48,6 @@ const Loader = (props) => {
     loader
       .add({
         targets: "#myLogo path",
-        delay: 0, //duration : 0
         duration: 1200, // duration: 1500
         easing: "easeInOutQuart",
         strokeDashoffset: [anime.setDashoffset, 0],

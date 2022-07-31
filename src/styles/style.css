@@ -25,7 +25,8 @@ ORDER: Base + typography > general layout + grid > page layout > components
   --light-red: #cf7873;
   --light-red-disabled: #cf78736b;
   --dark-navy: #020c1b;
-  --navy: #0a192f;
+  --logo-color: #e23c52;
+  --navy: #002244;
   --light-navy: #112240;
   --lightest-navy: #233554;
   --navy-shadow: rgba(2, 12, 27, 0.7);
@@ -34,12 +35,12 @@ ORDER: Base + typography > general layout + grid > page layout > components
   --light-slate: #a8b2d1;
   --lightest-slate: #ccd6f6;
   --white: #e6f1ff;
-  --green: #64ffda;
+  --green: #08fdd8;
   --green-tint: rgba(100, 255, 218, 0.1);
   --pink: #f57dff;
   --blue: #57cbff;
-  --font-sans: "Calibre", "Inter", "San Francisco", "SF Pro Text", -apple-system,
-    system-ui, sans-serif;
+  --font-sans: "Open Sans", "Calibre", "Inter", "San Francisco", "SF Pro Text",
+    -apple-system, system-ui, sans-serif;
   --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
   --fonts-xxxs: 1em;
   --fonts-xxs: 1.2em;
@@ -51,7 +52,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
   --fonts-xxl: 3.8rem;
   --fonts-heading: 4.6rem;
   --border-radius: 4px;
-  --nav-height: 100px;
+  --nav-height: 90px;
   --tab-height: 4.2rem;
   --tab-width: 12rem;
   --cubanime: cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -182,12 +183,12 @@ a:hover, a:focus {
   color: var(--green);
 }
 a:hover, a:focus, a:active {
-  transform-origin: 0% 50%;
   color: var(--green);
   outline: 0;
 }
 a:hover:after, a:focus:after, a:active:after {
   width: 100%;
+  left: 0%;
 }
 a:hover > *, a:focus > *, a:active > * {
   color: var(--green) !important;
@@ -197,7 +198,10 @@ a:after {
   content: "";
   display: block;
   width: 0;
-  height: 1px;
+  border-radius: 50px;
+  left: 50%;
+  height: 2px;
+  margin-top: 1px;
   position: relative;
   bottom: 0.37em;
   background-color: var(--green);
@@ -206,7 +210,7 @@ a:after {
 }
 
 body {
-  font-family: Open Sans, sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
   /*font-size: 16px;*/
   line-height: 1.7;
@@ -682,8 +686,7 @@ header {
   z-index: 11;
   width: 100%;
   height: var(--nav-height);
-  background-color: #020c1b;
-  box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.1);
+  background-color: var(--navy);
   filter: none !important;
   pointer-events: auto !important;
   -webkit-user-select: auto !important;
@@ -697,7 +700,7 @@ header {
 header .scroll-up {
   height: var(--nav-scroll-height);
   transform: translateY(0px);
-  background-color: #212529;
+  background-color: --navy;
   box-shadow: 0 10px 30px -10px var(--navy-shadow);
 }
 header .scroll-down {
@@ -709,32 +712,38 @@ header .scroll-down {
 .logo {
   width: 20rem;
   height: 100%;
-  padding: 0;
-  background-color: black;
+  background-color: var(--dark-navy);
+  border-bottom-right-radius: 5px;
 }
 .logo .flexRow {
   display: flex;
-  max-height: 100%;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  max-height: 100%;
+  gap: 0.3rem;
   font-family: "Open Sans";
 }
 .logo .flexRow .nameText {
   flex-grow: 1;
   color: white;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
 }
 .logo .flexRow .jobTitle {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
+  margin-top: -5px;
 }
 .logo .logoText {
-  color: #e23c52;
-  text-shadow: -0.3rem -0.1rem 0px #bdfff6, -0.4rem -0.1rem 0px #bdfff6;
-  font-size: 8rem;
+  color: var(--logo-color);
+  text-shadow: -0.3rem -0.1rem 0px var(--green), -0.4rem -0.1rem 0px var(--green);
+  font-size: 6.5rem;
   font-weight: 600;
   font-family: "Open Sans";
   justify-self: center;
+  transition: all 0.2s ease-out;
+}
+.logo .logoText:hover {
+  transform: scale(1.1);
+  transition: all 0.2s ease-in;
 }
 .logo .text-column {
   font-family: "Open Sans";
@@ -745,12 +754,6 @@ header .scroll-down {
   align-items: center;
   justify-self: center;
 }
-.logo:hover .logoText {
-  transition: all 0.2s;
-}
-.logo:hover .logoText:hover {
-  transform: scale(1.05);
-}
 
 nav {
   display: flex;
@@ -760,7 +763,7 @@ nav {
   height: 100%;
   width: 100%;
   padding-right: 5rem;
-  color: var(--lightest-slate);
+  color: var(--white);
   font-family: var(--font-mono);
   z-index: 12;
 }
@@ -810,7 +813,8 @@ nav .nav--links ol li {
 nav .nav--links ol li a {
   padding: 0.5rem;
   margin-right: 1rem;
-  color: var(--lightest-slate);
+  color: var(--white);
+  margin-top: 1rem;
 }
 nav .nav--links ol li a:hover, nav .nav--links ol li a:focus {
   color: var(--green);
@@ -822,6 +826,7 @@ nav .nav--links ol li:before {
   text-align: right;
 }
 nav .nav--links .resume-button {
+  margin-top: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;

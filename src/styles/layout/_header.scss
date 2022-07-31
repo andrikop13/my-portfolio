@@ -5,8 +5,8 @@ header {
   z-index: 11;
   width: 100%;
   height: var(--nav-height);
-  background-color: #020c1b;
-  box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.1);
+  background-color: var(--navy);
+  // box-shadow: 0 5px 15px -5px var(--navy-shadow);
 
   filter: none !important;
   pointer-events: auto !important;
@@ -17,7 +17,7 @@ header {
   .scroll-up {
     height: var(--nav-scroll-height);
     transform: translateY(0px);
-    background-color: #212529;
+    background-color: (--navy);
     box-shadow: 0 10px 30px -10px var(--navy-shadow);
   }
 
@@ -31,35 +31,42 @@ header {
 .logo {
   width: 20rem;
   height: 100%;
-  padding: 0;
-  background-color: black;
+  background-color: var(--dark-navy);
+  border-bottom-right-radius: 5px;
+  // margin: 2rem 0 0 1rem;
 
   & .flexRow {
-    display: flex;
+    @include flex_center;
     max-height: 100%;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+    gap: 0.3rem;
     font-family: "Open Sans";
 
     & .nameText {
       flex-grow: 1;
       color: white;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
     }
 
     & .jobTitle {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
+      margin-top: -5px;
     }
   }
 
   & .logoText {
-    color: #e23c52;
-    text-shadow: -0.3rem -0.1rem 0px #bdfff6, -0.4rem -0.1rem 0px #bdfff6;
-    font-size: 8rem;
+    color: var(--logo-color);
+    text-shadow: -0.3rem -0.1rem 0px var(--green),
+      -0.4rem -0.1rem 0px var(--green);
+    font-size: 6.5rem;
     font-weight: 600;
     font-family: "Open Sans";
     justify-self: center;
+    transition: all 0.2s ease-out;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: all 0.2s ease-in;
+    }
   }
 
   & .text-column {
@@ -70,15 +77,5 @@ header {
     justify-content: center;
     align-items: center;
     justify-self: center;
-  }
-
-  &:hover {
-    & .logoText {
-      transition: all 0.2s;
-
-      &:hover {
-        transform: scale(1.05);
-      }
-    }
   }
 }

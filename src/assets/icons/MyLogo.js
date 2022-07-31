@@ -10,8 +10,9 @@ const MyLogo = (props) => {
       <path
         fillRule="evenodd"
         stroke={props.color || "var(--green)"}
-        strokeWidth={props.stroke || "5"}
-        d="M209.846 85.443l16.32 71.5-45.726 57.338H107.1l-45.726-57.338 16.32-71.5 66.075-31.82 66.076 31.82z"
+        strokeWidth={props.stroke || "9"}
+        stroke-linejoin="round"
+        d="M209.846 85.443l16.32 71.5-45.726 57.338H107.1l-45.726-57.338 16.32-71.5 66.075-31.82 66.75 32.4z"
       ></path>
       <text
         id="logoText"
