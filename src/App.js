@@ -8,7 +8,7 @@ import Contact from "./components/Sections/Contact";
 
 const App = () => {
   const location = useLocation();
-  console.log(location);
+
   return (
     <Home location={location}>
       <AboutMe />

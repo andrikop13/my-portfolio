@@ -1,6 +1,15 @@
 module.exports = {
   email: "andreas.andrikopoulos@gmail.com",
 
+  // Limits in rem
+  responsive: {
+    baseDivider: 10,
+    phone: [0, 60],
+    tablet: [60, 90],
+    tabletLandscape: [90, 120],
+    bigDesk: [180],
+  },
+
   socialMedia: [
     {
       name: "GitHub",

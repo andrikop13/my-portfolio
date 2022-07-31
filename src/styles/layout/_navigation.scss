@@ -39,10 +39,6 @@ nav {
     display: flex;
     align-items: center;
 
-    @media (max-width: 55rem) {
-      display: none;
-    }
-
     & ol {
       @include flex-between;
       padding: 0;
@@ -72,22 +68,6 @@ nav {
           font-size: var(--fonts-xxxs);
           text-align: right;
         }
-      }
-    }
-
-    /* MOBILE */
-    & .btn-mobile-nav {
-      border: none;
-      background: none;
-      cursor: pointer;
-
-      display: none;
-    }
-
-    @media (max-width: 59em) {
-      & .btn-mobile-nav {
-        display: block;
-        z-index: 9999;
       }
     }
 

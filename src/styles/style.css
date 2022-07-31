@@ -763,12 +763,6 @@ nav .logo a svg {
 nav .nav--links {
   display: flex;
   align-items: center;
-  /* MOBILE */
-}
-@media (max-width: 55rem) {
-  nav .nav--links {
-    display: none;
-  }
 }
 nav .nav--links ol {
   display: flex;
@@ -797,18 +791,6 @@ nav .nav--links ol li:before {
   color: var(--green);
   font-size: var(--fonts-xxxs);
   text-align: right;
-}
-nav .nav--links .btn-mobile-nav {
-  border: none;
-  background: none;
-  cursor: pointer;
-  display: none;
-}
-@media (max-width: 59em) {
-  nav .nav--links .btn-mobile-nav {
-    display: block;
-    z-index: 9999;
-  }
 }
 nav .nav--links .resume-button {
   display: flex;
