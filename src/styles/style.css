@@ -55,7 +55,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
   --nav-scroll-height: 7rem;
   --tab-height: 4.2rem;
   --tab-width: 12rem;
-  --easing: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --cubanime: cubic-bezier(0.645, 0.045, 0.355, 1);
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   --hamburger-width: 3rem;
   --ham-before: top 0.1s ease-in 0.25s, opacity 0.1s ease-in;
@@ -334,6 +334,79 @@ body {
 
 .u-margin-top-huge {
   margin-top: 10rem !important;
+}
+
+/* Fade up */
+.fadeup-enter {
+  opacity: 0.01;
+  transform: translateY(20px);
+  transition: opacity 300ms var(--easing), transform 300ms var(--easing);
+}
+
+.fadeup-enter-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: opacity 300ms var(--easing), transform 300ms var(--easing);
+}
+
+/* Fade down */
+.fadedown-enter {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.fadedown-enter-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: opacity 300ms var(--cubanime), transform 300ms var(--cubanime);
+}
+
+.fade-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+/* Fade */
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms var(--cubanime);
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms var(--cubanime);
+}
+
+/* Fade */
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms var(--easing);
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms var(--easing);
 }
 
 .small-button {
@@ -629,14 +702,14 @@ header {
           backdrop-filter: blur(10px);
   transition: var(--transition);
 }
-@media (max-width: 1080px) {
+@media (max-width: 108rem) {
   header {
-    padding: 0 40px;
+    padding: 0 4rem;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 76.8rem) {
   header {
-    padding: 0 25px;
+    padding: 0 2.5rem;
   }
 }
 header .scroll-up {
@@ -669,8 +742,8 @@ nav .logo {
 }
 nav .logo a {
   color: var(--green);
-  width: 6.2rem;
-  height: 6.2rem;
+  width: 7.2rem;
+  height: 7.2rem;
 }
 nav .logo a:hover svg, nav .logo a:focus svg {
   fill: var(--green-tint);
@@ -690,8 +763,9 @@ nav .logo a svg {
 nav .nav--links {
   display: flex;
   align-items: center;
+  /* MOBILE */
 }
-@media (max-width: 76.8rem) {
+@media (max-width: 55rem) {
   nav .nav--links {
     display: none;
   }
@@ -723,6 +797,18 @@ nav .nav--links ol li:before {
   color: var(--green);
   font-size: var(--fonts-xxxs);
   text-align: right;
+}
+nav .nav--links .btn-mobile-nav {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: none;
+}
+@media (max-width: 59em) {
+  nav .nav--links .btn-mobile-nav {
+    display: block;
+    z-index: 9999;
+  }
 }
 nav .nav--links .resume-button {
   display: flex;

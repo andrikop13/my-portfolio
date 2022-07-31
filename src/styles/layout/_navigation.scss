@@ -12,8 +12,8 @@ nav {
 
     & a {
       color: var(--green);
-      width: 6.2rem;
-      height: 6.2rem;
+      width: 7.2rem;
+      height: 7.2rem;
 
       &:hover,
       &:focus {
@@ -39,7 +39,7 @@ nav {
     display: flex;
     align-items: center;
 
-    @media (max-width: 76.8rem) {
+    @media (max-width: 55rem) {
       display: none;
     }
 
@@ -72,6 +72,22 @@ nav {
           font-size: var(--fonts-xxxs);
           text-align: right;
         }
+      }
+    }
+
+    /* MOBILE */
+    & .btn-mobile-nav {
+      border: none;
+      background: none;
+      cursor: pointer;
+
+      display: none;
+    }
+
+    @media (max-width: 59em) {
+      & .btn-mobile-nav {
+        display: block;
+        z-index: 9999;
       }
     }
 

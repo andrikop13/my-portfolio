@@ -25,8 +25,9 @@ const Home = (props) => {
       return;
     }
 
+    // Check on refresh if /#<page> exists on URL
     if (props.location.hash) {
-      const id = props.location.hash.substring(1); // location.hash without the '#'
+      const id = props.location.hash.substring(1);
       setTimeout(() => {
         const el = document.getElementById(id);
         if (el) {
