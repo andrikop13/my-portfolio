@@ -1,14 +1,15 @@
 nav {
   @include flex-between;
   position: relative;
+  height: 100%;
   width: 100%;
+  padding-right: 5rem;
   color: var(--lightest-slate);
   font-family: var(--font-mono);
   z-index: 12;
 
   & .logo {
     @include flex_center;
-    margin-top: 0.5rem;
 
     & a {
       color: var(--green);

@@ -3,10 +3,9 @@ header {
   position: fixed;
   top: 0;
   z-index: 11;
-  padding: 0px 5rem;
-  width: 94%;
+  width: 100%;
   height: var(--nav-height);
-  background-color: rgba(10, 25, 47, 0.85);
+  background-color: #020c1b;
   box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.1);
 
   filter: none !important;
@@ -15,17 +14,10 @@ header {
   backdrop-filter: blur(10px);
   transition: var(--transition);
 
-  @media (max-width: 108rem) {
-    padding: 0 4rem;
-  }
-  @media (max-width: 76.8rem) {
-    padding: 0 2.5rem;
-  }
-
   .scroll-up {
     height: var(--nav-scroll-height);
     transform: translateY(0px);
-    background-color: rgba(10, 25, 47, 0.85);
+    background-color: #212529;
     box-shadow: 0 10px 30px -10px var(--navy-shadow);
   }
 
@@ -33,5 +25,60 @@ header {
     height: var(--nav-scroll-height);
     transform: translateY(calc(var(--nav-scroll-height) * -1));
     box-shadow: 0 10px 30px -10px var(--navy-shadow);
+  }
+}
+
+.logo {
+  width: 20rem;
+  height: 100%;
+  padding: 0;
+  background-color: black;
+
+  & .flexRow {
+    display: flex;
+    max-height: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-family: "Open Sans";
+
+    & .nameText {
+      flex-grow: 1;
+      color: white;
+      font-size: 1.6rem;
+    }
+
+    & .jobTitle {
+      font-size: 1.4rem;
+    }
+  }
+
+  & .logoText {
+    color: #e23c52;
+    text-shadow: -0.3rem -0.1rem 0px #bdfff6, -0.4rem -0.1rem 0px #bdfff6;
+    font-size: 8rem;
+    font-weight: 600;
+    font-family: "Open Sans";
+    justify-self: center;
+  }
+
+  & .text-column {
+    font-family: "Open Sans";
+    font-style: italic;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+  }
+
+  &:hover {
+    & .logoText {
+      transition: all 0.2s;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
   }
 }

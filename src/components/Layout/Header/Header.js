@@ -34,7 +34,7 @@ const Header = (props) => {
 
   const Logo = (
     <div className="logo" tabIndex="-1">
-      {props.isHome ? (
+      {/* {props.isHome ? (
         <a href="/" aria-label="home">
           <MyLogo stroke={12} fontWeight={550} />
         </a>
@@ -42,10 +42,18 @@ const Header = (props) => {
         <Link to="/" aria-label="home">
           <MyLogo stroke={8} />
         </Link>
-      )}
+      )} */}
+      <a href="/" aria-label="home">
+        <div className="flexRow">
+          <div className="logoText">A</div>
+          <div className="text-column">
+            <div className="nameText">Andrikopoulos</div>
+            <div className="jobTitle">Web Developer</div>
+          </div>
+        </div>
+      </a>
     </div>
   );
-
   const Resume = (
     <a
       className="resume-button small-button"

@@ -28,6 +28,7 @@
   &:hover,
   &:focus,
   &:active {
+    transform-origin: 0% 50%;
     color: var(--green);
     outline: 0;
     &:after {

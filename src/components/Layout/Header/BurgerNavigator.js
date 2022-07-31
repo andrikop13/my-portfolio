@@ -88,7 +88,7 @@ const StyledBurger = styled.button`
     height: 0.25rem;
     background: var(--green);
     border-radius: 10px;
-    transition: all 0.3s linear;
+    transition: all 0.3s ease-in-out;
     position: relative;
     transform-origin: 1px;
 
@@ -127,7 +127,9 @@ const BurgerNavigator = React.forwardRef((props, ref) => {
                 </Link>
               </li>
             ))}
-          <div className="resume-button">{props.Resume}</div>
+          <div key={10} className="resume-button">
+            {props.Resume}
+          </div>
         </ol>
       </StyledMenu>
     </div>

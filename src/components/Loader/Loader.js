@@ -49,13 +49,13 @@ const Loader = (props) => {
       .add({
         targets: "#myLogo path",
         delay: 0, //duration : 0
-        duration: 0, // duration: 1500
+        duration: 1200, // duration: 1500
         easing: "easeInOutQuart",
         strokeDashoffset: [anime.setDashoffset, 0],
       })
       .add({
         targets: "#logoText",
-        duration: 0, //duration: 700
+        duration: 700, //duration: 700
         easing: "easeInOutQuart",
         opacity: 1,
       });
