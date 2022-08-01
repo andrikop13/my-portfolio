@@ -1,0 +1,48 @@
+.section-about {
+  padding: 10rem 22rem;
+  min-height: 80vh;
+}
+
+.about {
+  height: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  align-items: center;
+  justify-content: center;
+  gap: 9.6rem;
+
+  &__text-box {
+    align-self: center;
+  }
+
+  &__image-box {
+    justify-self: center;
+    align-self: center;
+    gap: 1.6rem;
+  }
+}
+
+@include respond(tab-land) {
+  .section-about {
+    padding: 10rem 10rem;
+  }
+}
+
+@include respond(tab-land-big) {
+  .section-about {
+    padding: 10rem 12rem;
+  }
+}
+
+@media (max-width: 60rem) {
+  .about {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+
+    &__image-box {
+      justify-self: start;
+    }
+  }
+}

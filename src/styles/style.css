@@ -39,18 +39,20 @@ ORDER: Base + typography > general layout + grid > page layout > components
   --green-tint: rgba(100, 255, 218, 0.1);
   --pink: #f57dff;
   --blue: #57cbff;
-  --font-sans: "Open Sans", "Calibre", "Inter", "San Francisco", "SF Pro Text",
-    -apple-system, system-ui, sans-serif;
+  --main-fonts: "Calibre", "Open Sans", sans-serif;
+  --logo-fonts: "Open Sans", "sans-serif"
   --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
   --fonts-xxxs: 1em;
   --fonts-xxs: 1.2em;
   --fonts-xs: 1.4rem;
-  --fonts-sm: 1.8rem;
+  --fonts-sm: 1.6rem;
   --fonts-md: 2rem;
   --fonts-lg: 2.4rem;
   --fonts-xl: 3.2rem;
   --fonts-xxl: 3.8rem;
-  --fonts-heading: 4.6rem;
+  --fonts-xxxl: 4.6rem;
+  --fonts-big-heading: 5.4rem;
+  --fonts-sub-heading: 3.6rem;
   --border-radius: 4px;
   --nav-height: 90px;
   --tab-height: 4.2rem;
@@ -59,6 +61,79 @@ ORDER: Base + typography > general layout + grid > page layout > components
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
+@-webkit-keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@-webkit-keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@-webkit-keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
 *,
 *::after,
 *::before {
@@ -70,7 +145,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
 html {
   font-size: 62.5%;
 }
-@media only screen and (max-width: 75em) {
+@media only screen and (max-width: 85em) {
   html {
     font-size: 58%;
   }
@@ -127,22 +202,15 @@ html {
 }
 
 body {
+  box-sizing: border-box;
   margin: 0;
   width: 100%;
   min-height: 100%;
-  overflow-x: hidden;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   background-color: var(--navy);
-  color: var(--slate);
   font-family: var(--font-sans);
-  font-size: var(--fonts-xl);
   line-height: 1.3;
-}
-@media (max-width: 48rem) {
-  body {
-    font-size: var(--fonts-lg);
-  }
 }
 body.hidden {
   overflow: hidden;
@@ -194,6 +262,10 @@ a:hover > *, a:focus > *, a:active > * {
   color: var(--green) !important;
   transition: var(--transition);
 }
+a:focus:after {
+  width: 0;
+  height: 0;
+}
 a:after {
   content: "";
   display: block;
@@ -210,7 +282,7 @@ a:after {
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: var(--fonts-sans);
   font-weight: 400;
   /*font-size: 16px;*/
   line-height: 1.7;
@@ -218,56 +290,51 @@ body {
 }
 
 .heading-primary {
-  color: #fff;
-  text-transform: uppercase;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   margin-bottom: 6rem;
 }
 .heading-primary--main {
+  color: var(--white);
+  letter-spacing: 0.2rem;
   display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
+  font-size: var(--fonts-big-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 2rem;
   -webkit-animation-name: moveInLeft;
           animation-name: moveInLeft;
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
   -webkit-animation-timing-function: ease-out;
           animation-timing-function: ease-out;
-  /*
-      animation-delay: 3s;
-      animation-iteration-count: 3;
-      */
 }
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 85em) {
   .heading-primary--main {
-    letter-spacing: 1rem;
-    font-family: 5rem;
+    font-size: 4.2rem;
   }
 }
 .heading-primary--sub {
   display: block;
-  font-size: 2rem;
+  font-size: var(--fonts-sub-heading);
   font-weight: 700;
-  letter-spacing: 1.75rem;
+  color: var(--light-slate);
+  letter-spacing: 0.1rem;
+  line-height: 1.2;
   -webkit-animation: moveInRight 1s ease-out;
           animation: moveInRight 1s ease-out;
 }
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 85em) {
   .heading-primary--sub {
-    letter-spacing: 0.5rem;
+    font-size: 3.2rem;
   }
 }
 
 .heading-secondary {
   font-size: 3.5rem;
-  text-transform: uppercase;
   font-weight: 700;
   display: inline-block;
-  background-image: linear-gradient(to right, #7ed56f, #28b485);
-  -webkit-background-clip: text;
-  color: transparent;
+  color: var(--lightest-slate);
   letter-spacing: 0.2rem;
   transition: all 0.2s;
 }
@@ -286,17 +353,11 @@ body {
   text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
-.heading-tertiary {
-  font-size: 1.6rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.paragraph {
-  font-size: 1.6rem;
-}
-.paragraph:not(:last-child) {
-  margin-bottom: 3rem;
+.heading-stylist {
+  font-size: var(--fonts-xs);
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+  color: var(--green);
 }
 
 .u-center-text {
@@ -712,7 +773,7 @@ header .scroll-down {
 .logo {
   width: 20rem;
   height: 100%;
-  background-color: var(--dark-navy);
+  background-color: rgba(2, 12, 27, 0.4);
   border-bottom-right-radius: 5px;
 }
 .logo .flexRow {
@@ -721,7 +782,6 @@ header .scroll-down {
   align-items: center;
   max-height: 100%;
   gap: 0.3rem;
-  font-family: "Open Sans";
 }
 .logo .flexRow .nameText {
   flex-grow: 1;
@@ -737,7 +797,6 @@ header .scroll-down {
   text-shadow: -0.3rem -0.1rem 0px var(--green), -0.4rem -0.1rem 0px var(--green);
   font-size: 6.5rem;
   font-weight: 600;
-  font-family: "Open Sans";
   justify-self: center;
   transition: all 0.2s ease-out;
 }
@@ -746,7 +805,6 @@ header .scroll-down {
   transition: all 0.2s ease-in;
 }
 .logo .text-column {
-  font-family: "Open Sans";
   font-style: italic;
   display: flex;
   flex-direction: column;
@@ -808,7 +866,7 @@ nav .nav--links ol li {
   counter-increment: item 1;
   margin: 0 5px;
   position: relative;
-  font-size: var(--fonts-xs);
+  font-size: var(--fonts-sm);
 }
 nav .nav--links ol li a {
   padding: 0.5rem;
@@ -832,4 +890,48 @@ nav .nav--links .resume-button {
   align-items: center;
   margin-left: 15px;
   font-size: var(--fonts-xs);
+}
+
+.section-about {
+  padding: 10rem 22rem;
+  min-height: 80vh;
+}
+
+.about {
+  height: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  align-items: center;
+  justify-content: center;
+  gap: 9.6rem;
+}
+.about__text-box {
+  align-self: center;
+}
+.about__image-box {
+  justify-self: center;
+  align-self: center;
+  gap: 1.6rem;
+}
+
+@media only screen and (max-width: 85em) {
+  .section-about {
+    padding: 10rem 10rem;
+  }
+}
+@media only screen and (max-width: 100em) {
+  .section-about {
+    padding: 10rem 12rem;
+  }
+}
+@media (max-width: 60rem) {
+  .about {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+  }
+  .about__image-box {
+    justify-self: start;
+  }
 }/*# sourceMappingURL=style.css.map */

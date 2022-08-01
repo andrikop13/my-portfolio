@@ -55,21 +55,22 @@ $gutter-horizontal: 6rem;
   --pink: #f57dff;
   --blue: #57cbff;
 
-  --font-sans: "Open Sans", "Calibre", "Inter", "San Francisco", "SF Pro Text",
-    -apple-system, system-ui, sans-serif;
+  --main-fonts: "Calibre", "Open Sans", sans-serif;
+  --logo-fonts: "Open Sans", "sans-serif"
   --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
 
   // Font size
   --fonts-xxxs: 1em;
   --fonts-xxs: 1.2em;
   --fonts-xs: 1.4rem;
-  --fonts-sm: 1.8rem;
+  --fonts-sm: 1.6rem;
   --fonts-md: 2rem;
   --fonts-lg: 2.4rem;
   --fonts-xl: 3.2rem;
   --fonts-xxl: 3.8rem;
-  --fonts-heading: 4.6rem;
-
+  --fonts-xxxl: 4.6rem;
+  --fonts-big-heading: 5.4rem;
+  --fonts-sub-heading: 3.6rem;
   --border-radius: 4px;
   --nav-height: 90px;
   --tab-height: 4.2rem;

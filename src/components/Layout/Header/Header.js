@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import MyLogo from "../../../assets/icons/MyLogo";
 import { responsive } from "../../../config/config";
 import BurgerNavigator from "./BurgerNavigator";
 import Navigator from "./Navigator";

@@ -43,17 +43,16 @@ const Home = (props) => {
   return (
     <Fragment>
       {isLoading && <MyLogo />}
-      <div id="root">
-        {isLoading && isHome ? (
-          <Loader finishLoading={() => setIsLoading(false)} />
-        ) : (
-          <>
-            <Header isHome={isHome} />
-            {props.children}
-            <Footer />
-          </>
-        )}
-      </div>
+
+      {isLoading && isHome ? (
+        <Loader finishLoading={() => setIsLoading(false)} />
+      ) : (
+        <>
+          <Header isHome={isHome} />
+          {props.children}
+          <Footer />
+        </>
+      )}
     </Fragment>
   );
 };

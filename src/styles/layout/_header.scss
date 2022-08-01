@@ -31,7 +31,8 @@ header {
 .logo {
   width: 20rem;
   height: 100%;
-  background-color: var(--dark-navy);
+  // background-color: var(--dark-navy);
+  background-color: rgba(2, 12, 27, 0.4);
   border-bottom-right-radius: 5px;
   // margin: 2rem 0 0 1rem;
 
@@ -39,7 +40,6 @@ header {
     @include flex_center;
     max-height: 100%;
     gap: 0.3rem;
-    font-family: "Open Sans";
 
     & .nameText {
       flex-grow: 1;
@@ -59,7 +59,6 @@ header {
       -0.4rem -0.1rem 0px var(--green);
     font-size: 6.5rem;
     font-weight: 600;
-    font-family: "Open Sans";
     justify-self: center;
     transition: all 0.2s ease-out;
 
@@ -70,7 +69,6 @@ header {
   }
 
   & .text-column {
-    font-family: "Open Sans";
     font-style: italic;
     display: flex;
     flex-direction: column;
