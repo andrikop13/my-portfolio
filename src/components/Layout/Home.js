@@ -8,18 +8,6 @@ const Home = (props) => {
   const isHome = props.location.pathname === "/";
   const [isLoading, setIsLoading] = useState(isHome);
 
-  const handleExternalLinks = () => {
-    const allLinks = Array.from(document.querySelectorAll("a"));
-    if (allLinks.length > 0) {
-      allLinks.forEach((link) => {
-        if (link.host !== window.location.host) {
-          link.setAttribute("rel", "noopener noreferrer");
-          link.setAttribute("target", "_blank");
-        }
-      });
-    }
-  };
-
   useEffect(() => {
     if (isLoading) {
       return;
@@ -36,8 +24,6 @@ const Home = (props) => {
         }
       }, 0);
     }
-
-    handleExternalLinks();
   }, [isLoading, props.location.hash]);
 
   return (

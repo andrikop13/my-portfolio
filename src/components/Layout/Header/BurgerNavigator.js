@@ -124,7 +124,13 @@ const BurgerNavigator = React.forwardRef((props, ref) => {
           {navMenu &&
             navMenu.map((item, index) => (
               <li key={index}>
-                <Link to={item.url} onClick={() => setOpen(false)}>
+                <Link
+                  to={item.url}
+                  onClick={() => {
+                    setOpen(false);
+                    props.scroll(item.url.replace("/#", ""));
+                  }}
+                >
                   {item.name}
                 </Link>
               </li>

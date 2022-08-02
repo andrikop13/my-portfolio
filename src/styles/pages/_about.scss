@@ -1,38 +1,48 @@
 .section-about {
-  padding: 10rem 22rem;
-  min-height: 100vh;
+  padding: 15rem 22rem;
 }
 
 .about {
-  height: 100%;
-  margin: 0 auto;
-  @include grid_2_col;
-  gap: 9.6rem;
-
-  &__text-box {
-    align-self: center;
-  }
-
-  &__image-box {
-    justify-self: center;
-    align-self: center;
-    gap: 1.6rem;
-  }
+  @include two_col_grid_section;
 
   &__description-text {
-    font-size: var(--fonts-md);
+    font-size: var(--fonts-sm);
+    align-self: start;
     line-height: 1.3;
     color: var(--light-slate);
-    animation: bottomUp 1s;
+  }
+
+  &__tags-box {
+    justify-self: center;
+    align-self: start;
+    margin-top: -8rem;
+    z-index: 999;
+
+    & canvas {
+      width: 100%;
+      font-size: var(--fonts-xxl);
+      background-color: var(--navy);
+    }
   }
 }
 
-@keyframes bottomUp {
-  from {
-    transform: translateY(5rem);
-  }
-  to {
-    transform: translateY(0rem);
+.skills_grid {
+  @include two_col_grid_section;
+  width: 50%;
+  align-items: start;
+  margin: 0 1rem;
+
+  & li {
+    list-style: none;
+    font-size: var(--fonts-xs);
+    line-height: 1.4;
+    color: var(--slate);
+
+    &::before {
+      content: "\21E8";
+      margin-right: 0.5rem;
+      color: var(--green);
+    }
   }
 }
 
@@ -57,7 +67,7 @@
     margin-top: 3.6rem;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 6.4rem;
+    gap: 1rem;
 
     &__text-box {
       justify-self: center;

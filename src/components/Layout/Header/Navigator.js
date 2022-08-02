@@ -8,6 +8,7 @@ const Navigator = ({
   animeDelay,
   navMenu,
   transitionProps,
+  scroll,
 }) => {
   const resumeRef = useRef(null);
 
@@ -29,7 +30,12 @@ const Navigator = ({
                 }}
               >
                 <li ref={nodeRef} key={index}>
-                  <Link to={nav.url}>{nav.name}</Link>
+                  <Link
+                    to={nav.url}
+                    onClick={scroll.bind(this, nav.url.replace("/#", ""))}
+                  >
+                    {nav.name}
+                  </Link>
                 </li>
               </CSSTransition>
             );

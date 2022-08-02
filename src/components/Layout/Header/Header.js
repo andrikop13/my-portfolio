@@ -15,6 +15,13 @@ const Header = (props) => {
     setIsMobile(w < responsive.tablet[1]);
   };
 
+  const handleScrolling = (id) => {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       setAnimeDelay(true);
@@ -78,6 +85,7 @@ const Header = (props) => {
             animeDelay={isAnimeDelay}
             navMenu={navMenu}
             transitionProps={transProps}
+            scroll={handleScrolling}
           />
         ) : (
           <TransitionGroup component={null}>
@@ -87,6 +95,7 @@ const Header = (props) => {
                   Resume={Resume}
                   navMenu={navMenu}
                   ref={burgerRef}
+                  scroll={handleScrolling}
                 />
               </CSSTransition>
             )}

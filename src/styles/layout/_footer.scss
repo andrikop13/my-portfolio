@@ -1,8 +1,8 @@
 .footer {
-  background-color: $color-grey-dark-3;
+  // background-color: $color-grey-dark-3;
   padding: 10rem 0;
   font-size: 1.4rem;
-  color: $color-grey-light-1;
+  // color: $color-grey-light-1;
 
   @include respond(tab-port) {
     padding: 8rem 0;
@@ -23,7 +23,7 @@
   }
 
   &__navigation {
-    border-top: 1px solid $color-grey-dark;
+    // border-top: 1px solid $color-grey-dark;
     padding-top: 2rem;
     display: inline-block;
 
@@ -48,8 +48,8 @@
   &__link {
     &:link,
     &:visited {
-      color: $color-grey-light-1;
-      background-color: $color-grey-dark-3;
+      // color: $color-grey-light-1;
+      // background-color: $color-grey-dark-3;
       text-decoration: none;
       text-transform: uppercase;
       display: inline-block;
@@ -58,14 +58,14 @@
 
     &:hover,
     &:active {
-      color: $color-primary;
-      box-shadow: 0 1rem 2rem rgba($color-black, 0.4);
+      // color: $color-primary;
+      // box-shadow: 0 1rem 2rem rgba($color-black, 0.4);
       transform: rotate(5deg) scale(1.3);
     }
   }
 
   &__copyright {
-    border-top: 1px solid $color-grey-dark;
+    // border-top: 1px solid $color-grey-dark;
     padding-top: 2rem;
     width: 80%;
     float: right;

@@ -69,6 +69,17 @@
   justify-content: center;
 }
 
+@mixin two_col_grid_section {
+  height: 100%;
+  margin: 0 auto;
+  @include grid_2_col;
+  gap: 9.6rem;
+
+  &__text-box {
+    align-self: center;
+  }
+}
+
 // MEDIA QUERY MANAGER
 /*
 0 - 600px:      Phone

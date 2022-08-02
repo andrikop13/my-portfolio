@@ -97,6 +97,11 @@ a {
   &:hover,
   &:focus {
     color: var(--green);
+
+    &::after {
+      height: 1px;
+      margin-top: 2px;
+    }
   }
 
   @include inline_link;
