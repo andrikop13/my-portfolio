@@ -12,10 +12,12 @@ const Hero = () => {
           <div className="heading-primary--sub">
             I build interactive web applications.
           </div>
-          <div>
-            dfdsdsfdsfdsfdsfdsafadsfdsfdsfdasfdsfdsfasdfdfsf
-            afadsfadsfadsfadsfdsfdsafdsfdsfdsfdsafdsfdasafdsafadsf
-            fdsafdsfasfdsfdsfdfdfafadfdfafafdafadsfdsfdsfdsfdsfsadfasd
+          <div className="about__description-text">
+            I am an Electrical & Computer Engineer with passion for software{" "}
+            <br /> engineering, computer science and web application
+            development. <br /> My work experience and education has led me to
+            develop skills <br /> at web development, computer networking, IoT
+            platforms and <br /> machine learning.
           </div>
         </div>
         <div className="about__image-box">

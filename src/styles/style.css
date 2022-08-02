@@ -301,7 +301,7 @@ body {
   font-size: var(--fonts-big-heading);
   font-weight: 600;
   line-height: 1.2;
-  margin-bottom: 2rem;
+  margin-bottom: 0.8rem;
   -webkit-animation-name: moveInLeft;
           animation-name: moveInLeft;
   -webkit-animation-duration: 1s;
@@ -321,6 +321,7 @@ body {
   color: var(--light-slate);
   letter-spacing: 0.1rem;
   line-height: 1.2;
+  margin-bottom: 2.8rem;
   -webkit-animation: moveInRight 1s ease-out;
           animation: moveInRight 1s ease-out;
 }
@@ -334,7 +335,7 @@ body {
   font-size: 3.5rem;
   font-weight: 700;
   display: inline-block;
-  color: var(--lightest-slate);
+  color: var(--light-slate);
   letter-spacing: 0.2rem;
   transition: all 0.2s;
 }
@@ -914,10 +915,15 @@ nav .nav--links .resume-button {
   align-self: center;
   gap: 1.6rem;
 }
+.about__description-text {
+  font-size: var(--fonts-md);
+  line-height: 1.3;
+  color: var(--light-slate);
+}
 
 @media only screen and (max-width: 85em) {
   .section-about {
-    padding: 10rem 10rem;
+    padding: 10rem 8rem;
   }
 }
 @media only screen and (max-width: 100em) {
@@ -925,13 +931,17 @@ nav .nav--links .resume-button {
     padding: 10rem 12rem;
   }
 }
-@media (max-width: 60rem) {
+@media only screen and (max-width: 56.25em) {
+  .section-about {
+    padding: 10rem 2rem;
+  }
   .about {
+    margin-top: 3.6rem;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 1rem;
+    gap: 6.4rem;
   }
-  .about__image-box {
-    justify-self: start;
+  .about__text-box {
+    justify-self: center;
   }
 }/*# sourceMappingURL=style.css.map */

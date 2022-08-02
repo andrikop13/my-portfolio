@@ -10,7 +10,7 @@ const ImageContainer = styled.div`
     position: relative;
 
     & .hero-img {
-      transform: rotate(-9deg);
+      transform: rotate(-10deg);
       cursor: pointer;
       width: 29rem;
       position: relative;
@@ -22,7 +22,7 @@ const ImageContainer = styled.div`
 
     &::before {
       top: 0px;
-      transform: rotate(-9deg);
+      transform: rotate(-10deg);
       left: 0px;
       background-color: var(--green);
       width: 100%;
@@ -31,7 +31,7 @@ const ImageContainer = styled.div`
     }
 
     &::after {
-      transform: rotate(9deg);
+      transform: rotate(10deg);
       border: 2px solid var(--green);
       top: -3.25%;
       left: -3.5%;
