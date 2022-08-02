@@ -10,6 +10,7 @@ const ImageContainer = styled.div`
     position: relative;
 
     & .hero-img {
+      animation: leftRotation 1s;
       transform: rotate(-10deg);
       cursor: pointer;
       width: 29rem;
@@ -21,6 +22,8 @@ const ImageContainer = styled.div`
     }
 
     &::before {
+      animation: leftRotation 1s;
+      transform: rotate(-10deg);
       top: 0px;
       transform: rotate(-10deg);
       left: 0px;
@@ -31,6 +34,7 @@ const ImageContainer = styled.div`
     }
 
     &::after {
+      animation: rightRotation 1s;
       transform: rotate(10deg);
       border: 2px solid var(--green);
       top: -3.25%;
@@ -67,6 +71,24 @@ const ImageContainer = styled.div`
         filter: none;
         mix-blend-mode: normal;
       }
+  }
+
+  @keyframes rightRotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(10deg);
+    }
+  }
+
+  @keyframes leftRotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-10deg);
+    }
   }
 
   @media (max-width: 75rem) {

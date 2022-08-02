@@ -62,6 +62,13 @@
   }
 }
 
+@mixin grid_2_col {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  align-items: center;
+  justify-content: center;
+}
+
 // MEDIA QUERY MANAGER
 /*
 0 - 600px:      Phone

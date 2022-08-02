@@ -13,11 +13,11 @@ const Hero = () => {
             I build interactive web applications.
           </div>
           <div className="about__description-text">
-            I am an Electrical & Computer Engineer with passion for software{" "}
-            <br /> engineering, computer science and web application
-            development. <br /> My work experience and education has led me to
-            develop skills <br /> at web development, computer networking, IoT
-            platforms and <br /> machine learning.
+            I am an Electrical & Computer Engineer with passion for software
+            engineering, computer science and web application development. My
+            work experience and education has led me to develop skills at web
+            development, computer networking, IoT platforms and machine
+            learning.
           </div>
         </div>
         <div className="about__image-box">

@@ -1,15 +1,12 @@
 .section-about {
   padding: 10rem 22rem;
-  min-height: 80vh;
+  min-height: 100vh;
 }
 
 .about {
   height: 100%;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  align-items: center;
-  justify-content: center;
+  @include grid_2_col;
   gap: 9.6rem;
 
   &__text-box {
@@ -26,6 +23,16 @@
     font-size: var(--fonts-md);
     line-height: 1.3;
     color: var(--light-slate);
+    animation: bottomUp 1s;
+  }
+}
+
+@keyframes bottomUp {
+  from {
+    transform: translateY(5rem);
+  }
+  to {
+    transform: translateY(0rem);
   }
 }
 
@@ -43,7 +50,7 @@
 
 @include respond(tab-port) {
   .section-about {
-    padding: 10rem 2rem;
+    padding: 10rem 10rem;
   }
 
   .about {
@@ -55,5 +62,11 @@
     &__text-box {
       justify-self: center;
     }
+  }
+}
+
+@include respond(phone) {
+  .section-about {
+    padding: 10rem 4rem;
   }
 }

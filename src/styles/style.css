@@ -895,7 +895,7 @@ nav .nav--links .resume-button {
 
 .section-about {
   padding: 10rem 22rem;
-  min-height: 80vh;
+  min-height: 100vh;
 }
 
 .about {
@@ -919,8 +919,27 @@ nav .nav--links .resume-button {
   font-size: var(--fonts-md);
   line-height: 1.3;
   color: var(--light-slate);
+  -webkit-animation: bottomUp 1s;
+          animation: bottomUp 1s;
 }
 
+@-webkit-keyframes bottomUp {
+  from {
+    transform: translateY(5rem);
+  }
+  to {
+    transform: translateY(0rem);
+  }
+}
+
+@keyframes bottomUp {
+  from {
+    transform: translateY(5rem);
+  }
+  to {
+    transform: translateY(0rem);
+  }
+}
 @media only screen and (max-width: 85em) {
   .section-about {
     padding: 10rem 8rem;
@@ -933,7 +952,7 @@ nav .nav--links .resume-button {
 }
 @media only screen and (max-width: 56.25em) {
   .section-about {
-    padding: 10rem 2rem;
+    padding: 10rem 10rem;
   }
   .about {
     margin-top: 3.6rem;
@@ -943,5 +962,10 @@ nav .nav--links .resume-button {
   }
   .about__text-box {
     justify-self: center;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .section-about {
+    padding: 10rem 4rem;
   }
 }/*# sourceMappingURL=style.css.map */

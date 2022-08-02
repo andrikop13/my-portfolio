@@ -24,8 +24,8 @@ const LoaderWrapper = styled.div`
 
     svg {
       display: block;
-      width: 100%;
-      height: 100%;
+      width: 30rem;
+      height: 30rem;
       margin: 0 auto;
       fill: none;
       user-select: none;
@@ -54,7 +54,7 @@ const Loader = (props) => {
       })
       .add({
         targets: "#logoText",
-        duration: 700, //duration: 700
+        duration: 600, //duration: 700
         easing: "easeInOutQuart",
         opacity: 1,
       });
