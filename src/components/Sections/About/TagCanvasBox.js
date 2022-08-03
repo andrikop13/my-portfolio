@@ -10,7 +10,6 @@ const TagCanvasBox = () => {
       initial={[0.2, -0.2]}
       width={500}
       height={500}
-      interval={100}
       shuffleTags
       shape="sphere"
       zoom={0.95}

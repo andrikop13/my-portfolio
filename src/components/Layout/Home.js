@@ -16,15 +16,16 @@ const Home = (props) => {
     // Check on refresh if /#<page> exists on URL
     if (props.location.hash) {
       const id = props.location.hash.substring(1);
+
       setTimeout(() => {
         const el = document.getElementById(id);
         if (el) {
           el.scrollIntoView();
           el.focus();
         }
-      }, 0);
+      }, 1000);
     }
-  }, [isLoading, props.location.hash]);
+  }, [isLoading, props.location]);
 
   return (
     <Fragment>

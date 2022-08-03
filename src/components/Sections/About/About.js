@@ -7,6 +7,7 @@ const About = () => {
   const aboutRef = useRef(null);
 
   useEffect(() => {
+    console.log("Reveal");
     sr.reveal(aboutRef.current, srConfig());
   }, []);
 
@@ -18,7 +19,11 @@ const About = () => {
           <p className="u-margin-bottom-small">
             Hello, my name is Andreas Andrikopoulos and I am an electrical
             engineer graduate from the
-            <a href="http://www.ece.upatras.gr/index.php/en/">
+            <a
+              href="http://www.ece.upatras.gr/index.php/en/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Department of Electrical and Computer Engineering{" "}
             </a>{" "}
             at the Polytechnic school of Patras. My involvement in software
@@ -36,11 +41,19 @@ const About = () => {
           </p>
           <p className="u-margin-bottom-small">
             I also graduated from the{" "}
-            <a href="https://www.ceid.upatras.gr/en">
+            <a
+              href="https://www.ceid.upatras.gr/en"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Department of Computer Engineering & Informatics
             </a>{" "}
             with a master's degree in machine learning and data science, named{" "}
-            <a href="https://ddcdm.ceid.upatras.gr/en/641-2/">
+            <a
+              href="https://ddcdm.ceid.upatras.gr/en/641-2/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Data Driven Computing & Decision Making.
             </a>
           </p>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import ParticlesBackground from "../../ParticlesBackground";
 import MyImage from "./MyImage";
 
-const Hero = (props) => {
+const Hero = () => {
   return (
     <section className="section-hero">
       <ParticlesBackground />

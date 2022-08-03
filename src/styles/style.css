@@ -879,12 +879,20 @@ nav .nav--links .resume-button {
 
 @media only screen and (max-width: 85em) {
   .section-about {
-    padding: 10rem 8rem;
+    padding: 10rem 6rem;
+  }
+  .about__tags-box {
+    align-self: center;
+    margin-top: -16rem;
   }
 }
 @media only screen and (max-width: 100em) {
   .section-about {
-    padding: 10rem 12rem;
+    padding: 10rem 10rem;
+  }
+  .about__tags-box {
+    align-self: center;
+    margin-top: -16rem;
   }
 }
 @media only screen and (max-width: 56.25em) {
@@ -895,10 +903,13 @@ nav .nav--links .resume-button {
     margin-top: 3.6rem;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 1rem;
+    gap: 0rem;
   }
   .about__text-box {
     justify-self: center;
+  }
+  .about__tags-box {
+    margin-top: -10rem;
   }
 }
 @media only screen and (max-width: 37.5em) {

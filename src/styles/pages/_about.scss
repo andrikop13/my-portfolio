@@ -48,13 +48,23 @@
 
 @include respond(tab-land) {
   .section-about {
-    padding: 10rem 8rem;
+    padding: 10rem 6rem;
+  }
+
+  .about__tags-box {
+    align-self: center;
+    margin-top: -16rem;
   }
 }
 
 @include respond(tab-land-big) {
   .section-about {
-    padding: 10rem 12rem;
+    padding: 10rem 10rem;
+  }
+
+  .about__tags-box {
+    align-self: center;
+    margin-top: -16rem;
   }
 }
 
@@ -67,10 +77,14 @@
     margin-top: 3.6rem;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 1rem;
+    gap: 0rem;
 
     &__text-box {
       justify-self: center;
+    }
+
+    &__tags-box {
+      margin-top: -10rem;
     }
   }
 }
