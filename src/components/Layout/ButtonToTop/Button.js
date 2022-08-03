@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 const ButtonToTop = () => {
+  const [showButtonTop, setShowButtonTop] = useState(false);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -6,8 +10,24 @@ const ButtonToTop = () => {
     });
   };
 
+  const handleEndOfHero = () => {
+    const clientHeight = document.querySelector("#hero-section")?.offsetHeight;
+    if (!clientHeight) return;
+    if (window.pageYOffset >= clientHeight) {
+      !showButtonTop && setShowButtonTop(true);
+    } else {
+      showButtonTop && setShowButtonTop(false);
+    }
+  };
+
+  window.addEventListener("scroll", handleEndOfHero);
+
   return (
-    <button className="button-totop" onClick={scrollToTop}>
+    <button
+      className="button-totop"
+      onClick={scrollToTop}
+      style={{ display: showButtonTop ? "block" : "none" }}
+    >
       <svg
         width="24"
         height="24"
@@ -21,6 +41,7 @@ const ButtonToTop = () => {
           fill="var(--green)"
         ></path>
       </svg>
+      )
     </button>
   );
 };

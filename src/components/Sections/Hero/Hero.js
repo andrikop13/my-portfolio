@@ -1,18 +1,12 @@
-import { useRef } from "react";
 import { Link } from "react-router-dom";
 import ParticlesBackground from "../../ParticlesBackground";
 import MyImage from "./MyImage";
 
 const Hero = (props) => {
-  const heroRef = useRef();
-  window.addEventListener("scroll", (event) => {
-    props.handleHeroScrolling(heroRef.current);
-  });
-
   return (
     <section className="section-hero">
       <ParticlesBackground />
-      <div className="hero" ref={heroRef}>
+      <div className="hero" id="hero-section">
         <div className="hero__text-box">
           <div className="heading-stylist">Hello, my name is</div>
           <div className="heading-primary--main">Andreas Andrikopoulos</div>

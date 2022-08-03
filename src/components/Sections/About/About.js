@@ -1,8 +1,17 @@
+import { useEffect, useRef } from "react";
 import TagCanvasBox from "./TagCanvasBox";
+import { srConfig } from "../../../config/config";
+import sr from "../../../utils/scrollReveal";
 
 const About = () => {
+  const aboutRef = useRef(null);
+
+  useEffect(() => {
+    sr.reveal(aboutRef.current, srConfig());
+  }, []);
+
   return (
-    <section className="section-about" id="about">
+    <section className="section-about" id="about" ref={aboutRef}>
       <h1 className="section-heading">About Me</h1>
       <div className="about">
         <div className="about__description-text">

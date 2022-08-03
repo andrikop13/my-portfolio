@@ -24,8 +24,8 @@ const LoaderWrapper = styled.div`
 
     svg {
       display: block;
-      width: 30rem;
-      height: 30rem;
+      width: 20rem;
+      height: 20rem;
       margin: 0 auto;
       fill: none;
       user-select: none;

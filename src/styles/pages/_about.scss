@@ -1,5 +1,5 @@
 .section-about {
-  padding: 15rem 22rem;
+  padding: 10rem 22rem;
 }
 
 .about {
@@ -39,7 +39,7 @@
     color: var(--slate);
 
     &::before {
-      content: "\21E8";
+      content: "▹";
       margin-right: 0.5rem;
       color: var(--green);
     }

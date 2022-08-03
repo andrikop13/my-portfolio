@@ -7,12 +7,13 @@ const TagCanvasBox = () => {
       maxSpeed={0.05}
       reverse={true}
       freezeActive
-      initial={[0.3, -0.3]}
+      initial={[0.2, -0.2]}
       width={500}
       height={500}
+      interval={100}
       shuffleTags
       shape="sphere"
-      zoom={1}
+      zoom={0.95}
       noSelect
       pinchZoom
       tags={[

@@ -817,7 +817,7 @@ nav .nav--links .resume-button {
 }
 
 .section-about {
-  padding: 15rem 22rem;
+  padding: 10rem 22rem;
 }
 
 .about {
@@ -872,7 +872,7 @@ nav .nav--links .resume-button {
   color: var(--slate);
 }
 .skills_grid li::before {
-  content: "⇨";
+  content: "▹";
   margin-right: 0.5rem;
   color: var(--green);
 }
