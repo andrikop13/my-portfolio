@@ -839,7 +839,7 @@ nav .nav--links .resume-button {
 }
 
 .section-about {
-  padding: 10rem 22rem;
+  padding: 10rem 15rem 10rem 22rem;
 }
 
 .about {
@@ -850,6 +850,8 @@ nav .nav--links .resume-button {
   align-items: center;
   justify-content: center;
   gap: 9.6rem;
+  grid-template-columns: 3fr 2fr;
+  gap: 8rem;
 }
 .about__text-box {
   align-self: center;
@@ -931,15 +933,28 @@ nav .nav--links .resume-button {
     justify-self: center;
   }
   .about__tags-box {
-    margin-top: -1rem;
+    margin-top: -5rem;
   }
   .about__tags-box canvas {
     width: 80%;
+    overflow: visible;
+    z-index: 999;
+  }
+}
+@media only screen and (max-width: 48.25em) {
+  .section-about {
+    padding: 10rem 4rem;
+  }
+  .about__tags-box {
+    margin-top: -4rem;
   }
 }
 @media only screen and (max-width: 37.5em) {
   .section-about {
     padding: 10rem 4rem;
+  }
+  .about__tags-box {
+    margin-top: 0rem;
   }
 }
 .section-hero {

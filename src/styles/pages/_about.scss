@@ -1,9 +1,11 @@
 .section-about {
-  padding: 10rem 22rem;
+  padding: 10rem 15rem 10rem 22rem;
 }
 
 .about {
   @include two_col_grid_section;
+  grid-template-columns: 3fr 2fr;
+  gap: 8rem;
 
   &__description-text {
     font-size: var(--fonts-sm);
@@ -84,17 +86,33 @@
     }
 
     &__tags-box {
-      margin-top: -1rem;
+      margin-top: -5rem;
 
       & canvas {
         width: 80%;
+        overflow: visible;
+        z-index: 999;
       }
     }
+  }
+}
+
+@include respond(tab-port-small) {
+  .section-about {
+    padding: 10rem 4rem;
+  }
+
+  .about__tags-box {
+    margin-top: -4rem;
   }
 }
 
 @include respond(phone) {
   .section-about {
     padding: 10rem 4rem;
+  }
+
+  .about__tags-box {
+    margin-top: 0rem;
   }
 }

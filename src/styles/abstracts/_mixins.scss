@@ -109,6 +109,11 @@ ORDER: Base + typography > general layout + grid > page layout > components
       @content;
     } //900px
   }
+  @if $breakpoint == tab-port-small {
+    @media only screen and (max-width: 48.25em) {
+      @content;
+    } //900px
+  }
   @if $breakpoint == tab-land {
     @media only screen and (max-width: 85em) {
       @content;
