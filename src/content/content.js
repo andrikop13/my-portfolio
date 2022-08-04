@@ -6,6 +6,7 @@ module.exports = {
       descriptionItems: [
         "Web Application Development with Angular 13 Framework and UI libraries like Bootstrap, PrimeNg and Nebular for Greek army use cases.",
         "A web service was built for creating and collecting a high number of documents and materials that records important events in Hellenic history.",
+        "Development of web application for the creation of the boarding cards of the officers of the Greek Army as well as the monitoring of statistical data.",
       ],
       date: "Feb 2022 - October 2022",
       link: "http://army.gr/el/organosi/monades-ypiresies/kentro-pliroforikis-ypostirixis-ellinikoy-stratoy-kepyes",
@@ -41,6 +42,25 @@ module.exports = {
       ],
       date: "Oct 2020 - Sep 2021",
       link: "https://www.ceid.upatras.gr/en",
+    },
+  ],
+
+  socialMedia: [
+    {
+      name: "GitHub",
+      url: "https://github.com/andrikop13",
+    },
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/a_andrikop_/",
+    },
+    {
+      name: "Twitter",
+      url: "https://twitter.com/andrikop13",
+    },
+    {
+      name: "Linkedin",
+      url: "https://www.linkedin.com/in/a-andrikopoulos/",
     },
   ],
 };

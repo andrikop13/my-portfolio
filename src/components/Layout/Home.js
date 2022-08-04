@@ -20,7 +20,10 @@ const Home = (props) => {
       setTimeout(() => {
         const el = document.getElementById(id);
         if (el) {
-          el.scrollIntoView();
+          el.scrollIntoView({
+            top: 0,
+            behavior: "smooth",
+          });
           el.focus();
         }
       }, 1000);

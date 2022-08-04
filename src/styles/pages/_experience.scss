@@ -1,5 +1,5 @@
 .section-experience {
-  padding: 12rem 22rem;
+  padding: 10rem 22rem;
 }
 
 .experience {
@@ -23,12 +23,12 @@
 
   &__description-date {
     color: var(--light-slate);
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
 
   &__description-text {
     font-size: var(--tabs-size);
-    line-height: 1.6;
+    line-height: 1.8;
     color: var(--light-slate);
 
     & li:not(:last-child) {

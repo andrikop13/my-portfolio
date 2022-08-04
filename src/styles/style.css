@@ -724,7 +724,7 @@ header .scroll-down {
 }
 .logo .flexRow {
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   max-height: 100%;
   gap: 0.3rem;
@@ -773,7 +773,7 @@ nav {
 }
 nav .logo {
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
 }
 nav .logo a {
@@ -832,7 +832,7 @@ nav .nav--links ol li:before {
 nav .nav--links .resume-button {
   margin-top: 0.5rem;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   margin-left: 15px;
   font-size: var(--fonts-xs);
@@ -1042,12 +1042,12 @@ nav .nav--links .resume-button {
   }
 }
 .section-experience {
-  padding: 12rem 22rem;
+  padding: 10rem 22rem;
 }
 
 .experience {
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 3rem 0;
@@ -1065,11 +1065,11 @@ nav .nav--links .resume-button {
 }
 .experience__description-date {
   color: var(--light-slate);
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 .experience__description-text {
   font-size: var(--tabs-size);
-  line-height: 1.6;
+  line-height: 1.8;
   color: var(--light-slate);
 }
 .experience__description-text li:not(:last-child) {

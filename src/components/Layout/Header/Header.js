@@ -58,7 +58,7 @@ const Header = (props) => {
   const Resume = (
     <a
       className="resume-button small-button"
-      href="/resume.pdf"
+      href="content/cv_andrikopoulos_andreas.pdf"
       target="_blank"
       rel="noopener noreferrer"
     >
