@@ -41,7 +41,6 @@ const ButtonToTop = () => {
           fill="var(--green)"
         ></path>
       </svg>
-      )
     </button>
   );
 };

@@ -76,10 +76,11 @@
     margin-top: 3.6rem;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 6.4rem;
+    gap: 8.4rem;
 
     &__text-box {
       justify-self: center;
+      margin-bottom: 3rem;
     }
   }
 }

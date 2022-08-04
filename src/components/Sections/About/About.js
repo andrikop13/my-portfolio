@@ -1,18 +1,9 @@
-import { useEffect, useRef } from "react";
+import Fade from "react-reveal/Fade";
 import TagCanvasBox from "./TagCanvasBox";
-import { srConfig } from "../../../config/config";
-import sr from "../../../utils/scrollReveal";
 
 const About = () => {
-  const aboutRef = useRef(null);
-
-  useEffect(() => {
-    console.log("Reveal");
-    sr.reveal(aboutRef.current, srConfig());
-  }, []);
-
   return (
-    <section className="section-about" id="about" ref={aboutRef}>
+    <section className="section-about" id="about">
       <h1 className="section-heading">About Me</h1>
       <div className="about">
         <div className="about__description-text">
@@ -33,10 +24,17 @@ const About = () => {
 
           <p className="u-margin-bottom-small">
             All these years, i've had the privilege of working at an innovative
-            company called <a href="https://meazon.com/">Meazon S.A.</a>, where
-            we built web services and IoT devices, like smart meters, light
-            controllers, water meters and more, for energy management. My main
-            focus is building interactive, responsive and functional web
+            company called{" "}
+            <a
+              href="https://meazon.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Meazon S.A.
+            </a>
+            , where we built web services and IoT devices, like smart meters,
+            light controllers, water meters and more, for energy management. My
+            main focus is building interactive, responsive and functional web
             applications.
           </p>
           <p className="u-margin-bottom-small">
@@ -74,7 +72,9 @@ const About = () => {
           </div>
         </div>
         <div className="about__tags-box">
-          <TagCanvasBox />
+          <Fade right>
+            <TagCanvasBox />
+          </Fade>
         </div>
       </div>
     </section>

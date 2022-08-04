@@ -12,7 +12,6 @@ const ImageContainer = styled.div`
     & .hero-img {
       animation: leftRotation 1s;
       transform: rotate(-10deg);
-      cursor: pointer;
       width: 29rem;
       position: relative;
       border-radius: var(--border-radius);

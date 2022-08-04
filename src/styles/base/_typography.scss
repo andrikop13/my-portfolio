@@ -59,12 +59,13 @@ body {
   margin: 1rem 0px 4rem;
   width: 100%;
   font-size: var(--fonts-xl);
+
   white-space: nowrap;
 
   &::before {
     position: relative;
-    counter-increment: section 1;
-    content: "0" counter(section) ".";
+    counter-increment: my-section;
+    content: "0" counter(my-section) ".";
     margin-right: 1rem;
     color: var(--green);
     font-family: var(--font-mono);

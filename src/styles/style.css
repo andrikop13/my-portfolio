@@ -46,6 +46,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
   --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
   --fonts-xxxs: 1em;
   --fonts-xxs: 1.2em;
+  --tabs-size: 1.3rem;
   --fonts-xs: 1.4rem;
   --fonts-sm: 1.6rem;
   --fonts-md: 2rem;
@@ -136,6 +137,26 @@ ORDER: Base + typography > general layout + grid > page layout > components
     transform: translate(0);
   }
 }
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
 *,
 *::after,
 *::before {
@@ -213,6 +234,7 @@ body {
   background-color: var(--navy);
   font-family: var(--font-sans);
   line-height: 1.3;
+  counter-reset: my-section;
 }
 body.hidden {
   overflow: hidden;
@@ -355,8 +377,8 @@ body {
 }
 .section-heading::before {
   position: relative;
-  counter-increment: section 1;
-  content: "0" counter(section) ".";
+  counter-increment: my-section;
+  content: "0" counter(my-section) ".";
   margin-right: 1rem;
   color: var(--green);
   font-family: var(--font-mono);
@@ -702,7 +724,7 @@ header .scroll-down {
 }
 .logo .flexRow {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   max-height: 100%;
   gap: 0.3rem;
@@ -751,7 +773,7 @@ nav {
 }
 nav .logo {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 }
 nav .logo a {
@@ -810,7 +832,7 @@ nav .nav--links ol li:before {
 nav .nav--links .resume-button {
   margin-top: 0.5rem;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   margin-left: 15px;
   font-size: var(--fonts-xs);
@@ -873,7 +895,7 @@ nav .nav--links .resume-button {
 }
 .skills_grid li::before {
   content: "▹";
-  margin-right: 0.5rem;
+  margin-right: 1rem;
   color: var(--green);
 }
 
@@ -909,7 +931,10 @@ nav .nav--links .resume-button {
     justify-self: center;
   }
   .about__tags-box {
-    margin-top: -10rem;
+    margin-top: -1rem;
+  }
+  .about__tags-box canvas {
+    width: 80%;
   }
 }
 @media only screen and (max-width: 37.5em) {
@@ -1004,14 +1029,118 @@ nav .nav--links .resume-button {
     margin-top: 3.6rem;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 6.4rem;
+    gap: 8.4rem;
   }
   .hero__text-box {
     justify-self: center;
+    margin-bottom: 3rem;
   }
 }
 @media only screen and (max-width: 37.5em) {
   .section-hero {
     padding: 10rem 4rem;
+  }
+}
+.section-experience {
+  padding: 12rem 22rem;
+}
+
+.experience {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  padding: 3rem 0;
+}
+.experience__jobs-tab {
+  font-size: var(--fonts-sm);
+  min-width: 80%;
+  max-width: 80%;
+}
+.experience__description-title {
+  font-size: var(--fonts-sm);
+}
+.experience__position {
+  color: var(--white);
+}
+.experience__description-date {
+  color: var(--light-slate);
+  margin-bottom: 2.5rem;
+}
+.experience__description-text {
+  font-size: var(--tabs-size);
+  line-height: 1.6;
+  color: var(--light-slate);
+}
+.experience__description-text li:not(:last-child) {
+  margin-bottom: 0.7rem;
+}
+.experience__description-text li {
+  list-style: none;
+  padding-left: 30px;
+  position: relative;
+}
+.experience__description-text li::before {
+  content: "▹";
+  margin-right: 1rem;
+  color: var(--green);
+  position: absolute;
+  left: 0;
+  top: -2px;
+}
+
+.MuiButtonBase-root {
+  color: var(--light-slate) !important;
+  font-size: var(--tabs-size) !important;
+  text-transform: none !important;
+}
+
+.Mui-selected {
+  color: var(--green) !important;
+}
+
+.MuiTabs-indicator {
+  background-color: var(--green) !important;
+}
+
+.MuiTabs-root {
+  min-width: 35% !important;
+  max-width: 35% !important;
+}
+
+.MuiBox-root {
+  padding: 0 2rem !important;
+}
+
+@media only screen and (max-width: 85em) {
+  .section-experience {
+    padding: 10rem 6rem;
+  }
+}
+@media only screen and (max-width: 100em) {
+  .section-experience {
+    padding: 10rem 10rem;
+  }
+  .experience__jobs-tab {
+    min-width: 80%;
+    max-width: 80%;
+  }
+}
+@media only screen and (max-width: 56.25em) {
+  .section-experience {
+    padding: 10rem 10rem;
+  }
+  .experience__jobs-tab {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .section-experience {
+    padding: 10rem 4rem;
+  }
+  .experience__jobs-tab {
+    min-width: 100%;
+    max-width: 100%;
   }
 }/*# sourceMappingURL=style.css.map */

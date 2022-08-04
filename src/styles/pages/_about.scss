@@ -40,7 +40,7 @@
 
     &::before {
       content: "▹";
-      margin-right: 0.5rem;
+      margin-right: 1rem;
       color: var(--green);
     }
   }
@@ -84,7 +84,11 @@
     }
 
     &__tags-box {
-      margin-top: -10rem;
+      margin-top: -1rem;
+
+      & canvas {
+        width: 80%;
+      }
     }
   }
 }
