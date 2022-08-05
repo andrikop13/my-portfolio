@@ -38,7 +38,7 @@ const MainTabWrapper = () => {
         textColor="secondary"
       >
         {jobs.map((job, i) => (
-          <Tab label={job.organization} {...a11yProps(i)} />
+          <Tab label={job.organization} {...a11yProps(i)} value={i} />
         ))}
       </Tabs>
       {jobs.map((job, i) => (
@@ -53,8 +53,8 @@ const MainTabWrapper = () => {
             <h4 className="experience__description-date">{job.date}</h4>
             <div className="experience__description-text">
               <ul>
-                {job.descriptionItems.map((d) => (
-                  <li key={i}>{d}</li>
+                {job.descriptionItems.map((d, di) => (
+                  <li key={"ejobs" + i + di}>{d}</li>
                 ))}
               </ul>
             </div>

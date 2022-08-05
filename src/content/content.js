@@ -45,6 +45,39 @@ module.exports = {
     },
   ],
 
+  projects: [
+    {
+      title: "National archives",
+      description:
+        "Web platform built for creating and collecting a high number of documents and materials that records important events in Hellenic history. Greek army is responsible to preserve and maintain these materials and makes them available for research.",
+      images: [],
+      presentation_img: "https://natours.netlify.app/img/nat-9.jpg",
+      technologies_used: [
+        "Angular 13",
+        "RxJS",
+        "HTML",
+        "SCSS",
+        "BootStrap 5",
+        "PrimeNg",
+      ],
+    },
+    {
+      title: "National archives",
+      description:
+        "Web platform built for creating and collecting a high number of documents and materials that records important events in Hellenic history. Greek army is responsible to preserve and maintain these materials and makes them available for research.",
+      images: [],
+      presentation_img: "https://natours.netlify.app/img/nat-9.jpg",
+      technologies_used: [
+        "Angular 13",
+        "RxJS",
+        "HTML",
+        "SCSS",
+        "BootStrap 5",
+        "PrimeNg",
+      ],
+    },
+  ],
+
   socialMedia: [
     {
       name: "GitHub",
