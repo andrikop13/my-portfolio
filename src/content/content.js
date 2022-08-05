@@ -4,9 +4,9 @@ module.exports = {
       position: "Software Engineer",
       organization: "Hellenic Army IT Support Centre",
       descriptionItems: [
-        "Web Application Development with Angular 13 Framework and UI libraries like Bootstrap, PrimeNg and Nebular for Greek army use cases.",
-        "A web service was built for creating and collecting a high number of documents and materials that records important events in Hellenic history.",
-        "Development of web application for the creation of the boarding cards of the officers of the Greek Army as well as the monitoring of statistical data.",
+        "Web application development with Angular 13 Framework and UI libraries like Bootstrap, PrimeNg and Nebular for Greek army use cases.",
+        "I contributed to an online application development for the creation and collection  of a high number of documents and materials that records important events in Hellenic history.",
+        "I contributed to an in house application development for the creation of the boarding cards of the officers of the Greek Army as well as the monitoring of statistical data.",
       ],
       date: "Feb 2022 - October 2022",
       link: "http://army.gr/el/organosi/monades-ypiresies/kentro-pliroforikis-ypostirixis-ellinikoy-stratoy-kepyes",
@@ -49,32 +49,55 @@ module.exports = {
     {
       title: "National archives",
       description:
-        "Web platform built for creating and collecting a high number of documents and materials that records important events in Hellenic history. Greek army is responsible to preserve and maintain these materials and makes them available for research.",
+        "An online web application for the creation and collection of a high number of documents and materials that records important events in Hellenic history. Greek army is responsible to preserve and maintain these materials and makes them available for research.",
       images: [],
       presentation_img: "https://natours.netlify.app/img/nat-9.jpg",
       technologies_used: [
         "Angular 13",
         "RxJS",
-        "HTML",
-        "SCSS",
         "BootStrap 5",
         "PrimeNg",
+        "Nebular",
       ],
     },
     {
-      title: "National archives",
+      title: "Street Lighting",
+      subtitle: "Pilot Project",
       description:
-        "Web platform built for creating and collecting a high number of documents and materials that records important events in Hellenic history. Greek army is responsible to preserve and maintain these materials and makes them available for research.",
+        "A scalable street lighting solution template integrated in ThingsBoard IoT platform, that achieve complete control over a city lighting infrastructure and realize exceptional energy savings.",
+      images: [],
+      presentation_img: "https://natours.netlify.app/img/nat-9.jpg",
+      technologies_used: ["Angular 13", "RxJS", "BootStrap 5"],
+    },
+    {
+      title: "Esmart City",
+      description:
+        "A smart application that interconnects and visualize public buildings of the regional unit of Achaia, for the energy management and monitoring, through the installation of smart energy devices, such as smart meters, smart plugs and sensors.",
       images: [],
       presentation_img: "https://natours.netlify.app/img/nat-9.jpg",
       technologies_used: [
         "Angular 13",
         "RxJS",
-        "HTML",
         "SCSS",
         "BootStrap 5",
-        "PrimeNg",
+        "Node.js",
       ],
+    },
+    {
+      title: "Master Thesis",
+      description:
+        "Entity Linking with deep learning networks and community prediction methods, leveraging a knowledge base with 20 million Wikipedia articles and 93 million Wikidata items.",
+      images: [],
+      presentation_img: "https://natours.netlify.app/img/nat-9.jpg",
+      technologies_used: ["Spark", "PySpark", "Python"],
+    },
+    {
+      title: "Personal Portfolio",
+      description:
+        "My personal portfolio, written with modern Javascript Frameworks and Libraries, such as React, Redux, Material UI, and more.",
+      images: [],
+      presentation_img: "https://natours.netlify.app/img/nat-9.jpg",
+      technologies_used: ["React", "Redux", "Material UI", "Styled-components"],
     },
   ],
 

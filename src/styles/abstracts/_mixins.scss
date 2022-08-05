@@ -92,6 +92,41 @@
   }
 }
 
+@mixin grid_on_smallScreen {
+  & .project-image {
+    grid-area: 1 / 1 / -1 / -1;
+  }
+
+  & .project-content {
+    background-color: rgba(2, 12, 27, 0.8);
+    padding: 1rem;
+    grid-area: 2 / 2 / -1 / 12;
+  }
+
+  & .project-title {
+    grid-area: 4 / 2 / 2 / -1;
+    justify-self: start;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    z-index: 10;
+
+    &__before {
+      @include flex_start;
+    }
+  }
+
+  & .project-tools {
+    grid-area: 13 / 2 / -1 / -1;
+    color: var(--white);
+    @include flex_start;
+  }
+
+  & .image-btn {
+    padding: 0 1rem 0 1rem;
+    grid-area: 1 / 12 / 2 / -1;
+  }
+}
 // MEDIA QUERY MANAGER
 /*
 0 - 600px:      Phone

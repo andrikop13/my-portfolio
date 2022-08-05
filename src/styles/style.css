@@ -884,7 +884,7 @@ nav .nav--links .resume-button {
   gap: 9.6rem;
   width: 50%;
   align-items: start;
-  margin: 0 1rem;
+  margin: 0 3rem;
 }
 .skills_grid__text-box {
   align-self: center;
@@ -975,6 +975,7 @@ nav .nav--links .resume-button {
 }
 .project-container .project-title {
   letter-spacing: 0.1rem;
+  line-height: 1.2;
 }
 .project-container .project-title__main {
   color: var(--white);
@@ -990,10 +991,11 @@ nav .nav--links .resume-button {
 .project-container .project-content {
   font-size: 1.8rem;
   line-height: 1.4;
-  z-index: 2;
+  z-index: 3;
+  box-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.6);
+  background-color: var(--dark-navy);
 }
 .project-container .project-content__description {
-  background-color: var(--dark-navy);
   color: var(--light-slate);
   padding: 1.6rem;
   border-radius: 3px;
@@ -1001,10 +1003,11 @@ nav .nav--links .resume-button {
 .project-container .project-tools {
   list-style: none;
   color: var(--light-slate);
-  font-weight: 550;
-  font-style: italic;
+  font-weight: 500;
   font-size: var(--fonts-xs);
-  z-index: 3;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
 }
 .project-container .project-tools li:not(:last-child) {
   margin-right: 15px;
@@ -1018,47 +1021,21 @@ nav .nav--links .resume-button {
   justify-content: center;
   align-items: center;
   background-color: var(--lightest-navy);
+  box-shadow: 0.4rem 0.8rem 1.6rem rgba(0, 0, 0, 0.3);
   height: 100%;
   width: 100%;
   border-radius: 3px;
   z-index: 1;
 }
-.project-container .project-image__btn {
+.project-container .image-btn {
   z-index: 3;
-  position: absolute;
+  align-self: stretch;
   border: 0;
-  top: 0;
-  padding: 2rem;
   background-color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
 }
-.project-container:nth-child(odd) .project-title {
-  grid-area: 2/8/3/-1;
-  justify-self: end;
-}
-.project-container:nth-child(odd) .project-title__before {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-}
-.project-container:nth-child(odd) .project-content {
-  grid-area: 4/7/12/-1;
-}
-.project-container:nth-child(odd) .project-tools {
-  grid-area: 10/1/15/-1;
-  padding-left: 5px;
-  display: flex;
-  justify-content: end;
-  align-items: center;
-}
-.project-container:nth-child(odd) .project-image {
-  grid-area: 1/1/15/8;
-}
-.project-container:nth-child(odd) .project-image__btn {
-  left: 12rem;
-}
 .project-container:nth-child(even) .project-title {
-  grid-area: 2/1/3/5;
+  grid-area: 1/1/3/-1;
   justify-self: start;
 }
 .project-container:nth-child(even) .project-title__before {
@@ -1067,22 +1044,147 @@ nav .nav--links .resume-button {
   align-items: center;
 }
 .project-container:nth-child(even) .project-content {
-  grid-area: 4/1/12/7;
+  grid-area: 4/1/12/8;
 }
 .project-container:nth-child(even) .project-tools {
-  grid-area: 10/1/15/-1;
+  grid-area: 12/1/-1/-1;
   padding-left: 5px;
   display: flex;
   justify-content: start;
   align-items: center;
 }
 .project-container:nth-child(even) .project-image {
-  grid-area: 1/6/15/-1;
+  grid-area: 1/6/-1/-1;
 }
-.project-container:nth-child(even) .project-image__btn {
-  right: 12rem;
+.project-container:nth-child(even) .image-btn {
+  grid-area: 1/12/2/-1;
+  padding: 0rem 1rem 0rem 1rem;
+}
+.project-container:nth-child(odd) .project-title {
+  grid-area: 1/1/3/-1;
+  justify-self: end;
+}
+.project-container:nth-child(odd) .project-title__before {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.project-container:nth-child(odd) .project-content {
+  grid-area: 4/6/12/-1;
+}
+.project-container:nth-child(odd) .project-tools {
+  grid-area: 12/1/-1/-1;
+  padding-left: 5px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.project-container:nth-child(odd) .project-image {
+  grid-area: 1/1/-1/8;
+}
+.project-container:nth-child(odd) .image-btn {
+  padding: 0 1rem 0 1rem;
+  grid-area: 1/1/2/2;
 }
 
+.flex-button {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-button button {
+  padding: 1.6rem 3.2rem;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 85em) {
+  .section-projects {
+    padding: 10rem 6rem;
+  }
+  .project-container {
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 100em) {
+  .section-projects {
+    padding: 10rem 10rem;
+  }
+}
+@media only screen and (max-width: 56.25em) {
+  .project-container:nth-child(even) .project-image {
+    grid-area: 1/1/-1/-1;
+  }
+  .project-container:nth-child(even) .project-content {
+    background-color: rgba(2, 12, 27, 0.8);
+    padding: 1rem;
+    grid-area: 2/2/-1/12;
+  }
+  .project-container:nth-child(even) .project-title {
+    grid-area: 4/2/2/-1;
+    justify-self: start;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    z-index: 10;
+  }
+  .project-container:nth-child(even) .project-title__before {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+  .project-container:nth-child(even) .project-tools {
+    grid-area: 13/2/-1/-1;
+    color: var(--white);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+  .project-container:nth-child(even) .image-btn {
+    padding: 0 1rem 0 1rem;
+    grid-area: 1/12/2/-1;
+  }
+  .project-container:nth-child(odd) .project-image {
+    grid-area: 1/1/-1/-1;
+  }
+  .project-container:nth-child(odd) .project-content {
+    background-color: rgba(2, 12, 27, 0.8);
+    padding: 1rem;
+    grid-area: 2/2/-1/12;
+  }
+  .project-container:nth-child(odd) .project-title {
+    grid-area: 4/2/2/-1;
+    justify-self: start;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    z-index: 10;
+  }
+  .project-container:nth-child(odd) .project-title__before {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+  .project-container:nth-child(odd) .project-tools {
+    grid-area: 13/2/-1/-1;
+    color: var(--white);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+  .project-container:nth-child(odd) .image-btn {
+    padding: 0 1rem 0 1rem;
+    grid-area: 1/12/2/-1;
+  }
+  .section-projects {
+    padding: 10rem 4rem;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .section-about {
+    padding: 10rem 4rem;
+  }
+}
 .section-hero {
   padding: 10rem 22rem;
   min-height: 100vh;

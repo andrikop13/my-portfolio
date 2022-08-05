@@ -32,10 +32,10 @@ const About = () => {
             >
               Meazon S.A.
             </a>
-            , where we built web services and IoT devices, like smart meters,
-            light controllers, water meters and more, for energy management. My
-            main focus is building interactive, responsive and functional web
-            applications.
+            , where we built web services and IoT devices, such as smart meters,
+            smart plugs, light controllers, water meters and sensors, for energy
+            management and efficiency. My main focus is building interactive,
+            responsive and functional web applications.
           </p>
           <p className="u-margin-bottom-small">
             I also graduated from the{" "}
@@ -46,7 +46,7 @@ const About = () => {
             >
               Department of Computer Engineering & Informatics
             </a>{" "}
-            with a master's degree in machine learning and data science, named{" "}
+            with a master's degree in machine learning and data science, called{" "}
             <a
               href="https://ddcdm.ceid.upatras.gr/en/641-2/"
               target="_blank"
