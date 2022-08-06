@@ -515,7 +515,7 @@ body {
 
 .button-totop {
   background-color: transparent;
-  border: 1px solid var(--logo-color);
+  border: 2px solid var(--logo-color);
   border-radius: 50%;
   bottom: 30px;
   right: 30px;
@@ -962,11 +962,11 @@ nav .nav--links .resume-button {
 }
 
 .project-container {
-  padding: 0 12rem;
+  padding: 0 16rem;
   position: relative;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(14, 30px);
+  grid-template-rows: repeat(12, 30px);
   align-items: center;
   justify-content: center;
 }
@@ -989,7 +989,7 @@ nav .nav--links .resume-button {
   font-size: var(--fonts-sm);
 }
 .project-container .project-content {
-  font-size: 1.8rem;
+  font-size: var(--fonts-sm);
   line-height: 1.4;
   z-index: 3;
   box-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.6);
@@ -1044,7 +1044,7 @@ nav .nav--links .resume-button {
   align-items: center;
 }
 .project-container:nth-child(even) .project-content {
-  grid-area: 4/1/12/8;
+  grid-area: 2/1/12/7;
 }
 .project-container:nth-child(even) .project-tools {
   grid-area: 12/1/-1/-1;
@@ -1070,7 +1070,7 @@ nav .nav--links .resume-button {
   align-items: center;
 }
 .project-container:nth-child(odd) .project-content {
-  grid-area: 4/6/12/-1;
+  grid-area: 2/7/12/-1;
 }
 .project-container:nth-child(odd) .project-tools {
   grid-area: 12/1/-1/-1;
@@ -1089,6 +1089,7 @@ nav .nav--links .resume-button {
 
 .flex-button {
   margin-top: 5rem;
+  z-index: 100;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1098,17 +1099,17 @@ nav .nav--links .resume-button {
   cursor: pointer;
 }
 
+@media only screen and (max-width: 100em) {
+  .section-projects {
+    padding: 10rem 10rem;
+  }
+}
 @media only screen and (max-width: 85em) {
   .section-projects {
     padding: 10rem 6rem;
   }
   .project-container {
     padding: 0;
-  }
-}
-@media only screen and (max-width: 100em) {
-  .section-projects {
-    padding: 10rem 10rem;
   }
 }
 @media only screen and (max-width: 56.25em) {
@@ -1121,7 +1122,7 @@ nav .nav--links .resume-button {
     grid-area: 2/2/-1/12;
   }
   .project-container:nth-child(even) .project-title {
-    grid-area: 4/2/2/-1;
+    grid-area: 2/2/2/-1;
     justify-self: start;
     display: flex;
     flex-direction: column;
@@ -1134,7 +1135,7 @@ nav .nav--links .resume-button {
     align-items: center;
   }
   .project-container:nth-child(even) .project-tools {
-    grid-area: 13/2/-1/-1;
+    grid-area: 11/2/-1/-1;
     color: var(--white);
     display: flex;
     justify-content: start;
@@ -1153,7 +1154,7 @@ nav .nav--links .resume-button {
     grid-area: 2/2/-1/12;
   }
   .project-container:nth-child(odd) .project-title {
-    grid-area: 4/2/2/-1;
+    grid-area: 2/2/2/-1;
     justify-self: start;
     display: flex;
     flex-direction: column;
@@ -1166,7 +1167,7 @@ nav .nav--links .resume-button {
     align-items: center;
   }
   .project-container:nth-child(odd) .project-tools {
-    grid-area: 13/2/-1/-1;
+    grid-area: 11/2/-1/-1;
     color: var(--white);
     display: flex;
     justify-content: start;
@@ -1177,12 +1178,22 @@ nav .nav--links .resume-button {
     grid-area: 1/12/2/-1;
   }
   .section-projects {
-    padding: 10rem 4rem;
+    padding: 10rem 14rem;
+  }
+}
+@media only screen and (max-width: 48.25em) {
+  .section-projects {
+    padding: 10rem 10rem;
   }
 }
 @media only screen and (max-width: 37.5em) {
-  .section-about {
-    padding: 10rem 4rem;
+  .section-projects {
+    padding: 10rem 6rem;
+  }
+}
+@media only screen and (max-width: 28em) {
+  .section-projects {
+    padding: 10rem 3rem;
   }
 }
 .section-hero {

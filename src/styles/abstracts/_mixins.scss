@@ -104,7 +104,7 @@
   }
 
   & .project-title {
-    grid-area: 4 / 2 / 2 / -1;
+    grid-area: 2 / 2 / 2 / -1;
     justify-self: start;
     display: flex;
     flex-direction: column;
@@ -117,7 +117,7 @@
   }
 
   & .project-tools {
-    grid-area: 13 / 2 / -1 / -1;
+    grid-area: 11 / 2 / -1 / -1;
     color: var(--white);
     @include flex_start;
   }
@@ -146,6 +146,12 @@ ORDER: Base + typography > general layout + grid > page layout > components
 1em = 16px
 */
 @mixin respond($breakpoint) {
+  @if $breakpoint == small-phone {
+    @media only screen and (max-width: 28em) {
+      @content;
+    } //600px
+  }
+
   @if $breakpoint == phone {
     @media only screen and (max-width: 37.5em) {
       @content;

@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { createRef, useState } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import content from "../../../content/content";
+import ProjectItem from "./ProjectItem";
 
 const Projects = () => {
   const [showMore, setShowMore] = useState(false);
+  console.log("Change state showMore:", showMore);
 
   const handleMoreProjects = () => {
     setShowMore((prevState) => !prevState);
@@ -19,41 +22,31 @@ const Projects = () => {
       <br />
       <br />
       <div>
-        <ul>
-          {projectsToShow.map((pr, p) => (
-            <li className="project-container" key={"project_" + p}>
-              <div
-                className="project-image"
-                style={{
-                  backgroundImage: `url(${pr.presentation_img})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  opacity: "0.7",
-                }}
-              ></div>
+        <TransitionGroup component={"ul"}>
+          {projectsToShow.map((pr, p) => {
+            let nodeRef = createRef(null);
 
-              <button className="image-btn">Images</button>
-
-              <div className="project-title">
-                <h5 className="project-title__before">
-                  {(pr.subtitle ??= "Project")}
-                </h5>
-                <h1 className="project-title__main">{pr.title}</h1>
-              </div>
-              <div className="project-content">
-                <div className="project-content__description">
-                  {pr.description}
-                </div>
-              </div>
-              <ul className="project-tools">
-                {pr.technologies_used.map((tool, t) => (
-                  <li key={"ptools" + p + t}>{tool}</li>
-                ))}
-              </ul>
-              <div className="project-anchors"></div>
-            </li>
-          ))}
-        </ul>
+            return (
+              <CSSTransition
+                key={p}
+                classNames="fadeup"
+                timeout={p >= PROJCETS_LIMIT ? (p - PROJCETS_LIMIT) * 300 : 300}
+                exit={false}
+                nodeRef={nodeRef}
+              >
+                <ProjectItem
+                  project={pr}
+                  pIndex={p}
+                  style={{
+                    transitionDelay: `${
+                      p >= PROJCETS_LIMIT ? (p - PROJCETS_LIMIT) * 100 : 0
+                    }ms`,
+                  }}
+                />
+              </CSSTransition>
+            );
+          })}
+        </TransitionGroup>
       </div>
       <br />
       <div className="flex-button">

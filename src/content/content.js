@@ -62,7 +62,7 @@ module.exports = {
     },
     {
       title: "Street Lighting",
-      subtitle: "Pilot Project",
+      subtitle: "Meazon Pilot Project",
       description:
         "A scalable street lighting solution template integrated in ThingsBoard IoT platform, that achieve complete control over a city lighting infrastructure and realize exceptional energy savings.",
       images: [],
@@ -72,6 +72,7 @@ module.exports = {
     },
     {
       title: "Esmart City",
+      subtitle: "Meazon Project",
       description:
         "A smart application that interconnects and visualize public buildings of the regional unit of Achaia, for the energy management and monitoring, through the installation of smart energy devices, such as smart meters, smart plugs and sensors.",
       images: [],

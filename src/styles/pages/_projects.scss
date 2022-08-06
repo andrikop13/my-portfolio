@@ -3,7 +3,7 @@
 }
 
 .project-container {
-  padding: 0 12rem;
+  padding: 0 16rem;
   position: relative;
 
   &:not(:last-child) {
@@ -12,7 +12,7 @@
 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(14, 30px);
+  grid-template-rows: repeat(12, 30px);
   align-items: center;
   justify-content: center;
 
@@ -33,7 +33,7 @@
   }
 
   & .project-content {
-    font-size: 1.8rem;
+    font-size: var(--fonts-sm);
     line-height: 1.4;
     z-index: 3;
     box-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.6);
@@ -96,7 +96,7 @@
     }
 
     & .project-content {
-      grid-area: 4 / 1 / 12 / 8;
+      grid-area: 2 / 1 / 12 / 7;
     }
 
     & .project-tools {
@@ -126,7 +126,7 @@
     }
 
     & .project-content {
-      grid-area: 4 / 6 / 12 / -1;
+      grid-area: 2 / 7 / 12 / -1;
     }
 
     & .project-tools {
@@ -148,11 +148,18 @@
 
 .flex-button {
   margin-top: 5rem;
+  z-index: 100;
   @include flex_center;
 
   & button {
     padding: 1.6rem 3.2rem;
     cursor: pointer;
+  }
+}
+
+@include respond(tab-land-big) {
+  .section-projects {
+    padding: 10rem 10rem;
   }
 }
 
@@ -163,12 +170,6 @@
 
   .project-container {
     padding: 0;
-  }
-}
-
-@include respond(tab-land-big) {
-  .section-projects {
-    padding: 10rem 10rem;
   }
 }
 
@@ -184,12 +185,24 @@
   }
 
   .section-projects {
-    padding: 10rem 4rem;
+    padding: 10rem 14rem;
+  }
+}
+
+@include respond(tab-port-small) {
+  .section-projects {
+    padding: 10rem 10rem;
   }
 }
 
 @include respond(phone) {
-  .section-about {
-    padding: 10rem 4rem;
+  .section-projects {
+    padding: 10rem 6rem;
+  }
+}
+
+@include respond(small-phone) {
+  .section-projects {
+    padding: 10rem 3rem;
   }
 }
