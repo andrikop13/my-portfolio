@@ -68,6 +68,7 @@ module.exports = {
       images: [],
       presentation_img: "https://natours.netlify.app/img/nat-9.jpg",
       technologies_used: ["Angular 13", "RxJS", "BootStrap 5"],
+      link: "https://mi6.meazon.com/login",
     },
     {
       title: "Esmart City",
@@ -82,6 +83,7 @@ module.exports = {
         "BootStrap 5",
         "Node.js",
       ],
+      link: "https://mi6.meazon.com/login",
     },
     {
       title: "Master Thesis",
@@ -90,6 +92,7 @@ module.exports = {
       images: [],
       presentation_img: "https://natours.netlify.app/img/nat-9.jpg",
       technologies_used: ["Spark", "PySpark", "Python"],
+      link: "https://nemertes.library.upatras.gr/jspui/handle/10889/14955",
     },
     {
       title: "Personal Portfolio",
@@ -98,6 +101,16 @@ module.exports = {
       images: [],
       presentation_img: "https://natours.netlify.app/img/nat-9.jpg",
       technologies_used: ["React", "Redux", "Material UI", "Styled-components"],
+      link: "https://andrikopoulosdev.eu",
+    },
+    {
+      title: "Rest API",
+      subtitle: "Meazon Project",
+      description:
+        "Rest API that is interconnected with company's platform and leverages Firebase Cloud Messaging and it's real databases to send notifications to company app users.",
+      images: [],
+      presentation_img: "",
+      technologies_used: ["Node.js", "Express", "Firebase", "Nginx"],
     },
   ],
 

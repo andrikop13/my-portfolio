@@ -19,10 +19,12 @@
       "description": "A scalable street lighting solution template integrated in ThingsBoard IoT platform, that achieve complete control over a city lighting infrastructure and realize exceptional energy savings.",
       "images": [],
       "presentation_img": "https://natours.netlify.app/img/nat-9.jpg",
-      "technologies_used": ["Angular 13", "RxJS", "BootStrap 5"]
+      "technologies_used": ["Angular 13", "RxJS", "BootStrap 5"],
+      "link": "https://mi6.meazon.com/login"
     },
     {
       "title": "Esmart City",
+      "subtitle": "Meazon Project",
       "description": "A smart application that interconnect and visualize public buildings of the regional unit of Achaia, for the energy management and monitoring, through the installation of smart energy devices, such as smart meters, smart plugs and sensors.",
       "images": [],
       "presentation_img": "https://natours.netlify.app/img/nat-9.jpg",
@@ -32,14 +34,16 @@
         "SCSS",
         "BootStrap 5",
         "Node.js"
-      ]
+      ],
+      "link": "https://mi6.meazon.com/login"
     },
     {
       "title": "Master Thesis",
       "description": "Entity Linking with deep learning networks and community prediction methods, leveraging a knowledge base with 20 million Wikipedia articles and 93 million Wikidata items.",
       "images": [],
       "presentation_img": "https://natours.netlify.app/img/nat-9.jpg",
-      "technologies_used": ["Spark", "PySpark", "Python"]
+      "technologies_used": ["Spark", "PySpark", "Python"],
+      "link": "https://nemertes.library.upatras.gr/jspui/handle/10889/14955"
     },
     {
       "title": "Personal Portfolio",
@@ -51,7 +55,16 @@
         "Redux",
         "Material UI",
         "Styled-components"
-      ]
+      ],
+      "link": "https://andrikopoulosdev.eu"
+    },
+    {
+      "title": "Rest API",
+      "subtitle": "Meazon Project",
+      "description": "Rest API that is interconnected with company's platform and leverages Firebase Cloud Messaging and it's real databases to send notifications to company app users.",
+      "images": [],
+      "presentation_img": "",
+      "technologies_used": ["Node.js", "Express", "Firebase", "Nginx"]
     }
   ]
 }
