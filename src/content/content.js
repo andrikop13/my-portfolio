@@ -1,3 +1,15 @@
+const disPath = "./content/images/dis";
+const dashPath = "./content/images/dashboards";
+const slPath = "./content/images/street-lighting";
+const thesisPath = "./content/images/master-thesis";
+const portfolioPath = "./content/images/portfolio";
+const nodeApiPath = "./content/images/nodejs";
+
+const DIS_LIMIT = 6;
+const DASH_LIMIT = 5;
+const SL_LIMIT = 6;
+const MT_LIMIT = 5;
+
 module.exports = {
   jobs: [
     {
@@ -49,23 +61,21 @@ module.exports = {
       subtitle: "Hellenic Army Project",
       description:
         "An online web application for the creation and collection of a high number of documents and materials that records important events in Hellenic history. Greek army is responsible to preserve and maintain these materials and makes them available for research.",
-      images: [],
-      presentation_img: "https://natours.netlify.app/img/nat-9.jpg",
-      technologies_used: [
-        "Angular 13",
-        "RxJS",
-        "BootStrap 5",
-        "PrimeNg",
-        "Nebular",
+      images: [
+        ...[...Array(DIS_LIMIT).keys()].map(
+          (num) => `${disPath}/dis-${num}.png`
+        ),
       ],
+      technologies_used: ["Angular 13", "RxJS", "BootStrap 5", "PrimeNg"],
     },
     {
       title: "Street Lighting",
       subtitle: "Meazon Pilot Project",
       description:
         "A scalable street lighting solution template integrated in ThingsBoard IoT platform, that achieve complete control over a city lighting infrastructure and realize exceptional energy savings.",
-      images: [],
-      presentation_img: "https://natours.netlify.app/img/nat-9.jpg",
+      images: [
+        ...[...Array(SL_LIMIT).keys()].map((num) => `${slPath}/sl-${num}.png`),
+      ],
       technologies_used: ["Angular 13", "RxJS", "BootStrap 5"],
       link: "https://mi6.meazon.com/login",
       github: "dfds",
@@ -75,8 +85,11 @@ module.exports = {
       subtitle: "Meazon Project",
       description:
         "A smart application that interconnects and visualize public buildings of the regional unit of Achaia, for the energy management and monitoring, through the installation of smart energy devices, such as smart meters, smart plugs and sensors.",
-      images: [],
-      presentation_img: "https://natours.netlify.app/img/nat-9.jpg",
+      images: [
+        ...[...Array(DASH_LIMIT).keys()].map(
+          (num) => `${dashPath}/dash-${num}.png`
+        ),
+      ],
       technologies_used: [
         "Angular 13",
         "RxJS",
@@ -90,8 +103,11 @@ module.exports = {
       title: "Master Thesis",
       description:
         "Entity Linking with deep learning networks and community prediction methods, leveraging a knowledge base with 20 million Wikipedia articles and 93 million Wikidata items.",
-      images: [],
-      presentation_img: "https://natours.netlify.app/img/nat-9.jpg",
+      images: [
+        ...[...Array(MT_LIMIT).keys()].map(
+          (num) => `${thesisPath}/mt-${num}.png`
+        ),
+      ],
       technologies_used: ["Spark", "PySpark", "Python"],
       link: "https://nemertes.library.upatras.gr/jspui/handle/10889/14955",
     },
@@ -100,9 +116,8 @@ module.exports = {
       subtitle: "Personal Project",
       description:
         "My personal portfolio, written with modern Javascript Frameworks and Libraries, such as React, Redux, Material UI, and more.",
-      images: [],
-      presentation_img: "https://natours.netlify.app/img/nat-9.jpg",
-      technologies_used: ["React", "Redux", "Material UI", "Styled-components"],
+      images: [`${portfolioPath}/portfolio.png`],
+      technologies_used: ["React", "Material UI", "SCSS"],
       link: "https://andrikopoulosdev.eu",
     },
     {
@@ -110,8 +125,7 @@ module.exports = {
       subtitle: "Meazon Project",
       description:
         "Rest API that is interconnected with company's platform and leverages Firebase Cloud Messaging and it's real databases to send notifications to company app users.",
-      images: [],
-      presentation_img: "",
+      images: [`${nodeApiPath}/restApi.png`],
       technologies_used: ["Node.js", "Express", "Firebase", "Nginx"],
     },
   ],

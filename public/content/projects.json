@@ -6,13 +6,7 @@
       "description": "An online web application for the creation and collection of a high number of documents and materials that records important events in Hellenic history. Greek army is responsible to preserve and maintain these materials and makes them available for research to the audience.",
       "images": [],
       "presentation_img": "https://natours.netlify.app/img/nat-9.jpg",
-      "technologies_used": [
-        "Angular 13",
-        "RxJS",
-        "BootStrap 5",
-        "PrimeNg",
-        "Nebular"
-      ]
+      "technologies_used": ["Angular 13", "RxJS", "BootStrap 5", "PrimeNg"]
     },
     {
       "title": "Street Lighting",

@@ -98,12 +98,14 @@
   }
 
   & .project-content {
-    background-color: rgba(2, 12, 27, 0.8);
+    background-color: rgba(2, 12, 27, 0.7);
     padding: 1rem;
     grid-area: 2 / 2 / -1 / 12;
   }
 
   & .project-title {
+    background-color: rgba(2, 12, 27, 0.5);
+    padding: 0.5rem;
     grid-area: 2 / 2 / 2 / -1;
     justify-self: start;
     display: flex;
@@ -167,6 +169,11 @@ ORDER: Base + typography > general layout + grid > page layout > components
     @media only screen and (max-width: 48.25em) {
       @content;
     } //900px
+  }
+  @if $breakpoint == tab-land-small {
+    @media only screen and (max-width: 75em) {
+      @content;
+    } //1200px
   }
   @if $breakpoint == tab-land {
     @media only screen and (max-width: 85em) {

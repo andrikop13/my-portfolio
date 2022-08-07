@@ -1,5 +1,7 @@
 .section-experience {
   padding: 10rem 22rem;
+  min-height: 80vh;
+  max-height: 80vh;
 }
 
 .experience {
@@ -95,6 +97,8 @@
 @include respond(tab-port) {
   .section-experience {
     padding: 10rem 10rem;
+    min-height: 90vh;
+    max-height: 90vh;
   }
 
   .experience__jobs-tab {
@@ -106,10 +110,20 @@
 @include respond(phone) {
   .section-experience {
     padding: 10rem 4rem;
+    min-height: 100vh;
+    max-height: 100vh;
   }
 
   .experience__jobs-tab {
     min-width: 100%;
     max-width: 100%;
+  }
+}
+
+@include respond(small-phone) {
+  .section-experience {
+    padding: 10rem 0rem;
+    min-height: 110vh;
+    max-height: 110vh;
   }
 }

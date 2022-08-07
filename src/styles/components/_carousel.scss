@@ -1,0 +1,41 @@
+.carousel-root {
+  height: 360px !important;
+
+  & .carousel-slider {
+    height: 100%;
+  }
+
+  & .slider-wrapper {
+    height: 360px !important;
+    overflow: hidden;
+
+    & .slider {
+      height: 360px !important;
+    }
+  }
+
+  & .control-dots {
+    z-index: 999;
+    margin-bottom: 0 !important;
+    & .dot {
+      background: var(--green) !important;
+    }
+  }
+
+  .carousel .slide .legend {
+    display: none !important;
+  }
+
+  .carousel .slide img {
+    max-height: auto;
+    min-height: 200px;
+    max-width: 100%;
+    min-width: 70%;
+    justify-self: center;
+  }
+
+  .carousel .slider-wrapper.axis-horizontal .slider .slide {
+    max-height: 360px;
+    @include flex_center;
+  }
+}

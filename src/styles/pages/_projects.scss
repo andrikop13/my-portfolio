@@ -7,7 +7,7 @@
   position: relative;
 
   &:not(:last-child) {
-    margin-bottom: 10rem;
+    margin-bottom: 14rem;
   }
 
   display: grid;
@@ -33,7 +33,7 @@
   }
 
   & .project-content {
-    font-size: var(--fonts-sm);
+    font-size: 1.5rem;
     line-height: 1.4;
     z-index: 3;
     box-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.6);
@@ -75,14 +75,12 @@
     & a {
       &:hover::after {
         width: 0;
-        height: 0;
       }
     }
   }
 
   & .project-image {
-    @include flex_center;
-    background-color: var(--lightest-navy);
+    background-color: var(--lightest-navy-rgba);
     box-shadow: 0.4rem 0.8rem 1.6rem rgba(0, 0, 0, 0.3);
     height: 100%;
     width: 100%;
@@ -120,6 +118,10 @@
     }
 
     & .project-image {
+      grid-area: 1 / 6 / -1 / -1;
+    }
+
+    & .slider-wrapper {
       grid-area: 1 / 6 / -1 / -1;
     }
   }
@@ -160,26 +162,25 @@
   }
 }
 
-.flex-button {
-  margin-top: 5rem;
-  z-index: 100;
-  @include flex_center;
-
-  & button {
-    padding: 1.6rem 3.2rem;
-    cursor: pointer;
-  }
-}
-
 @include respond(tab-land-big) {
   .section-projects {
-    padding: 10rem 10rem;
+    padding: 10rem 16rem;
   }
 }
 
 @include respond(tab-land) {
   .section-projects {
-    padding: 10rem 6rem;
+    padding: 10rem 16rem;
+  }
+
+  .project-container {
+    padding: 0;
+  }
+}
+
+@include respond(tab-land-small) {
+  .section-projects {
+    padding: 10rem 12rem;
   }
 
   .project-container {
@@ -199,7 +200,7 @@
   }
 
   .section-projects {
-    padding: 10rem 14rem;
+    padding: 10rem 12rem;
   }
 }
 

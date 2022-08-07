@@ -87,9 +87,10 @@
 
     &__tags-box {
       margin-top: -5rem;
+      padding: 0 5rem;
 
       & canvas {
-        width: 80%;
+        width: 100%;
         overflow: visible;
         z-index: 999;
       }
@@ -100,6 +101,7 @@
 @include respond(tab-port-small) {
   .section-about {
     padding: 10rem 4rem;
+    padding: 0 2rem;
   }
 
   .about__tags-box {

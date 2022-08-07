@@ -17,6 +17,7 @@
     line-height: 1.3;
     color: var(--light-slate);
     animation: bottomUp 1s;
+    -webkit-animation: bottomUp 1s;
   }
 
   &__contact-button {
@@ -28,6 +29,7 @@
     font-weight: 500;
 
     animation: bottomUp 1s;
+    -webkit-animation: bottomUp 1s;
 
     &:hover {
       color: var(--white);

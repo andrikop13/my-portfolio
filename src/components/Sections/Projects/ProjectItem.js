@@ -1,5 +1,7 @@
 import { VscGithubAlt } from "react-icons/vsc";
 import { BsBoxArrowUpRight } from "react-icons/bs";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
 const ProjectItem = ({ project, pIndex }) => {
   return (
@@ -7,12 +9,21 @@ const ProjectItem = ({ project, pIndex }) => {
       <div
         className="project-image"
         style={{
-          backgroundImage: `url(${project.presentation_img})`,
-          backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: "0.7",
+          opacity: "0.8",
         }}
-      ></div>
+      >
+        <Carousel
+          showThumbs={false}
+          showIndicators={true}
+          showStatus={false}
+          dynamicHeight={false}
+        >
+          {project.images.map((img, i) => (
+            <img className="slider-image" src={img} alt={`image_${i}`} />
+          ))}
+        </Carousel>
+      </div>
 
       <div className="project-title">
         <h5 className="project-title__before">
@@ -33,12 +44,12 @@ const ProjectItem = ({ project, pIndex }) => {
 
       <div className="project-anchors">
         {project.github && (
-          <a href={project.github}>
+          <a href={project.github} target="_blank" rel="noopener noreferrer">
             <VscGithubAlt size={21} color={"var(--white)"} />
           </a>
         )}
         {project.link && (
-          <a href={project.link}>
+          <a href={project.link} target="_blank" rel="noopener noreferrer">
             <BsBoxArrowUpRight
               size={21}
               color={"var(--white)"}

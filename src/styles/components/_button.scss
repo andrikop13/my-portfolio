@@ -40,3 +40,14 @@
     background-color: #333;
   }
 }
+
+.flex-button {
+  margin-top: 5rem;
+  z-index: 100;
+  @include flex_center;
+
+  & button {
+    padding: 1.6rem 3.2rem;
+    cursor: pointer;
+  }
+}

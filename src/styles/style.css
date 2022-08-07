@@ -17,19 +17,12 @@ ORDER: Base + typography > general layout + grid > page layout > components
 1em = 16px
 */
 :root {
-  --light-blue: #2a3260;
-  --dark-blue: #151934;
-  --contact-color: #424a55;
-  --footer-color: #353744;
-  --text-gray: #626974;
-  --yellow: #f7ea90;
-  --light-red: #cf7873;
-  --light-red-disabled: #cf78736b;
   --dark-navy: #020c1b;
   --logo-color: #e23c52;
   --navy: #002244;
   --light-navy: #112240;
   --lightest-navy: #233554;
+  --lightest-navy-rgba: rgba(35, 53, 84, 0.5);
   --navy-shadow: rgba(2, 12, 27, 0.7);
   --dark-slate: #495670;
   --slate: #8892b0;
@@ -37,10 +30,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
   --lightest-slate: #ccd6f6;
   --white: #e6f1ff;
   --green: #08fdd8;
-  --coral: coral;
   --green-tint: rgba(100, 255, 218, 0.1);
-  --pink: #f57dff;
-  --blue: #57cbff;
   --main-fonts: "Calibre", "Open Sans", sans-serif;
   --logo-fonts: "Open Sans", "sans-serif"
   --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
@@ -329,12 +319,12 @@ body {
   font-weight: 600;
   line-height: 1.2;
   margin-bottom: 0.8rem;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
   -webkit-animation-name: moveInLeft;
-          animation-name: moveInLeft;
   -webkit-animation-duration: 1s;
-          animation-duration: 1s;
   -webkit-animation-timing-function: ease-out;
-          animation-timing-function: ease-out;
 }
 @media only screen and (max-width: 85em) {
   .heading-primary--main {
@@ -349,8 +339,8 @@ body {
   letter-spacing: 0.1rem;
   line-height: 1.2;
   margin-bottom: 2.8rem;
+  animation: moveInRight 1s ease-out;
   -webkit-animation: moveInRight 1s ease-out;
-          animation: moveInRight 1s ease-out;
 }
 @media only screen and (max-width: 85em) {
   .heading-primary--sub {
@@ -532,6 +522,18 @@ body {
   background-color: #333;
 }
 
+.flex-button {
+  margin-top: 5rem;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-button button {
+  padding: 1.6rem 3.2rem;
+  cursor: pointer;
+}
+
 .form__group:not(:last-child) {
   margin-bottom: 2rem;
 }
@@ -620,6 +622,43 @@ body {
 }
 .form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
   opacity: 1;
+}
+
+.carousel-root {
+  height: 360px !important;
+}
+.carousel-root .carousel-slider {
+  height: 100%;
+}
+.carousel-root .slider-wrapper {
+  height: 360px !important;
+  overflow: hidden;
+}
+.carousel-root .slider-wrapper .slider {
+  height: 360px !important;
+}
+.carousel-root .control-dots {
+  z-index: 999;
+  margin-bottom: 0 !important;
+}
+.carousel-root .control-dots .dot {
+  background: var(--green) !important;
+}
+.carousel-root .carousel .slide .legend {
+  display: none !important;
+}
+.carousel-root .carousel .slide img {
+  max-height: auto;
+  min-height: 200px;
+  max-width: 100%;
+  min-width: 70%;
+  justify-self: center;
+}
+.carousel-root .carousel .slider-wrapper.axis-horizontal .slider .slide {
+  max-height: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer {
@@ -934,9 +973,10 @@ nav .nav--links .resume-button {
   }
   .about__tags-box {
     margin-top: -5rem;
+    padding: 0 5rem;
   }
   .about__tags-box canvas {
-    width: 80%;
+    width: 100%;
     overflow: visible;
     z-index: 999;
   }
@@ -944,6 +984,7 @@ nav .nav--links .resume-button {
 @media only screen and (max-width: 48.25em) {
   .section-about {
     padding: 10rem 4rem;
+    padding: 0 2rem;
   }
   .about__tags-box {
     margin-top: -4rem;
@@ -971,7 +1012,7 @@ nav .nav--links .resume-button {
   justify-content: center;
 }
 .project-container:not(:last-child) {
-  margin-bottom: 10rem;
+  margin-bottom: 14rem;
 }
 .project-container .project-title {
   letter-spacing: 0.1rem;
@@ -989,7 +1030,7 @@ nav .nav--links .resume-button {
   font-size: var(--fonts-sm);
 }
 .project-container .project-content {
-  font-size: var(--fonts-sm);
+  font-size: 1.5rem;
   line-height: 1.4;
   z-index: 3;
   box-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.6);
@@ -1025,13 +1066,9 @@ nav .nav--links .resume-button {
 }
 .project-container .project-anchors a:hover::after {
   width: 0;
-  height: 0;
 }
 .project-container .project-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--lightest-navy);
+  background-color: var(--lightest-navy-rgba);
   box-shadow: 0.4rem 0.8rem 1.6rem rgba(0, 0, 0, 0.3);
   height: 100%;
   width: 100%;
@@ -1071,6 +1108,9 @@ nav .nav--links .resume-button {
 .project-container:nth-child(even) .project-image {
   grid-area: 1/6/-1/-1;
 }
+.project-container:nth-child(even) .slider-wrapper {
+  grid-area: 1/6/-1/-1;
+}
 .project-container:nth-child(odd) .project-title {
   grid-area: 1/1/3/-1;
   justify-self: end;
@@ -1104,26 +1144,22 @@ nav .nav--links .resume-button {
   grid-area: 1/1/3/2;
 }
 
-.flex-button {
-  margin-top: 5rem;
-  z-index: 100;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.flex-button button {
-  padding: 1.6rem 3.2rem;
-  cursor: pointer;
-}
-
 @media only screen and (max-width: 100em) {
   .section-projects {
-    padding: 10rem 10rem;
+    padding: 10rem 16rem;
   }
 }
 @media only screen and (max-width: 85em) {
   .section-projects {
-    padding: 10rem 6rem;
+    padding: 10rem 16rem;
+  }
+  .project-container {
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 75em) {
+  .section-projects {
+    padding: 10rem 12rem;
   }
   .project-container {
     padding: 0;
@@ -1134,11 +1170,13 @@ nav .nav--links .resume-button {
     grid-area: 1/1/-1/-1;
   }
   .project-container:nth-child(even) .project-content {
-    background-color: rgba(2, 12, 27, 0.8);
+    background-color: rgba(2, 12, 27, 0.7);
     padding: 1rem;
     grid-area: 2/2/-1/12;
   }
   .project-container:nth-child(even) .project-title {
+    background-color: rgba(2, 12, 27, 0.5);
+    padding: 0.5rem;
     grid-area: 2/2/2/-1;
     justify-self: start;
     display: flex;
@@ -1167,11 +1205,13 @@ nav .nav--links .resume-button {
     grid-area: 1/1/-1/-1;
   }
   .project-container:nth-child(odd) .project-content {
-    background-color: rgba(2, 12, 27, 0.8);
+    background-color: rgba(2, 12, 27, 0.7);
     padding: 1rem;
     grid-area: 2/2/-1/12;
   }
   .project-container:nth-child(odd) .project-title {
+    background-color: rgba(2, 12, 27, 0.5);
+    padding: 0.5rem;
     grid-area: 2/2/2/-1;
     justify-self: start;
     display: flex;
@@ -1197,7 +1237,7 @@ nav .nav--links .resume-button {
     grid-area: 1/12/2/-1;
   }
   .section-projects {
-    padding: 10rem 14rem;
+    padding: 10rem 12rem;
   }
 }
 @media only screen and (max-width: 48.25em) {
@@ -1241,8 +1281,8 @@ nav .nav--links .resume-button {
   font-size: var(--fonts-md);
   line-height: 1.3;
   color: var(--light-slate);
+  animation: bottomUp 1s;
   -webkit-animation: bottomUp 1s;
-          animation: bottomUp 1s;
 }
 .hero__contact-button {
   padding: 0.8rem 3.6rem;
@@ -1251,8 +1291,8 @@ nav .nav--links .resume-button {
   display: inline-block;
   font-size: var(--fonts-sm);
   font-weight: 500;
+  animation: bottomUp 1s;
   -webkit-animation: bottomUp 1s;
-          animation: bottomUp 1s;
 }
 .hero__contact-button:hover {
   color: var(--white);
@@ -1316,6 +1356,8 @@ nav .nav--links .resume-button {
 }
 .section-experience {
   padding: 10rem 22rem;
+  min-height: 80vh;
+  max-height: 80vh;
 }
 
 .experience {
@@ -1402,6 +1444,8 @@ nav .nav--links .resume-button {
 @media only screen and (max-width: 56.25em) {
   .section-experience {
     padding: 10rem 10rem;
+    min-height: 90vh;
+    max-height: 90vh;
   }
   .experience__jobs-tab {
     min-width: 100%;
@@ -1411,9 +1455,18 @@ nav .nav--links .resume-button {
 @media only screen and (max-width: 37.5em) {
   .section-experience {
     padding: 10rem 4rem;
+    min-height: 100vh;
+    max-height: 100vh;
   }
   .experience__jobs-tab {
     min-width: 100%;
     max-width: 100%;
+  }
+}
+@media only screen and (max-width: 28em) {
+  .section-experience {
+    padding: 10rem 0rem;
+    min-height: 110vh;
+    max-height: 110vh;
   }
 }/*# sourceMappingURL=style.css.map */
