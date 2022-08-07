@@ -13,7 +13,6 @@ module.exports = {
     },
     {
       position: "Software Engineer",
-
       organization: "Meazon S.A.",
       descriptionItems: [
         "User interface development for company’s IoT platform using Angular, JavaScript, jQuery, HTML, Bootstrap, CSS, capable of visualizing real time data from IoT devices like energy meters, sensors and light controllers.",
@@ -25,7 +24,6 @@ module.exports = {
     },
     {
       position: "Software Engineer",
-
       organization: "Meazon S.A. (Internship)",
       descriptionItems: [
         "Application Development (LW2M2 Iot Protocol Usage) for bi-directional communication between Power meters and cloud gateway (C, C++)",
@@ -48,6 +46,7 @@ module.exports = {
   projects: [
     {
       title: "National archives",
+      subtitle: "Hellenic Army Project",
       description:
         "An online web application for the creation and collection of a high number of documents and materials that records important events in Hellenic history. Greek army is responsible to preserve and maintain these materials and makes them available for research.",
       images: [],
@@ -69,6 +68,7 @@ module.exports = {
       presentation_img: "https://natours.netlify.app/img/nat-9.jpg",
       technologies_used: ["Angular 13", "RxJS", "BootStrap 5"],
       link: "https://mi6.meazon.com/login",
+      github: "dfds",
     },
     {
       title: "Esmart City",
@@ -97,6 +97,7 @@ module.exports = {
     },
     {
       title: "Personal Portfolio",
+      subtitle: "Personal Project",
       description:
         "My personal portfolio, written with modern Javascript Frameworks and Libraries, such as React, Redux, Material UI, and more.",
       images: [],

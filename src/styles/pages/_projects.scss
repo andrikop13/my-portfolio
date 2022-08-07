@@ -67,6 +67,19 @@
     }
   }
 
+  & .project-anchors {
+    margin: 2rem 0 0 1rem;
+    @include flex_center;
+    gap: 1.5rem;
+
+    & a {
+      &:hover::after {
+        width: 0;
+        height: 0;
+      }
+    }
+  }
+
   & .project-image {
     @include flex_center;
     background-color: var(--lightest-navy);
@@ -77,12 +90,8 @@
     z-index: 1;
   }
 
-  & .image-btn {
-    z-index: 3;
-    align-self: stretch;
-    border: 0;
-    background-color: rgba(255, 255, 255, 0.8);
-    cursor: pointer;
+  &.project-anchors {
+    @include flex_center;
   }
 
   &:nth-child(even) {
@@ -100,18 +109,18 @@
     }
 
     & .project-tools {
-      grid-area: 12 / 1 / -1 / -1;
+      grid-area: 9 / 1 / -1 / -1;
       padding-left: 5px;
+      @include flex_start;
+    }
+
+    & .project-anchors {
+      grid-area: 11 / 1 / -1 / -1;
       @include flex_start;
     }
 
     & .project-image {
       grid-area: 1 / 6 / -1 / -1;
-    }
-
-    & .image-btn {
-      grid-area: 1 / 12 / 2 / -1;
-      padding: 0rem 1rem 0rem 1rem;
     }
   }
 
@@ -130,8 +139,13 @@
     }
 
     & .project-tools {
-      grid-area: 12 / 1 / -1 / -1;
+      grid-area: 9 / 1 / -1 / -1;
       padding-left: 5px;
+      @include flex_end;
+    }
+
+    & .project-anchors {
+      grid-area: 11 / 1 / -1 / -1;
       @include flex_end;
     }
 
@@ -141,7 +155,7 @@
 
     & .image-btn {
       padding: 0 1rem 0 1rem;
-      grid-area: 1 / 1 / 2 / 2;
+      grid-area: 1 / 1 / 3 / 2;
     }
   }
 }

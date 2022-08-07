@@ -2,6 +2,7 @@
   "projects": [
     {
       "title": "National archives",
+      "subtitle": "Hellenic Army Project",
       "description": "An online web application for the creation and collection of a high number of documents and materials that records important events in Hellenic history. Greek army is responsible to preserve and maintain these materials and makes them available for research to the audience.",
       "images": [],
       "presentation_img": "https://natours.netlify.app/img/nat-9.jpg",
@@ -47,6 +48,7 @@
     },
     {
       "title": "Personal Portfolio",
+      "subtitle": "Personal Project",
       "description": "My personal portfolio, written with modern Javascript Frameworks and Libraries, such as React, Redux, Material UI, and more.",
       "images": [],
       "presentation_img": "https://natours.netlify.app/img/nat-9.jpg",

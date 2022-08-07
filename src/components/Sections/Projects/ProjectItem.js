@@ -1,3 +1,6 @@
+import { VscGithubAlt } from "react-icons/vsc";
+import { BsBoxArrowUpRight } from "react-icons/bs";
+
 const ProjectItem = ({ project, pIndex }) => {
   return (
     <li className="project-container" key={"project_" + pIndex}>
@@ -10,8 +13,6 @@ const ProjectItem = ({ project, pIndex }) => {
           opacity: "0.7",
         }}
       ></div>
-
-      <button className="image-btn">Images</button>
 
       <div className="project-title">
         <h5 className="project-title__before">
@@ -29,7 +30,23 @@ const ProjectItem = ({ project, pIndex }) => {
           <li key={"ptools" + pIndex + t}>{tool}</li>
         ))}
       </ul>
-      <div className="project-anchors"></div>
+
+      <div className="project-anchors">
+        {project.github && (
+          <a href={project.github}>
+            <VscGithubAlt size={21} color={"var(--white)"} />
+          </a>
+        )}
+        {project.link && (
+          <a href={project.link}>
+            <BsBoxArrowUpRight
+              size={21}
+              color={"var(--white)"}
+              style={{ marginTop: "-0.3rem" }}
+            />
+          </a>
+        )}
+      </div>
     </li>
   );
 };
