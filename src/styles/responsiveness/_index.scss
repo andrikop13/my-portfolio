@@ -1,8 +1,7 @@
 @include respond(tab-land-big) {
   .section-experience,
   .section-hero,
-  .section-about,
-  .section-contact {
+  .section-about {
     padding: 10rem 10rem;
   }
 
@@ -19,8 +18,7 @@
 @include respond(tab-land) {
   .section-experience,
   .section-hero,
-  .section-about,
-  .section-contact {
+  .section-about {
     padding: 10rem 6rem;
   }
 
@@ -48,7 +46,8 @@
   .section-experience,
   .section-hero,
   .section-about,
-  .section-projects {
+  .section-projects,
+  .section-contact {
     padding: 10rem 10rem;
   }
 
@@ -111,7 +110,6 @@
     padding: 10rem 10rem;
   }
 
-  .section-contact,
   .section-about {
     padding: 10rem 6rem;
   }

@@ -5,7 +5,7 @@ import { Carousel } from "react-responsive-carousel";
 
 const ProjectItem = ({ project, pIndex }) => {
   return (
-    <li className="project-container" key={"project_" + pIndex}>
+    <li className="project-container" key={pIndex}>
       <div
         className="project-image"
         style={{

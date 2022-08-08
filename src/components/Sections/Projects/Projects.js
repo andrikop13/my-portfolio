@@ -5,7 +5,6 @@ import ProjectItem from "./ProjectItem";
 
 const Projects = () => {
   const [showMore, setShowMore] = useState(false);
-  console.log("Change state showMore:", showMore);
 
   const handleMoreProjects = () => {
     setShowMore((prevState) => !prevState);

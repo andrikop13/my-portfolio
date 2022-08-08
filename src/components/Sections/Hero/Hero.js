@@ -1,11 +1,16 @@
 import { Link } from "react-router-dom";
-import ParticlesBackground from "../../ParticlesBackground";
 import MyImage from "./MyImage";
 
 const Hero = () => {
+  const handleScrolling = (id) => {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section className="section-hero">
-      <ParticlesBackground />
       <div className="hero" id="hero-section">
         <div className="hero__text-box">
           <div className="heading-stylist">Hello, my name is</div>
@@ -20,7 +25,11 @@ const Hero = () => {
             development, computer networking, IoT platforms and machine
             learning.
           </div>
-          <Link to="/#contact" className="hero__contact-button">
+          <Link
+            to="/#contact"
+            className="hero__contact-button"
+            onClick={handleScrolling.call(this, "contact")}
+          >
             Contact me!
           </Link>
         </div>

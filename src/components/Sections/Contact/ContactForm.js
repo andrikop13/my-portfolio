@@ -65,49 +65,49 @@ const ContactForm = () => {
     : "contact-form__input";
 
   return (
-    <form onSubmit={submitHandler} className="contact-form">
-      <h1 className="section-heading">Get In Touch</h1>
+    <div className="form-container">
+      <form onSubmit={submitHandler} className="contact-form">
+        <div className="contact-form__group">
+          <input
+            placeholder="Full Name"
+            className={fullNameClasses}
+            type="text"
+            id="name"
+            value={fullNameValue}
+            onChange={fullNameChangeHandler}
+            onBlur={fullNameBlurHandler}
+          />
+          <input
+            placeholder="Email Address"
+            className={emailClasses}
+            type="text"
+            id="email"
+            value={emailValue}
+            onChange={emailChangeHandler}
+            onBlur={emailBlurHandler}
+          />
+        </div>
 
-      <div className="contact-form__group">
-        <input
-          placeholder="Full Name"
-          className={fullNameClasses}
-          type="text"
-          id="name"
-          value={fullNameValue}
-          onChange={fullNameChangeHandler}
-          onBlur={fullNameBlurHandler}
-        />
-        <input
-          placeholder="Email Address"
-          className={emailClasses}
-          type="text"
-          id="email"
-          value={emailValue}
-          onChange={emailChangeHandler}
-          onBlur={emailBlurHandler}
-        />
-      </div>
+        <div className="contact-form__group">
+          <textarea
+            value={messageValue}
+            placeholder="Message"
+            rows="7"
+            id="message"
+            className={messageClasses}
+            // style={{ resize: "none" }}
+            onChange={messageChangeHandler}
+            onBlur={messageBlurHandler}
+          ></textarea>
+        </div>
 
-      <div className="contact-form__group">
-        <textarea
-          value={messageValue}
-          placeholder="Message"
-          rows="5"
-          id="message"
-          className={messageClasses}
-          // style={{ resize: "none" }}
-          onChange={messageChangeHandler}
-          onBlur={messageBlurHandler}
-        ></textarea>
-      </div>
-
-      <div class="contact-form__group">
-        <button class="form-button" disabled={!formIsValid}>
-          Send Message &rarr;
-        </button>
-      </div>
-    </form>
+        <div className="contact-form__group">
+          <button className="form-button" disabled={!formIsValid}>
+            Send Message &rarr;
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 

@@ -7,13 +7,16 @@ import Hero from "./components/Sections/Hero/Hero";
 import About from "./components/Sections/About/About";
 import ButtonToTop from "./components/Layout/ButtonToTop/Button";
 import SectionReveal from "./components/Layout/SectionReveal";
+import ParticlesBackground from "./components/ParticlesBackground";
 
 const App = () => {
   const location = useLocation();
 
   return (
     <Home location={location}>
+      <ParticlesBackground />
       <ButtonToTop />
+
       <Hero />
 
       <SectionReveal>
