@@ -1,5 +1,9 @@
+import { myLocationLatLon } from "../../../config/config";
+
 const MyLocation = () => {
-  return <div>MyLocation</div>;
+  const coordinates = myLocationLatLon;
+
+  return <div className="myLocation"></div>;
 };
 
 export default MyLocation;

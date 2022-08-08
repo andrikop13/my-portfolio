@@ -1,0 +1,158 @@
+@include respond(tab-land-big) {
+  .section-experience,
+  .section-hero,
+  .section-about,
+  .section-contact {
+    padding: 10rem 10rem;
+  }
+
+  .experience__jobs-tab {
+    min-width: 80%;
+    max-width: 80%;
+  }
+
+  .section-projects {
+    padding: 10rem 16rem;
+  }
+}
+
+@include respond(tab-land) {
+  .section-experience,
+  .section-hero,
+  .section-about,
+  .section-contact {
+    padding: 10rem 6rem;
+  }
+
+  .about__tags-box {
+    align-self: center;
+    margin-top: -16rem;
+  }
+
+  .section-projects {
+    padding: 10rem 16rem;
+  }
+
+  .project-container {
+    padding: 0;
+  }
+}
+
+@include respond(tab-land-small) {
+  .section-projects {
+    padding: 10rem 12rem;
+  }
+}
+
+@include respond(tab-port) {
+  .section-experience,
+  .section-hero,
+  .section-about,
+  .section-projects {
+    padding: 10rem 10rem;
+  }
+
+  .section-experience {
+    min-height: 90vh;
+    max-height: 90vh;
+  }
+
+  .experience__jobs-tab {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .hero,
+  .about,
+  .contact {
+    margin-top: 3.6rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    &__text-box {
+      justify-self: center;
+      margin-bottom: 3rem;
+    }
+
+    &__tags-box {
+      margin-top: -5rem;
+      padding: 0 5rem;
+
+      & canvas {
+        width: 100%;
+        overflow: visible;
+        z-index: 999;
+      }
+    }
+  }
+
+  .hero {
+    gap: 8.4rem;
+  }
+
+  .about,
+  .contact {
+    gap: 0;
+  }
+
+  .project-container {
+    &:nth-child(even) {
+      @include grid_on_smallScreen;
+    }
+
+    &:nth-child(odd) {
+      @include grid_on_smallScreen;
+    }
+  }
+}
+
+@include respond(tab-port-small) {
+  .section-projects {
+    padding: 10rem 10rem;
+  }
+
+  .section-contact,
+  .section-about {
+    padding: 10rem 6rem;
+  }
+
+  .about__tags-box {
+    margin-top: -4rem;
+  }
+}
+
+@include respond(phone) {
+  .section-experience,
+  .section-hero,
+  .section-about,
+  .section-contact,
+  .section-projects {
+    padding: 10rem 4rem;
+  }
+
+  .about__tags-box {
+    margin-top: 2rem;
+  }
+
+  .section-experience {
+    min-height: 100vh;
+    max-height: 100vh;
+  }
+
+  .experience__jobs-tab {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+@include respond(small-phone) {
+  .section-experience {
+    padding: 10rem 1rem;
+    min-height: 110vh;
+    max-height: 110vh;
+  }
+
+  .section-projects {
+    padding: 10rem 3rem;
+  }
+}

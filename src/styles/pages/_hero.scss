@@ -56,39 +56,3 @@
     transform: translateY(0rem);
   }
 }
-
-@include respond(tab-land) {
-  .section-hero {
-    padding: 10rem 8rem;
-  }
-}
-
-@include respond(tab-land-big) {
-  .section-hero {
-    padding: 10rem 12rem;
-  }
-}
-
-@include respond(tab-port) {
-  .section-hero {
-    padding: 10rem 10rem;
-  }
-
-  .hero {
-    margin-top: 3.6rem;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 8.4rem;
-
-    &__text-box {
-      justify-self: center;
-      margin-bottom: 3rem;
-    }
-  }
-}
-
-@include respond(phone) {
-  .section-hero {
-    padding: 10rem 4rem;
-  }
-}
