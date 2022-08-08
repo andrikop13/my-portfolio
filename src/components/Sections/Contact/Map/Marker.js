@@ -12,7 +12,7 @@ function MarkerWithOpenPopup(props) {
     iconUrl: MarkerIcon,
     iconSize: [30, 60],
     iconAnchor: [10, 58], // point of the icon which will correspond to marker's location
-    popupAnchor: [6, -57],
+    popupAnchor: [5, -57],
   });
 
   const markerRef = useRef();

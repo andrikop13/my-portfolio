@@ -10,7 +10,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="section-hero">
+    <section className="section-hero" id="hero">
       <div className="hero" id="hero-section">
         <div className="hero__text-box">
           <div className="heading-stylist">Hello, my name is</div>
@@ -28,7 +28,7 @@ const Hero = () => {
           <Link
             to="/#contact"
             className="hero__contact-button"
-            onClick={handleScrolling.call(this, "contact")}
+            onClick={handleScrolling.bind(this, "contact")}
           >
             Contact me!
           </Link>

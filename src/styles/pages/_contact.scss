@@ -1,6 +1,5 @@
 .section-contact {
-  padding: 15rem 0rem 0rem 12rem;
-
+  padding: 15rem 0rem 7rem 12rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,7 +10,7 @@
   @include two_col_grid_section;
   grid-template-columns: 1fr 1fr;
 
-  gap: 4.8rem;
+  gap: 6.2rem;
 }
 
 .leaflet-container {

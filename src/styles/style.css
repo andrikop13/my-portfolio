@@ -540,6 +540,7 @@ body {
 .form-button:link,
 .form-button:visited {
   text-transform: uppercase;
+  margin-bottom: 3rem;
   padding: 1.5rem 2rem;
   border-radius: 10rem;
   transition: all 0.2s;
@@ -591,7 +592,7 @@ body {
   align-items: center;
   gap: 1.8rem;
   margin-bottom: 3.2rem;
-  padding: 0 4rem;
+  padding: 0 2rem;
 }
 .contact-form__input {
   width: 100% !important;
@@ -687,65 +688,25 @@ body {
 }
 
 .footer {
-  padding: 10rem 0;
-  font-size: 1.4rem;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--fonts-xs);
+  color: var(--lightest-slate);
+  background-color: var(--dark-navy);
 }
-@media only screen and (max-width: 56.25em) {
-  .footer {
-    padding: 8rem 0;
-  }
+.footer a {
+  color: var(--lightest-slate);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.footer__logo-box {
-  text-align: center;
-  margin-bottom: 8rem;
+.footer a:hover {
+  color: var(--green);
 }
-@media only screen and (max-width: 56.25em) {
-  .footer__logo-box {
-    margin-bottom: 6rem;
-  }
-}
-.footer__logo {
-  width: 15rem;
-  height: auto;
-}
-.footer__navigation {
-  padding-top: 2rem;
-  display: inline-block;
-}
-@media only screen and (max-width: 56.25em) {
-  .footer__navigation {
-    width: 100%;
-    text-align: center;
-  }
-}
-.footer__list {
-  list-style: none;
-}
-.footer__item {
-  display: inline-block;
-}
-.footer__item:not(:last-child) {
-  margin-right: 1.5rem;
-}
-.footer__link:link, .footer__link:visited {
-  text-decoration: none;
-  text-transform: uppercase;
-  display: inline-block;
-  transition: all 0.2s;
-}
-.footer__link:hover, .footer__link:active {
-  transform: rotate(5deg) scale(1.3);
-}
-.footer__copyright {
-  padding-top: 2rem;
-  width: 80%;
-  float: right;
-}
-@media only screen and (max-width: 56.25em) {
-  .footer__copyright {
-    width: 100%;
-    float: none;
-  }
+.footer a:hover::after {
+  width: 0;
 }
 
 header {
@@ -1254,7 +1215,7 @@ nav .nav--links .resume-button {
 }
 
 .section-contact {
-  padding: 15rem 0rem 0rem 12rem;
+  padding: 15rem 0rem 7rem 12rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1270,7 +1231,7 @@ nav .nav--links .resume-button {
   justify-content: center;
   gap: 9.6rem;
   grid-template-columns: 1fr 1fr;
-  gap: 4.8rem;
+  gap: 6.2rem;
 }
 .contact__text-box {
   align-self: center;
@@ -1383,6 +1344,12 @@ nav .nav--links .resume-button {
     width: 100%;
     overflow: visible;
     z-index: 999;
+  }
+  .contact-form__group {
+    padding: 0;
+  }
+  .contact {
+    margin-top: -1rem;
   }
   .hero {
     gap: 8.4rem;

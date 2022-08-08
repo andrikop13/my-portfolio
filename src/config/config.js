@@ -1,5 +1,6 @@
 module.exports = {
   email: "andreas.andrikopoulos@gmail.com",
+  githubRepo: "https://github.com/andrikop13/my-portofolio",
 
   // Limits in rem
   responsive: {
