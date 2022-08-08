@@ -1,0 +1,44 @@
+.section-contact {
+  padding: 10rem 22rem;
+}
+
+.contact {
+  @include two_col_grid_section;
+}
+
+@include respond(tab-land-big) {
+  .section-contact {
+    padding: 10rem 10rem;
+  }
+}
+
+@include respond(tab-land) {
+  .section-contact {
+    padding: 10rem 6rem;
+  }
+}
+
+@include respond(tab-port) {
+  .section-contact {
+    padding: 10rem 10rem;
+  }
+
+  .contact {
+    margin-top: 3.6rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0rem;
+  }
+}
+
+@include respond(tab-port-small) {
+  .section-contact {
+    padding: 10rem 6rem;
+  }
+}
+
+@include respond(phone) {
+  .section-contact {
+    padding: 10rem 4rem;
+  }
+}

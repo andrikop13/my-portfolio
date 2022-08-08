@@ -2,7 +2,7 @@ import Home from "./components/Layout/Home";
 import { useLocation } from "react-router-dom";
 import Experience from "./components/Sections/Experience/Experience";
 import Projects from "./components/Sections/Projects/Projects";
-import Contact from "./components/Sections/Contact";
+import Contact from "./components/Sections/Contact/Contact";
 import Hero from "./components/Sections/Hero/Hero";
 import About from "./components/Sections/About/About";
 import ButtonToTop from "./components/Layout/ButtonToTop/Button";

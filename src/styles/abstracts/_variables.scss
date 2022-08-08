@@ -1,8 +1,10 @@
 :root {
   --dark-navy: #020c1b;
   --logo-color: #e23c52;
+  --error-color: #dc3545;
   // --navy: #0a192f;
-  --navy: #002244;
+  // --navy: #002244;
+  --navy: #002850;
   --light-navy: #112240;
   --lightest-navy: #233554;
   --lightest-navy-rgba: rgba(35, 53, 84, 0.5);
@@ -10,7 +12,8 @@
   --dark-slate: #495670;
   --slate: #8892b0;
   --light-slate: #a8b2d1;
-  --lightest-slate: #ccd6f6;
+  --lightest-slate: rgb(204, 214, 246);
+  --lightest-slate-rgba: rgba(204, 214, 246, 0.8);
   --white: #e6f1ff;
   // --green: #64ffda;
   --green: #08fdd8;
