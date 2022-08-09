@@ -112,7 +112,7 @@ const MyImage = () => {
       <picture>
         <div className="img-wrapper">
           <img
-            src={require("../../../assets/images/mySelf_1.jpg")}
+            src={require("../../../assets/images/myself.jpg")}
             className="hero-img"
             alt="My Profile"
           ></img>
