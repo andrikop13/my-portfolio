@@ -1,9 +1,8 @@
 .contact-form {
   &__group {
     @include flex_center;
-    gap: 1.8rem;
-    margin-bottom: 3.2rem;
-    padding: 0 2rem;
+    gap: 2.4rem;
+    padding: 0 rem;
   }
 
   &__input {
@@ -16,7 +15,7 @@
     background-color: var(--lightest-slate-rgba);
     box-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.3);
     border: none;
-    border-bottom: 5px solid transparent;
+    border-bottom: 4px solid transparent;
     display: block;
     transition: all 0.3s;
 
@@ -39,10 +38,8 @@
       font-size: var(--fonts-xs);
     }
 
-    &:placeholder-shown + &__label {
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-4rem);
+    &:not(:placeholder-shown) {
+      background-color: var(--white);
     }
   }
 

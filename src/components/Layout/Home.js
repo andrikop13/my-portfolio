@@ -3,6 +3,7 @@ import MyLogo from "../../assets/icons/MyLogo";
 import Loader from "../Loader/Loader";
 import Footer from "./Footer";
 import Header from "./Header/Header";
+import SideSocial from "./SideSocial";
 
 const Home = (props) => {
   const isHome = props.location.pathname === "/";
@@ -39,6 +40,7 @@ const Home = (props) => {
       ) : (
         <>
           <Header isHome={isHome} />
+          <SideSocial />
           {props.children}
           <Footer />
         </>

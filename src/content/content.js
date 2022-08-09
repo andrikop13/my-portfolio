@@ -11,6 +11,26 @@ const SL_LIMIT = 6;
 const MT_LIMIT = 5;
 
 module.exports = {
+  skills: [
+    { value: "Javascript (ES6+)", weight: 30 },
+    { value: "Typescript", weight: 30 },
+    { value: "Angular", weight: 30 },
+    { value: "RxJS", weight: 30 },
+    { value: "NgRx", weight: 15 },
+    { value: "React", weight: 30 },
+    { value: "Redux", weight: 20 },
+    { value: "HTML5", weight: 30 },
+    { value: "CSS3", weight: 30 },
+    { value: "SCSS", weight: 30 },
+    { value: "PrimeNg", weight: 20 },
+    { value: "Nebular", weight: 20 },
+    { value: "Bootstrap", weight: 20 },
+    { value: "Git", weight: 30 },
+    { value: "NodeJS", weight: 15 },
+    { value: "Python", weight: 15 },
+    { value: "PySpark", weight: 15 },
+  ],
+
   jobs: [
     {
       position: "Software Engineer",
@@ -30,6 +50,7 @@ module.exports = {
         "User interface development for company’s IoT platform using Angular, JavaScript, jQuery, HTML, Bootstrap, CSS, capable of visualizing real time data from IoT devices like energy meters, sensors and light controllers.",
         "RESTful APIs development that serve data to our JavaScript front-end based on dynamically chosen user inputs using Node.js and Express  framework (via our platform’s hybrid DB engine: Cassandra & PostgreSQL).",
         "IoT Platform Administration & Management on Thingsboard IoT platform.",
+        "Communicated and collaborated with multi-disciplinary teams of engineers, producers and clients, on a daily basis",
       ],
       date: "Jun 2018 - Oct 2021",
       link: "https://meazon.com/",
@@ -60,7 +81,7 @@ module.exports = {
       title: "National archives",
       subtitle: "Hellenic Army Project",
       description:
-        "An online web application for the creation and collection of a high number of documents and materials that records important events in Hellenic history. Greek army is responsible to preserve and maintain these materials and makes them available for research.",
+        "An online web application for the creation and collection of a high number of documents and materials that records important events in Hellenic history. Greek army is responsible to preserve and maintain these materials and makes them available for research to the audience.",
       images: [
         ...[...Array(DIS_LIMIT).keys()].map(
           (num) => `${disPath}/dis-${num}.png`
@@ -121,31 +142,35 @@ module.exports = {
       link: "https://andrikopoulosdev.eu",
     },
     {
-      title: "Rest API",
+      title: "REST API",
       subtitle: "Meazon Project",
       description:
-        "Rest API that is interconnected with company's platform and leverages Firebase Cloud Messaging and it's real databases to send notifications to company app users.",
+        "REST API that is interconnected with company's platform and leverages Firebase Cloud Messaging and it's real databases to send notifications to company app users.",
       images: [`${nodeApiPath}/restApi.png`],
       technologies_used: ["Node.js", "Express", "Firebase", "Nginx"],
     },
   ],
 
-  socialMedia: [
-    {
+  socialMedia: {
+    email: {
+      name: "Email",
+      url: "andreas.andrikopoulos@gmail.com",
+    },
+    github: {
       name: "GitHub",
       url: "https://github.com/andrikop13",
     },
-    {
+    instagram: {
       name: "Instagram",
       url: "https://www.instagram.com/a_andrikop_/",
     },
-    {
+    twitter: {
       name: "Twitter",
       url: "https://twitter.com/andrikop13",
     },
-    {
+    linkedIn: {
       name: "Linkedin",
       url: "https://www.linkedin.com/in/a-andrikopoulos/",
     },
-  ],
+  },
 };

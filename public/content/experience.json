@@ -17,7 +17,8 @@
       "descriptionItems": [
         "User interface development for company’s IoT platform using Angular, JavaScript, jQuery, HTML, Bootstrap, CSS, capable of visualizing real time data from IoT devices like energy meters, sensors and light controllers.",
         "RESTful APIs development that serve data to our JavaScript front-end based on dynamically chosen user inputs using Node.js and Express  framework (via our platform’s hybrid DB engine: Cassandra & PostgreSQL).",
-        "IoT Platform Administration & Management on Thingsboard IoT platform."
+        "IoT Platform Administration & Management on Thingsboard IoT platform.",
+        "Communicated and collaborated with multi-disciplinary teams of engineers, producers and clients, on a daily basis"
       ],
       "date": "Jun 2018 - Oct 2021",
       "link": "https://meazon.com/"

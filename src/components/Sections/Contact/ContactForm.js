@@ -1,9 +1,13 @@
+import { useState } from "react";
 import useInput from "../../../hooks/use-input";
+import ConfirmationBox from "./confirmationBox";
 
 const isNotEmpty = (value) => value.trim() !== "";
 const isEmail = (value) => value.includes("@");
 
 const ContactForm = () => {
+  const [dialogOpen, setDialogOpen] = useState(false);
+
   const {
     value: fullNameValue,
     isValid: fullNameIsValid,
@@ -44,6 +48,10 @@ const ContactForm = () => {
       return;
     }
 
+    setDialogOpen(true);
+  };
+
+  const sendEmail = () => {
     console.log("Submitted!");
     console.log(fullNameValue, emailValue);
 
@@ -101,12 +109,17 @@ const ContactForm = () => {
           ></textarea>
         </div>
 
-        <div className="contact-form__group">
-          <button className="form-button" disabled={!formIsValid}>
+        <div className="contact-form__group" style={{ marginTop: "2.4rem" }}>
+          <button className="form-button" type="submit" disabled={!formIsValid}>
             Send Message &rarr;
           </button>
         </div>
       </form>
+      <ConfirmationBox
+        open={dialogOpen}
+        setOpen={setDialogOpen}
+        confirm={sendEmail}
+      />
     </div>
   );
 };

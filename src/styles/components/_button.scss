@@ -43,7 +43,7 @@
 
 .flex-button {
   margin-top: 5rem;
-  z-index: 100;
+  z-index: 999;
   @include flex_center;
 
   & button {
@@ -57,7 +57,7 @@
 .form-button:visited {
   text-transform: uppercase;
   margin-bottom: 3rem;
-  padding: 1.5rem 2rem;
+  padding: 2rem 4rem;
   border-radius: 10rem;
 
   -webkit-transition: all 0.2s;

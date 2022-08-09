@@ -55,9 +55,9 @@
       "link": "https://andrikopoulosdev.eu"
     },
     {
-      "title": "Rest API",
+      "title": "REST API",
       "subtitle": "Meazon Project",
-      "description": "Rest API that is interconnected with company's platform and leverages Firebase Cloud Messaging and it's real databases to send notifications to company app users.",
+      "description": "REST API that is interconnected with company's platform and leverages Firebase Cloud Messaging and it's real databases to send notifications to company app users.",
       "images": [],
       "presentation_img": "",
       "technologies_used": ["Node.js", "Express", "Firebase", "Nginx"]
