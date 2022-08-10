@@ -13,28 +13,30 @@ const App = () => {
   const location = useLocation();
 
   return (
-    <Home location={location}>
+    <>
       <ParticlesBackground />
-      <ButtonToTop />
+      <Home location={location}>
+        <ButtonToTop />
 
-      <Hero />
+        <Hero />
 
-      <SectionReveal>
-        <About />
-      </SectionReveal>
+        <SectionReveal>
+          <About />
+        </SectionReveal>
 
-      <SectionReveal>
-        <Experience />
-      </SectionReveal>
+        <SectionReveal>
+          <Experience />
+        </SectionReveal>
 
-      <SectionReveal>
-        <Projects />
-      </SectionReveal>
+        <SectionReveal>
+          <Projects />
+        </SectionReveal>
 
-      <SectionReveal>
-        <Contact />
-      </SectionReveal>
-    </Home>
+        <SectionReveal>
+          <Contact />
+        </SectionReveal>
+      </Home>
+    </>
   );
 };
 

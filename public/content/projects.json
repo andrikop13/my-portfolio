@@ -52,7 +52,8 @@
         "Material UI",
         "Styled-components"
       ],
-      "link": "https://andrikopoulosdev.eu"
+      "link": "https://andrikopoulosdev.eu",
+      "github": "https://github.com/andrikop13/my-portofolio"
     },
     {
       "title": "REST API",

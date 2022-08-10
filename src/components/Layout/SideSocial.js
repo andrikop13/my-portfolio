@@ -2,11 +2,9 @@ import { VscGithubAlt } from "react-icons/vsc";
 import { BsInstagram } from "react-icons/bs";
 import { FiLinkedin } from "react-icons/fi";
 import { FiTwitter } from "react-icons/fi";
-import { SiGmail } from "react-icons/si";
 import { socialMedia } from "../../content/content";
 
 const iconSize = 21;
-const iconSizeSm = 19;
 const iconColor = "var(--light-slate)";
 
 const SideSocial = () => {
@@ -14,9 +12,9 @@ const SideSocial = () => {
     <div className="socials-sidebar">
       <ul>
         <li>
-          <a href={`mailto:${socialMedia.email.url}`}>
+          {/* <a href={`mailto:${socialMedia.email.url}`}>
             <SiGmail size={iconSizeSm} color={iconColor} />
-          </a>
+          </a> */}
         </li>
         <li>
           <a

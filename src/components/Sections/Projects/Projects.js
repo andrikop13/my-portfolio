@@ -34,6 +34,7 @@ const Projects = () => {
                 nodeRef={nodeRef}
               >
                 <ProjectItem
+                  key={p}
                   project={pr}
                   pIndex={p}
                   style={{

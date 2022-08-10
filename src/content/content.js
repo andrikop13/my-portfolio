@@ -99,7 +99,6 @@ module.exports = {
       ],
       technologies_used: ["Angular 13", "RxJS", "BootStrap 5"],
       link: "https://mi6.meazon.com/login",
-      github: "dfds",
     },
     {
       title: "Esmart City",
@@ -140,6 +139,7 @@ module.exports = {
       images: [`${portfolioPath}/portfolio.png`],
       technologies_used: ["React", "Material UI", "SCSS"],
       link: "https://andrikopoulosdev.eu",
+      github: "https://github.com/andrikop13/my-portofolio",
     },
     {
       title: "REST API",
@@ -152,10 +152,6 @@ module.exports = {
   ],
 
   socialMedia: {
-    email: {
-      name: "Email",
-      url: "andreas.andrikopoulos@gmail.com",
-    },
     github: {
       name: "GitHub",
       url: "https://github.com/andrikop13",

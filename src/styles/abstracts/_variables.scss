@@ -1,5 +1,5 @@
 :root {
-  --dark-navy: #020c1b;
+  --dark-navy: rgb(2, 12, 27);
   --logo-color: #e23c52;
   --error-color: #dc3545;
   --grey: rgb(71, 82, 86);
@@ -10,6 +10,7 @@
   --navy: #002850;
   --light-navy: #112240;
   --lightest-navy: #233554;
+  --dark-navy_rgba: rgba(2, 12, 27, 0.5);
   --lightest-navy-rgba: rgba(35, 53, 84, 0.5);
   --navy-shadow: rgba(2, 12, 27, 0.7);
   --dark-slate: #495670;

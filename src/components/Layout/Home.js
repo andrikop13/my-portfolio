@@ -4,6 +4,7 @@ import Loader from "../Loader/Loader";
 import Footer from "./Footer";
 import Header from "./Header/Header";
 import SideSocial from "./SideSocial";
+import MessageWindow from "./MessageWindow";
 
 const Home = (props) => {
   const isHome = props.location.pathname === "/";
@@ -17,7 +18,6 @@ const Home = (props) => {
     // Check on refresh if /#<page> exists on URL
     if (props.location.hash) {
       const id = props.location.hash.substring(1);
-
       setTimeout(() => {
         const el = document.getElementById(id);
         if (el) {
@@ -27,7 +27,7 @@ const Home = (props) => {
           });
           el.focus();
         }
-      }, 1000);
+      });
     }
   }, [isLoading, props.location]);
 
@@ -43,6 +43,8 @@ const Home = (props) => {
           <SideSocial />
           {props.children}
           <Footer />
+
+          <MessageWindow />
         </>
       )}
     </Fragment>

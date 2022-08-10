@@ -6,7 +6,7 @@ const TagCanvasBox = () => {
     <TagsCanvas
       textColour=""
       maxSpeed={0.05}
-      reverse={true}
+      reverse={false}
       initial={[0.25, -0.25]}
       width={600}
       height={600}

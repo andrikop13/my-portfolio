@@ -17,7 +17,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
 1em = 16px
 */
 :root {
-  --dark-navy: #020c1b;
+  --dark-navy: rgb(2, 12, 27);
   --logo-color: #e23c52;
   --error-color: #dc3545;
   --grey: rgb(71, 82, 86);
@@ -26,6 +26,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
   --navy: #002850;
   --light-navy: #112240;
   --lightest-navy: #233554;
+  --dark-navy_rgba: rgba(2, 12, 27, 0.5);
   --lightest-navy-rgba: rgba(35, 53, 84, 0.5);
   --navy-shadow: rgba(2, 12, 27, 0.7);
   --dark-slate: #495670;
@@ -543,8 +544,8 @@ body {
 .form-button:link,
 .form-button:visited {
   text-transform: uppercase;
-  margin-bottom: 3rem;
-  padding: 2rem 4rem;
+  margin-bottom: 0rem;
+  padding: 1.5rem 4rem;
   border-radius: 10rem;
   transition: all 0.2s;
   font-size: var(--fonts-xs);
@@ -593,7 +594,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2.4rem;
+  gap: 1.6rem;
   padding: 0 rem;
 }
 .contact-form__input {
@@ -710,7 +711,7 @@ header {
   align-items: center;
   position: fixed;
   top: 0;
-  z-index: 999;
+  z-index: 500;
   width: 100%;
   height: var(--nav-height);
   background-color: var(--navy);
@@ -821,7 +822,7 @@ nav {
   margin-right: 5rem;
   color: var(--white);
   font-family: var(--font-mono);
-  z-index: 999;
+  z-index: 500;
 }
 nav .logo {
   display: flex;
@@ -1240,7 +1241,7 @@ nav .nav--links .resume-button {
 }
 
 .section-contact {
-  padding: 12rem 12rem 7rem 12rem;
+  padding: 15rem 12rem 7rem 12rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1254,7 +1255,7 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 3.6rem;
+  gap: 1.6rem;
 }
 
 .contact {
@@ -1307,11 +1308,18 @@ hr {
   border: 0;
 }
 
+leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background-color: var(--navy);
+}
+
 @media only screen and (max-width: 100em) {
   .section-experience,
-.section-hero,
 .section-about {
     padding: 10rem 10rem;
+  }
+  .section-hero {
+    padding: 10rem 14rem;
   }
   .experience__jobs-tab {
     min-width: 80%;
@@ -1326,6 +1334,9 @@ hr {
 .section-hero,
 .section-about {
     padding: 10rem 6rem;
+  }
+  .section-hero {
+    padding: 10rem 10rem;
   }
   .about__tags-box {
     align-self: center;
@@ -1384,6 +1395,9 @@ hr {
     width: 100%;
     overflow: visible;
   }
+  .contact {
+    row-gap: 3.6rem;
+  }
   .contact-form__group {
     padding: 0;
   }
@@ -1393,8 +1407,7 @@ hr {
   .hero {
     gap: 8.4rem;
   }
-  .about,
-.contact {
+  .about {
     gap: 0;
   }
   .project-container:nth-child(even) .project-image {
@@ -1428,7 +1441,7 @@ hr {
     align-items: center;
   }
   .project-container:nth-child(even) .project-anchors {
-    z-index: 1000;
+    z-index: 500;
     padding: 2rem 1.5rem 0 2rem;
     grid-area: 1/12/2/-1;
   }
@@ -1463,7 +1476,7 @@ hr {
     align-items: center;
   }
   .project-container:nth-child(odd) .project-anchors {
-    z-index: 1000;
+    z-index: 500;
     padding: 2rem 1.5rem 0 2rem;
     grid-area: 1/12/2/-1;
   }

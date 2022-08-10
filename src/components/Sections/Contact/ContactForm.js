@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import useInput from "../../../hooks/use-input";
 import ConfirmationBox from "./confirmationBox";
+import emailjs from "@emailjs/browser";
+import { useDispatch } from "react-redux";
+import { uiActions } from "../../../store/ui-slice";
 
 const isNotEmpty = (value) => value.trim() !== "";
 const isEmail = (value) => value.includes("@");
 
 const ContactForm = () => {
+  const dispatch = useDispatch();
   const [dialogOpen, setDialogOpen] = useState(false);
+  const formRef = useRef();
 
   const {
     value: fullNameValue,
@@ -35,9 +40,18 @@ const ContactForm = () => {
     reset: resetMessage,
   } = useInput(isNotEmpty);
 
+  const {
+    value: subjectValue,
+    isValid: subjectIsValid,
+    hasError: subjectHasError,
+    valueChangeHandler: subjectChangeHandler,
+    inputBlurHandler: subjectBlurHandler,
+    reset: resetSubject,
+  } = useInput(isNotEmpty);
+
   let formIsValid = false;
 
-  if (fullNameIsValid && emailIsValid && messageIsValid) {
+  if (fullNameIsValid && emailIsValid && messageIsValid && subjectIsValid) {
     formIsValid = true;
   }
 
@@ -52,12 +66,48 @@ const ContactForm = () => {
   };
 
   const sendEmail = () => {
-    console.log("Submitted!");
-    console.log(fullNameValue, emailValue);
+    dispatch(
+      uiActions.showMessage({
+        message: "Sending email...",
+        status: "info",
+      })
+    );
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        () => {
+          console.log("SUCCESSS");
+          dispatch(
+            uiActions.showMessage({
+              message: "Your message was sent succesfully",
+              status: "success",
+            })
+          );
+        },
+        () => {
+          console.log("FAILURE");
 
-    resetFullName();
-    resetEmail();
-    resetMessage();
+          dispatch(
+            uiActions.showMessage({
+              message:
+                "Something went wrong. Please contact me through my LinkedIn account!",
+              status: "error",
+            })
+          );
+        }
+      )
+      .finally(() => {
+        dispatch(uiActions.setLoading(false));
+        resetFullName();
+        resetEmail();
+        resetMessage();
+        resetSubject();
+      });
   };
 
   const fullNameClasses = fullNameHasError
@@ -72,55 +122,78 @@ const ContactForm = () => {
     ? "contact-form__input invalid"
     : "contact-form__input";
 
+  const subjectClasses = subjectHasError
+    ? "contact-form__input invalid"
+    : "contact-form__input";
+
   return (
-    <div className="form-container">
-      <form onSubmit={submitHandler} className="contact-form">
-        <div className="contact-form__group">
-          <input
-            placeholder="Full Name"
-            className={fullNameClasses}
-            type="text"
-            id="name"
-            value={fullNameValue}
-            onChange={fullNameChangeHandler}
-            onBlur={fullNameBlurHandler}
-          />
-          <input
-            placeholder="Email Address"
-            className={emailClasses}
-            type="text"
-            id="email"
-            value={emailValue}
-            onChange={emailChangeHandler}
-            onBlur={emailBlurHandler}
-          />
-        </div>
+    <>
+      <div className="form-container">
+        <form onSubmit={submitHandler} className="contact-form" ref={formRef}>
+          <div className="contact-form__group">
+            <input
+              placeholder="Full Name"
+              className={fullNameClasses}
+              type="text"
+              name="user_name"
+              value={fullNameValue}
+              onChange={fullNameChangeHandler}
+              onBlur={fullNameBlurHandler}
+            />
+            <input
+              placeholder="Email Address"
+              className={emailClasses}
+              type="text"
+              name="user_email"
+              value={emailValue}
+              onChange={emailChangeHandler}
+              onBlur={emailBlurHandler}
+            />
+          </div>
 
-        <div className="contact-form__group">
-          <textarea
-            value={messageValue}
-            placeholder="Message"
-            rows="7"
-            id="message"
-            className={messageClasses}
-            // style={{ resize: "none" }}
-            onChange={messageChangeHandler}
-            onBlur={messageBlurHandler}
-          ></textarea>
-        </div>
+          <div className="contact-form__group">
+            <input
+              placeholder="Subject"
+              className={subjectClasses}
+              type="text"
+              name="email_subject"
+              value={subjectValue}
+              onChange={subjectChangeHandler}
+              onBlur={subjectBlurHandler}
+            />
+          </div>
 
-        <div className="contact-form__group" style={{ marginTop: "2.4rem" }}>
-          <button className="form-button" type="submit" disabled={!formIsValid}>
-            Send Message &rarr;
-          </button>
-        </div>
-      </form>
-      <ConfirmationBox
-        open={dialogOpen}
-        setOpen={setDialogOpen}
-        confirm={sendEmail}
-      />
-    </div>
+          <div className="contact-form__group">
+            <textarea
+              value={messageValue}
+              placeholder="Message"
+              rows="7"
+              name="user_message"
+              className={messageClasses}
+              onChange={messageChangeHandler}
+              onBlur={messageBlurHandler}
+            />
+          </div>
+
+          <div className="contact-form__group" style={{ marginTop: "1rem" }}>
+            <button
+              className="form-button"
+              type="submit"
+              value="Send"
+              disabled={!formIsValid}
+            >
+              Send Message &rarr;
+            </button>
+          </div>
+        </form>
+
+        <ConfirmationBox
+          open={dialogOpen}
+          setOpen={setDialogOpen}
+          confirm={sendEmail}
+        />
+      </div>
+    </>
   );
 };
 

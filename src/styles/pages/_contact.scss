@@ -1,5 +1,5 @@
 .section-contact {
-  padding: 12rem 12rem 7rem 12rem;
+  padding: 15rem 12rem 7rem 12rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,7 +13,7 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 3.6rem;
+  gap: 1.6rem;
 }
 
 .contact {
@@ -59,4 +59,9 @@ hr {
   background-color: #6c757d;
   height: 1px;
   border: 0;
+}
+
+leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background-color: var(--navy);
 }
