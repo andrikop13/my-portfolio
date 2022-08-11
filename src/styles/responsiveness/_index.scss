@@ -53,14 +53,12 @@
   .section-experience,
   .section-hero,
   .section-about,
-  .section-projects,
   .section-contact {
     padding: 10rem 10rem;
   }
 
-  .section-experience {
-    min-height: 90vh;
-    max-height: 90vh;
+  .section-projects {
+    padding: 10rem 15rem;
   }
 
   .experience__jobs-tab {
@@ -81,13 +79,19 @@
     }
 
     &__tags-box {
-      margin-top: -5rem;
-      padding: 0 5rem;
+      margin-top: 0;
+      padding: 0 10rem;
+      @include flex_center;
 
       & canvas {
         width: 100%;
         overflow: visible;
       }
+    }
+
+    .section-experience {
+      min-height: 70vh;
+      max-height: 100vh;
     }
   }
 
@@ -132,26 +136,27 @@
   }
 
   .about__tags-box {
-    margin-top: -4rem;
+    margin-top: 0;
+    padding: 0 5rem;
   }
 }
 
 @include respond(phone) {
+  @include grid_on_verySmallScreen;
   .section-experience,
   .section-hero,
-  .section-about,
   .section-contact,
   .section-projects {
     padding: 10rem 4rem;
   }
 
-  .about__tags-box {
-    margin-top: 2rem;
+  .section-about {
+    padding: 10rem 4rem 4rem 4rem;
   }
 
-  .section-experience {
-    min-height: 100vh;
-    max-height: 100vh;
+  .about__tags-box {
+    margin-top: 6rem;
+    padding: 0 1rem;
   }
 
   .experience__jobs-tab {
@@ -161,13 +166,24 @@
 }
 
 @include respond(small-phone) {
-  .section-experience {
-    padding: 10rem 1rem;
-    min-height: 110vh;
-    max-height: 110vh;
+  .about__tags-box {
+    margin-top: -2rem;
+    padding: 0 0rem;
   }
 
   .section-projects {
     padding: 10rem 3rem;
+  }
+}
+
+@media only screen and (max-width: 595px) {
+  .MuiTabs-root {
+    min-width: 100% !important;
+    max-width: auto !important;
+    margin-bottom: 4rem;
+  }
+
+  .MuiBox-root {
+    padding: 0 0rem !important;
   }
 }
