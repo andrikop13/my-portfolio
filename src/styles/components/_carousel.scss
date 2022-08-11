@@ -1,40 +1,42 @@
-.carousel-root {
-  height: 360px !important;
+@mixin carousel_css($carousel-height, $carousel-slide-height) {
+  .carousel-root {
+    height: $carousel-height !important;
 
-  & .carousel-slider {
-    height: 100%;
-  }
-
-  & .slider-wrapper {
-    height: 360px !important;
-    overflow: hidden;
-
-    & .slider {
-      height: 360px !important;
+    & .carousel-slider {
+      height: 100%;
     }
-  }
 
-  & .control-dots {
-    margin-bottom: 0 !important;
-    & .dot {
-      background: var(--green) !important;
+    & .slider-wrapper {
+      height: $carousel-height !important;
+      overflow: hidden;
+
+      & .slider {
+        height: $carousel-height !important;
+      }
     }
-  }
 
-  .carousel .slide .legend {
-    display: none !important;
-  }
+    & .control-dots {
+      margin-bottom: 0 !important;
+      & .dot {
+        background: var(--green) !important;
+      }
+    }
 
-  .carousel .slide img {
-    max-height: auto;
-    min-height: 200px;
-    max-width: 100%;
-    min-width: 70%;
-    justify-self: center;
-  }
+    .carousel .slide .legend {
+      display: none !important;
+    }
 
-  .carousel .slider-wrapper.axis-horizontal .slider .slide {
-    max-height: 360px;
-    @include flex_center;
+    .carousel .slide img {
+      max-height: 94%;
+      min-height: $carousel-slide-height;
+      max-width: 96%;
+      min-width: 70%;
+      justify-self: center;
+    }
+
+    .carousel .slider-wrapper.axis-horizontal .slider .slide {
+      max-height: $carousel-height;
+      @include flex_center;
+    }
   }
 }

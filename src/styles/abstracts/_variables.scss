@@ -1,6 +1,7 @@
 :root {
   --dark-navy: rgb(2, 12, 27);
-  --logo-color: #e23c52;
+  --logo-color: #175873;
+  --logo-shadow: #08fdd8;
   --error-color: #dc3545;
   --grey: rgb(71, 82, 86);
   --light-green: #01833c;
@@ -12,14 +13,14 @@
   --lightest-navy: #233554;
   --dark-navy_rgba: rgba(2, 12, 27, 0.5);
   --lightest-navy-rgba: rgba(35, 53, 84, 0.5);
-  --navy-shadow: rgba(2, 12, 27, 0.7);
+  --navy-shadow: rgba(2, 12, 27, 0.6);
   --dark-slate: #495670;
   --slate: #8892b0;
   --light-slate: #a8b2d1;
   --lightest-slate: rgb(204, 214, 246);
-  --lightest-slate-rgba: rgba(204, 214, 246, 0.85);
+  --lightest-slate-rgba: rgba(204, 214, 246, 0.7);
   --white: #e6f1ff;
-  // --green: #64ffda;
+  --green-light: #64ffda;
   --green: #08fdd8;
   --green-tint: rgba(100, 255, 218, 0.1);
 

@@ -93,25 +93,43 @@
 }
 
 @mixin grid_on_smallScreen {
+  background-color: rgba(2, 12, 27, 0.7);
+  @include carousel_css(300px, 300px);
+
+  .carousel .slider-wrapper.axis-horizontal .slider .slide {
+    @include flex_start;
+  }
+
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(18, 30px);
+
   & .project-image {
-    grid-area: 1 / 1 / -1 / -1;
+    grid-area: 3 / 1 / 13 / -1;
   }
 
   & .project-content {
-    background-color: rgba(2, 12, 27, 0.7);
-    padding: 1rem;
-    grid-area: 2 / 2 / -1 / 12;
+    box-shadow: none;
+    background-color: transparent;
+    align-self: stretch;
+    justify-content: start;
+    grid-area: 13 / 1 / 17 / -1;
+
+    &__description {
+      padding: 1rem;
+    }
   }
 
   & .project-title {
-    background-color: rgba(2, 12, 27, 0.5);
-    padding: 0.5rem;
-    grid-area: 2 / 2 / 2 / -1;
+    margin-left: 1rem;
+    background-color: transparent;
     justify-self: start;
     display: flex;
     flex-direction: column;
-    align-items: start;
     z-index: 10;
+
+    &__main {
+      font-size: var(--fonts-md);
+    }
 
     &__before {
       @include flex_start;
@@ -119,7 +137,8 @@
   }
 
   & .project-tools {
-    grid-area: 11 / 2 / -1 / -1;
+    margin-bottom: 1rem;
+    grid-area: 18 / 1 / -1 / -1;
     color: var(--white);
     @include flex_start;
   }
@@ -127,9 +146,20 @@
   & .project-anchors {
     z-index: 500;
     padding: 2rem 1.5rem 0 2rem;
-    grid-area: 1 / 12 / 2 / -1;
+    grid-area: 1 / 11 / 1 / -1;
   }
 }
+
+@mixin grid_on_verySmallScreen {
+  .project-container {
+    &:nth-child(even),
+    &:nth-child(odd) {
+      grid-template-rows: repeat(18, 23px);
+      @include carousel_css(230px, 230px);
+    }
+  }
+}
+
 // MEDIA QUERY MANAGER
 /*
 0 - 600px:      Phone

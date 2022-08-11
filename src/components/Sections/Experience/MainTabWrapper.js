@@ -1,9 +1,10 @@
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TabPanel from "./TabPanel";
 import experience from "../../../content/content";
+import { responsive } from "../../../config/config";
 
 function a11yProps(index) {
   return {
@@ -16,9 +17,28 @@ const MainTabWrapper = () => {
   const [value, setValue] = React.useState(0);
   const jobs = experience.jobs;
 
+  const [isMobile, setIsMobile] = useState(null);
+
+  const handleResize = () => {
+    const w = window.innerWidth / responsive.baseDivider;
+    setIsMobile(w < responsive.phone[1]);
+  };
+
+  useEffect(() => {
+    const width = window.innerWidth / responsive.baseDivider;
+    setIsMobile(width < responsive.phone[1]);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  console.log(isMobile, window.innerWidth, responsive.baseDivider);
 
   return (
     <Box
@@ -26,10 +46,11 @@ const MainTabWrapper = () => {
         flexGrow: 1,
         bgcolor: "transparent",
         display: "flex",
+        flexDirection: isMobile ? "column" : "row",
       }}
     >
       <Tabs
-        orientation="vertical"
+        orientation={isMobile ? "horizontal" : "vertical"}
         variant="scrollable"
         value={value}
         onChange={handleChange}

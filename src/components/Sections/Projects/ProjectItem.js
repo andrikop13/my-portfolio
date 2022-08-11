@@ -10,7 +10,7 @@ const ProjectItem = ({ project, pIndex }) => {
         className="project-image"
         style={{
           backgroundPosition: "center",
-          opacity: "0.8",
+          opacity: "0.85",
         }}
       >
         <Carousel
