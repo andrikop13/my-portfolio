@@ -3,8 +3,8 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import React, { useEffect, useState } from "react";
 import TabPanel from "./TabPanel";
-import experience from "../../../content/content";
 import { responsive } from "../../../config/config";
+import { useSelector } from "react-redux";
 
 function a11yProps(index) {
   return {
@@ -15,9 +15,8 @@ function a11yProps(index) {
 
 const MainTabWrapper = () => {
   const [value, setValue] = React.useState(0);
-  const jobs = experience.jobs;
-
   const [isMobile, setIsMobile] = useState(null);
+  const jobs = useSelector((state) => state.jobs.list);
 
   const handleResize = () => {
     const w = window.innerWidth / responsive.baseDivider;
@@ -37,8 +36,6 @@ const MainTabWrapper = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
-  console.log(isMobile, window.innerWidth, responsive.baseDivider);
 
   return (
     <Box

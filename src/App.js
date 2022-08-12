@@ -8,9 +8,21 @@ import About from "./components/Sections/About/About";
 import ButtonToTop from "./components/Layout/ButtonToTop/Button";
 import SectionReveal from "./components/Layout/SectionReveal";
 import ParticlesBackground from "./components/ParticlesBackground";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchProjectsData } from "./store/projects/projects-actions";
+import useHttp from "./hooks/use-http";
+import { fetchJobsData } from "./store/jobs/jobs-actions";
 
 const App = () => {
   const location = useLocation();
+  const dispatch = useDispatch();
+  const { sendRequest: fetchData } = useHttp();
+
+  useEffect(() => {
+    dispatch(fetchProjectsData(fetchData));
+    dispatch(fetchJobsData(fetchData));
+  }, [dispatch, fetchData]);
 
   return (
     <>
@@ -19,7 +31,6 @@ const App = () => {
         <ButtonToTop />
 
         <Hero />
-
         <SectionReveal>
           <About />
         </SectionReveal>

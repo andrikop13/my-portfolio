@@ -1,0 +1,31 @@
+.socials-sidebar {
+  @include flex_center;
+  width: 30px;
+  position: fixed;
+  bottom: 0px;
+  left: 20px;
+  right: auto;
+  z-index: 999;
+
+  ul {
+    list-style: none;
+
+    & li {
+      margin-bottom: 1rem;
+      @include flex_center;
+    }
+  }
+
+  & a {
+    &:hover {
+      transform: translateY(-2px);
+      &::after {
+        width: 0;
+      }
+    }
+  }
+
+  @include respond(tab-port) {
+    display: none;
+  }
+}

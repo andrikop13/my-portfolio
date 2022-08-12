@@ -3,7 +3,7 @@ import useInput from "../../../hooks/use-input";
 import ConfirmationBox from "./confirmationBox";
 import emailjs from "@emailjs/browser";
 import { useDispatch } from "react-redux";
-import { uiActions } from "../../../store/ui-slice";
+import { uiActions } from "../../../store/ui/ui-slice";
 
 const isNotEmpty = (value) => value.trim() !== "";
 const isEmail = (value) => value.includes("@");
@@ -81,7 +81,6 @@ const ContactForm = () => {
       )
       .then(
         () => {
-          console.log("SUCCESSS");
           dispatch(
             uiActions.showMessage({
               message: "Your message was sent succesfully",
@@ -90,8 +89,6 @@ const ContactForm = () => {
           );
         },
         () => {
-          console.log("FAILURE");
-
           dispatch(
             uiActions.showMessage({
               message:

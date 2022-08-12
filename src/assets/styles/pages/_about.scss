@@ -1,0 +1,48 @@
+.section-about {
+  padding: 10rem 15rem 15rem 22rem;
+}
+
+.about {
+  @include two_col_grid_section;
+  grid-template-columns: 3fr 2fr;
+  gap: 8rem;
+
+  &__description-text {
+    font-size: var(--fonts-sm);
+    align-self: start;
+    line-height: 1.3;
+    color: var(--light-slate);
+  }
+
+  &__tags-box {
+    justify-self: center;
+    align-self: start;
+    margin-top: -8rem;
+
+    & canvas {
+      width: 100%;
+      font-size: var(--fonts-xxl);
+      background-color: var(--navy);
+    }
+  }
+}
+
+.skills_grid {
+  @include two_col_grid_section;
+  width: 50%;
+  align-items: start;
+  margin: 0 3rem;
+
+  & li {
+    list-style: none;
+    font-size: var(--fonts-xs);
+    line-height: 1.4;
+    color: var(--slate);
+
+    &::before {
+      content: "▹";
+      margin-right: 1rem;
+      color: var(--green);
+    }
+  }
+}

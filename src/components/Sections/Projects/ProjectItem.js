@@ -18,6 +18,8 @@ const ProjectItem = ({ project, pIndex }) => {
           showIndicators={true}
           showStatus={false}
           dynamicHeight={false}
+          swipeable={true}
+          emulateTouch={true}
         >
           {project.images.map((img, i) => (
             <img className="slider-image" src={img} alt={`image_${i}`} />

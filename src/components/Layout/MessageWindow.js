@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { uiActions } from "../../store/ui-slice";
+import { uiActions } from "../../store/ui/ui-slice";
 import React from "react";
 import { Snackbar, Alert } from "@mui/material";
 

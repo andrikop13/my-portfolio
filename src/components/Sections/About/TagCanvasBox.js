@@ -1,5 +1,5 @@
 import TagsCanvas from "react-tags-canvas";
-import { skills } from "../../../content/content";
+import { skills } from "../../../content";
 
 const TagCanvasBox = () => {
   return (

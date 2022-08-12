@@ -1,18 +1,18 @@
 import { createRef, useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import content from "../../../content/content";
 import ProjectItem from "./ProjectItem";
+import { useSelector } from "react-redux";
 
 const Projects = () => {
   const [showMore, setShowMore] = useState(false);
+  const projects = useSelector((state) => state.projects.list);
 
   const handleMoreProjects = () => {
     setShowMore((prevState) => !prevState);
   };
 
-  const PROJCETS_LIMIT = 3;
-  const projects = content.projects;
-  const firstThree = projects.slice(0, PROJCETS_LIMIT);
+  const PROJECTS_LIMIT = 3;
+  const firstThree = projects.slice(0, PROJECTS_LIMIT);
   const projectsToShow = showMore ? projects : firstThree;
 
   return (
@@ -29,7 +29,7 @@ const Projects = () => {
               <CSSTransition
                 key={p}
                 classNames="fadeup"
-                timeout={p >= PROJCETS_LIMIT ? (p - PROJCETS_LIMIT) * 300 : 300}
+                timeout={p >= PROJECTS_LIMIT ? (p - PROJECTS_LIMIT) * 300 : 300}
                 exit={false}
                 nodeRef={nodeRef}
               >
@@ -39,7 +39,7 @@ const Projects = () => {
                   pIndex={p}
                   style={{
                     transitionDelay: `${
-                      p >= PROJCETS_LIMIT ? (p - PROJCETS_LIMIT) * 100 : 0
+                      p >= PROJECTS_LIMIT ? (p - PROJECTS_LIMIT) * 100 : 0
                     }ms`,
                   }}
                 />

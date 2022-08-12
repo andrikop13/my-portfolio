@@ -1,0 +1,79 @@
+header {
+  @include flex-between;
+  position: fixed;
+  top: 0;
+  z-index: 500;
+  width: 100%;
+  height: var(--nav-height);
+  background-color: var(--navy);
+  // box-shadow: 0 5px 15px -5px var(--navy-shadow);
+
+  filter: none !important;
+  pointer-events: auto !important;
+  user-select: auto !important;
+  backdrop-filter: blur(10px);
+  transition: var(--transition);
+
+  .scroll-up {
+    height: var(--nav-scroll-height);
+    transform: translateY(0px);
+    background-color: (--navy);
+    box-shadow: 0 10px 30px -10px var(--navy-shadow);
+  }
+
+  .scroll-down {
+    height: var(--nav-scroll-height);
+    transform: translateY(calc(var(--nav-scroll-height) * -1));
+    box-shadow: 0 10px 30px -10px var(--navy-shadow);
+  }
+}
+
+.logo {
+  width: 17rem;
+  height: 100%;
+  // background-color: var(--dark-navy);
+  // background-color: rgba(2, 12, 27, 0.3);
+  border-bottom-right-radius: 15px;
+  margin: 0rem 0 0 0.5rem;
+
+  & .flexRow {
+    @include flex_center;
+    max-height: 100%;
+    gap: 0.3rem;
+
+    & .nameText {
+      flex-grow: 1;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    & .jobTitle {
+      font-size: 1.3rem;
+      margin-top: -5px;
+    }
+  }
+
+  & .logoText {
+    color: var(--logo-color);
+    text-shadow: -0.3rem -0.1rem 0px var(--logo-shadow),
+      -0.4rem -0.1rem 0px var(--logo-shadow);
+    font-size: 6rem;
+    font-weight: 600;
+    justify-self: center;
+    transition: all 0.2s ease-out;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: all 0.2s ease-in;
+    }
+  }
+
+  & .text-column {
+    font-style: italic;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+  }
+}

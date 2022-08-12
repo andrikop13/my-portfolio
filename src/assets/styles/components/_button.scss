@@ -1,0 +1,111 @@
+.small-button {
+  color: var(--green);
+  background-color: transparent;
+  border: 1px solid var(--green);
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1rem;
+  font-size: var(--fonts-xs);
+  font-family: var(--font-mono);
+  line-height: 1;
+  text-decoration: none;
+  transition: var(--transition);
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: var(--green-tint);
+    outline: none;
+  }
+  &:after {
+    display: none !important;
+  }
+}
+
+.button-totop {
+  background-color: transparent;
+  border: 1px solid rgb(189, 81, 92);
+  border-radius: 50%;
+  bottom: 30px;
+  right: 30px;
+  display: inline-block;
+  height: 50px;
+  position: fixed;
+  text-align: center;
+  transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+  width: 50px;
+  z-index: 999;
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(189, 81, 92, 0.3);
+  }
+}
+
+.flex-button {
+  margin-top: 5rem;
+  z-index: 999;
+  @include flex_center;
+
+  & button {
+    padding: 1.6rem 3.2rem;
+    cursor: pointer;
+  }
+}
+
+.form-button,
+.form-button:link,
+.form-button:visited {
+  text-transform: uppercase;
+  margin-bottom: 0rem;
+  padding: 1.5rem 4rem;
+  border-radius: 10rem;
+
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  font-size: var(--fonts-xs);
+  background-color: var(--green);
+  color: var(--dark-navy);
+
+  border: none;
+  cursor: pointer;
+}
+
+.form-button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.form-button:not(:disabled) {
+  position: relative;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 80%);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+      background-color: var(--green);
+    }
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 60%);
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+}
