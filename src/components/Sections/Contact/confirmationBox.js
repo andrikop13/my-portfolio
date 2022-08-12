@@ -23,17 +23,19 @@ const typographyStyling = {
 };
 
 const agreeButton = {
-  backgroundColor: "var(--lightest-green)",
-  border: "1px solid var(--light-green)",
+  backgroundColor: "var(--green)",
+  border: "1px solid var(--grey)",
   paddingRight: "1.5rem",
+  fontWeight: 550,
   paddingLeft: "1.5rem",
-  color: "var(--white) !important",
+  color: "var(--dark-navy) !important",
   "&:hover": {
-    backgroundColor: "var(--light-green) !important",
+    backgroundColor: "var(--dark-green) !important",
   },
 };
 
 const disagreeButton = {
+  fontWeight: 550,
   backgroundColor: "transparent",
   border: "1px solid var(--grey)",
   color: "var(--grey) !important",

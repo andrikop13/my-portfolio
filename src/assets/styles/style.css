@@ -21,9 +21,8 @@ ORDER: Base + typography > general layout + grid > page layout > components
   --logo-color: #175873;
   --logo-shadow: #08fdd8;
   --error-color: #dc3545;
+  --not-found-shade: rgb(255, 195, 201);
   --grey: rgb(71, 82, 86);
-  --light-green: #01833c;
-  --lightest-green: #18A558;
   --navy: #002850;
   --light-navy: #112240;
   --lightest-navy: #233554;
@@ -38,6 +37,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
   --white: #e6f1ff;
   --green-light: #64ffda;
   --green: #08fdd8;
+  --dark-green: #00dbba;
   --green-tint: rgba(100, 255, 218, 0.1);
   --main-fonts: "Calibre", "Open Sans", sans-serif;
   --logo-fonts: "Open Sans", "sans-serif"
@@ -855,6 +855,39 @@ nav .nav--links .resume-button {
   align-items: center;
   margin-left: 15px;
   font-size: var(--fonts-xs);
+}
+
+.not-found {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.not-found.__textContainer {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.not-found__status {
+  font-size: 30rem;
+  font-weight: 550;
+  color: var(--not-found-shade);
+  line-height: 0.9;
+}
+.not-found__comment {
+  font-size: var(--fonts-xxl);
+  color: var(--white);
+}
+.not-found__description {
+  color: var(--lightest-slate);
+  font-size: var(--fonts-sm);
+}
+.not-found__button {
+  display: inline-block;
+  padding: 1.5rem 6rem;
 }
 
 .section-about {
