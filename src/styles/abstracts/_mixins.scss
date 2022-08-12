@@ -115,7 +115,7 @@
     grid-area: 13 / 1 / 17 / -1;
 
     &__description {
-      padding: 1rem;
+      padding: 1.5rem;
     }
   }
 
@@ -128,11 +128,13 @@
     z-index: 10;
 
     &__main {
-      font-size: var(--fonts-md);
+      font-size: 1.7rem;
+      line-height: 1.4;
     }
 
     &__before {
       @include flex_start;
+      font-size: var(--fonts-xxs);
     }
   }
 

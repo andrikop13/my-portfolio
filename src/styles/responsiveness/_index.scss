@@ -151,11 +151,11 @@
   }
 
   .section-about {
-    padding: 10rem 4rem 4rem 4rem;
+    padding: 10rem 4rem 0rem 4rem;
   }
 
   .about__tags-box {
-    margin-top: 6rem;
+    margin-top: 7rem;
     padding: 0 1rem;
   }
 
@@ -163,23 +163,56 @@
     min-width: 100%;
     max-width: 100%;
   }
+
+  .skills_grid {
+    width: 90%;
+    gap: 1rem;
+    margin: 0 1rem;
+  }
 }
 
 @include respond(small-phone) {
   .about__tags-box {
-    margin-top: -2rem;
+    margin-top: 0rem;
     padding: 0 0rem;
   }
 
   .section-projects {
     padding: 10rem 3rem;
   }
+
+  .project-container {
+    &:nth-child(even),
+    &:nth-child(odd) {
+      @include carousel_css(190px, 190px);
+      & .project-image {
+        grid-area: 3 / 1 / 11 / -1;
+      }
+
+      & .project-content {
+        grid-area: 11 / 1 / 17 / -1;
+
+        &__description {
+          padding: 2rem 1.5rem 1.5rem 1.5rem;
+        }
+      }
+
+      & .project-tools {
+        margin: 0rem 0 1.5rem 1.5rem;
+
+        & li:not(:last-child) {
+          margin-right: 7px;
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 595px) {
   .MuiTabs-root {
-    min-width: 100% !important;
+    min-width: 120% !important;
     max-width: auto !important;
+    padding: 0;
     margin-bottom: 4rem;
   }
 

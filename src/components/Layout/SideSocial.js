@@ -2,7 +2,7 @@ import { VscGithubAlt } from "react-icons/vsc";
 import { BsInstagram } from "react-icons/bs";
 import { FiLinkedin } from "react-icons/fi";
 import { FiTwitter } from "react-icons/fi";
-import { socialMedia } from "../../content";
+import { socialMedia } from "../../config/content";
 
 const iconSize = 21;
 const iconColor = "var(--light-slate)";

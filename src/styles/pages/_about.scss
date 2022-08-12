@@ -31,6 +31,7 @@
   @include two_col_grid_section;
   width: 50%;
   align-items: start;
+  justify-content: start;
   margin: 0 3rem;
 
   & li {

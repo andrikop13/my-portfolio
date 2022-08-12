@@ -61,7 +61,10 @@ const Loader = (props) => {
   }, [props]);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsOverlay(true), 10);
+    const timeout = setTimeout(() => {
+      setIsOverlay(true);
+    }, 300);
+
     animate();
     return () => clearTimeout(timeout);
   }, [animate]);

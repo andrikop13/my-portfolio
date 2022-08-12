@@ -4,11 +4,32 @@ import { responsive } from "../../../config/config";
 import BurgerNavigator from "./BurgerNavigator";
 import Navigator from "./Navigator";
 import { navMenu } from "../../../config/config";
+import styled, { css } from "styled-components";
+import { useScrollDirection } from "../../../hooks/use-scroll_direction";
+
+const HeaderShow = styled.header`
+  ${(props) =>
+    props.scrollDirection === "up" &&
+    !props.scrolledToTop &&
+    css`
+      transform: translateY(0px);
+      box-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.1);
+    `};
+
+  ${(props) =>
+    props.scrollDirection === "down" &&
+    !props.scrolledToTop &&
+    css`
+      transform: translateY(calc(2 * var(--nav-scroll-height) * -1));
+      background-color: transparent;
+    `};
+`;
 
 const Header = (props) => {
   const [isAnimeDelay, setAnimeDelay] = useState(!props.isHome);
   const [isMobile, setIsMobile] = useState(null);
   const burgerRef = useRef();
+  const { scrollDirection, scrolledToTop } = useScrollDirection();
 
   const handleResize = () => {
     const w = window.innerWidth / responsive.baseDivider;
@@ -68,7 +89,7 @@ const Header = (props) => {
   };
 
   return (
-    <header>
+    <HeaderShow scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
       <nav>
         {Logo}
 
@@ -97,7 +118,7 @@ const Header = (props) => {
           </TransitionGroup>
         )}
       </nav>
-    </header>
+    </HeaderShow>
   );
 };
 

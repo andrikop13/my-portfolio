@@ -39,6 +39,8 @@ html {
 
 /* Scrollbar Styles */
 html {
+  width: 100%;
+  overflow-x: hidden;
   scrollbar-width: thin;
   scrollbar-color: var(--dark-slate) var(--navy);
 }
@@ -57,9 +59,9 @@ html {
 
 body {
   box-sizing: border-box;
-
   margin: 0;
   width: 100%;
+  overflow-x: hidden;
   min-height: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;

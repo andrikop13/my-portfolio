@@ -29,7 +29,6 @@
     "env-cmd": "^10.1.0",
     "jquery": "^3.6.0",
     "leaflet": "^1.8.0",
-    "node-sass": "^7.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -51,8 +50,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "env-cmd -f .env.development.local react-scripts start ",
-    "build": "react-scripts build",
+    "watch:sass": "sass ./src/styles/style.scss:./src/styles/style.css --watch",
+    "start": "react-scripts start",
+    "compile:sass": "sass ./src/styles/style.scss:./src/styles/style.css",
+    "compress:css": "sass ./src/styles/style.css:./src/styles/style.css --style compressed",
+    "build": "npm run compile:sass && npm run compress:css && react-scripts build ",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -77,6 +79,7 @@
   "devDependencies": {
     "@types/leaflet": "^1.7.11",
     "install": "^0.13.0",
-    "npm": "^8.16.0"
+    "npm": "^8.16.0",
+    "npm-run-all": "^4.1.5"
   }
 }
