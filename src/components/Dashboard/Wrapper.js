@@ -7,6 +7,7 @@ const CenteredWrapper = styled.div`
   color: var(--white);
   overflow: auto;
   width: 100vw;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

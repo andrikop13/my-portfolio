@@ -1373,6 +1373,30 @@ leaflet-popup-content-wrapper,
   color: var(--dark-slate);
 }
 
+.paper-container {
+  max-height: calc(100vh - var(--nav-height) - 10rem);
+  z-index: 100;
+  min-width: 80vw;
+}
+.paper-container .links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.paper-container a {
+  color: var(--dark-navy);
+}
+.paper-container a:active {
+  color: var(--logo-color);
+}
+.paper-container a:hover {
+  color: var(--logo-color) !important;
+}
+.paper-container a:hover::after {
+  width: 0;
+}
+
 @media only screen and (max-width: 100em) {
   .section-experience,
 .section-about {

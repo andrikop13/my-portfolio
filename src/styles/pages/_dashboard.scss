@@ -15,3 +15,30 @@
     color: var(--dark-slate);
   }
 }
+
+.paper-container {
+  max-height: calc(100vh - var(--nav-height) - 10rem);
+  z-index: 100;
+  min-width: 80vw;
+
+  & .links {
+    @include flex_center;
+    gap: 0.5rem;
+  }
+
+  a {
+    color: var(--dark-navy);
+
+    &:active {
+      color: var(--logo-color);
+    }
+
+    &:hover {
+      color: var(--logo-color) !important;
+
+      &::after {
+        width: 0;
+      }
+    }
+  }
+}
