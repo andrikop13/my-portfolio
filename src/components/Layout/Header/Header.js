@@ -8,6 +8,7 @@ import styled, { css } from "styled-components";
 import { useScrollDirection } from "../../../hooks/use-scroll_direction";
 import Logo from "./Logo";
 import Resume from "./Resume";
+import LoginButton from "./LoginButton";
 
 const HeaderShow = styled.header`
   ${(props) =>
@@ -75,6 +76,7 @@ const Header = (props) => {
           <Navigator
             isHome={props.isHome}
             Resume={<Resume />}
+            Login={<LoginButton />}
             Logo={Logo}
             animeDelay={isAnimeDelay}
             navMenu={navMenu}
@@ -87,6 +89,7 @@ const Header = (props) => {
               <CSSTransition nodeRef={burgerRef} {...transProps}>
                 <BurgerNavigator
                   Resume={<Resume />}
+                  Login={<LoginButton />}
                   navMenu={navMenu}
                   ref={burgerRef}
                   scroll={handleScrolling}

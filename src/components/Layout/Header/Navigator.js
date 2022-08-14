@@ -5,12 +5,14 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 const Navigator = ({
   isHome,
   Resume,
+  Login,
   animeDelay,
   navMenu,
   transitionProps,
   scroll,
 }) => {
   const resumeRef = useRef(null);
+  const loginRef = useRef(null);
 
   return (
     <div className="nav--links">
@@ -42,16 +44,29 @@ const Navigator = ({
           })}
 
         {animeDelay && (
-          <CSSTransition
-            nodeRef={resumeRef}
-            {...transitionProps}
-            timeout={transitionProps.timeout + 100}
-            style={{
-              transitionDelay: `${isHome ? navMenu.length * 100 : 0}ms`,
-            }}
-          >
-            <div ref={resumeRef}>{Resume}</div>
-          </CSSTransition>
+          <>
+            <CSSTransition
+              nodeRef={resumeRef}
+              {...transitionProps}
+              timeout={transitionProps.timeout + 100}
+              style={{
+                transitionDelay: `${isHome ? navMenu.length * 100 : 0}ms`,
+              }}
+            >
+              <div ref={resumeRef}>{Resume}</div>
+            </CSSTransition>
+
+            <CSSTransition
+              nodeRef={loginRef}
+              {...transitionProps}
+              timeout={transitionProps.timeout + 300}
+              style={{
+                transitionDelay: `${isHome ? navMenu.length * 150 : 0}ms`,
+              }}
+            >
+              <div ref={loginRef}>{Login}</div>
+            </CSSTransition>
+          </>
         )}
       </TransitionGroup>
     </div>

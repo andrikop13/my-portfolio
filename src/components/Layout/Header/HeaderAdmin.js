@@ -20,24 +20,6 @@ const HeaderAdmin = () => {
         <Logo />
 
         <div className="nav--links">
-          {isAuthenticated ? (
-            <Link
-              to={URL_CONFIG.baseURLs.login}
-              replace
-              className="resume-button small-button"
-              onClick={logoutHandler}
-            >
-              Logout
-            </Link>
-          ) : (
-            <Link
-              to={URL_CONFIG.baseURLs.login}
-              replace
-              className="resume-button small-button"
-            >
-              Login
-            </Link>
-          )}
           {isAuthenticated && (
             <Link
               to={URL_CONFIG.baseURLs.dashboard}
@@ -50,6 +32,17 @@ const HeaderAdmin = () => {
           <Link to={"/"} replace className="resume-button small-button">
             Portfolio
           </Link>
+          {isAuthenticated && (
+            <Link
+              to={URL_CONFIG.baseURLs.login}
+              replace
+              className="login-button-main small-button"
+              style={{ marginLeft: "15px" }}
+              onClick={logoutHandler}
+            >
+              Logout
+            </Link>
+          )}
         </div>
       </nav>
     </header>

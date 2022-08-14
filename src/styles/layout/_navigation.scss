@@ -73,11 +73,18 @@ nav {
       }
     }
 
-    .resume-button {
+    .resume-button,
+    .login-button-main {
       margin-top: 0.5rem;
       @include flex_center;
-      margin-left: 15px;
+      margin-left: 10px;
       font-size: var(--fonts-xs);
+    }
+
+    .login-button-main {
+      margin-left: 30px;
+      border: 1px solid var(--not-found-shade);
+      color: var(--not-found-shade);
     }
   }
 }

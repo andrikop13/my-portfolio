@@ -61,6 +61,14 @@ const StyledMenu = styled.aside`
       font-size: var(--fonts-md);
       padding: 2rem 4rem;
     }
+
+    .login-button-main {
+      font-size: var(--fonts-md);
+      padding: 2rem 4.8rem;
+      border: 1px solid var(--not-found-shade);
+      color: var(--not-found-shade);
+      margin-top: 3rem;
+    }
   }
 `;
 
@@ -138,6 +146,7 @@ const BurgerNavigator = React.forwardRef((props, ref) => {
           <div key={10} className="resume-button">
             {props.Resume}
           </div>
+          <div key={20}>{props.Login}</div>
         </ol>
       </StyledMenu>
     </div>
