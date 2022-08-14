@@ -10,9 +10,8 @@ import SectionReveal from "./SectionReveal";
 
 const Main = () => {
   const location = useLocation();
-
   return (
-    <Home location={location}>
+    <>
       <ButtonToTop />
 
       <Hero />
@@ -31,7 +30,7 @@ const Main = () => {
       <SectionReveal>
         <Contact />
       </SectionReveal>
-    </Home>
+    </>
   );
 };
 

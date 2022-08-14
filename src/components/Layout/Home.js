@@ -8,6 +8,7 @@ import MessageWindow from "./MessageWindow";
 
 const Home = (props) => {
   const isHome = props.location.pathname === "/";
+  const isAdmin = props.location.pathname.includes("/admin");
   const [isLoading, setIsLoading] = useState(isHome);
 
   useEffect(() => {
@@ -39,7 +40,7 @@ const Home = (props) => {
         <Loader finishLoading={() => setIsLoading(false)} />
       ) : (
         <>
-          <Header isHome={isHome} />
+          {!isAdmin && <Header isHome={isHome} />}
           <SideSocial />
           {props.children}
           <Footer />

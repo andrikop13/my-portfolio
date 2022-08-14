@@ -6,6 +6,8 @@ import Navigator from "./Navigator";
 import { navMenu } from "../../../config/config";
 import styled, { css } from "styled-components";
 import { useScrollDirection } from "../../../hooks/use-scroll_direction";
+import Logo from "./Logo";
+import Resume from "./Resume";
 
 const HeaderShow = styled.header`
   ${(props) =>
@@ -58,30 +60,6 @@ const Header = (props) => {
     };
   }, []);
 
-  const Logo = (
-    <div className="logo" tabIndex="-1">
-      <a href="/" aria-label="home">
-        <div className="flexRow">
-          <div className="logoText">A</div>
-          <div className="text-column">
-            <div className="nameText">Andrikopoulos</div>
-            <div className="jobTitle">Web Developer</div>
-          </div>
-        </div>
-      </a>
-    </div>
-  );
-  const Resume = (
-    <a
-      className="resume-button small-button"
-      href="content/cv_andrikopoulos_andreas.pdf"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Resume
-    </a>
-  );
-
   const transProps = {
     in: props.isHome,
     classNames: "fadedown",
@@ -91,12 +69,12 @@ const Header = (props) => {
   return (
     <HeaderShow scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
       <nav>
-        {Logo}
+        <Logo />
 
         {!isMobile ? (
           <Navigator
             isHome={props.isHome}
-            Resume={Resume}
+            Resume={<Resume />}
             Logo={Logo}
             animeDelay={isAnimeDelay}
             navMenu={navMenu}
@@ -108,7 +86,7 @@ const Header = (props) => {
             {isAnimeDelay && (
               <CSSTransition nodeRef={burgerRef} {...transProps}>
                 <BurgerNavigator
-                  Resume={Resume}
+                  Resume={<Resume />}
                   navMenu={navMenu}
                   ref={burgerRef}
                   scroll={handleScrolling}
