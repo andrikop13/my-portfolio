@@ -188,6 +188,9 @@ const ContactForm = () => {
           open={dialogOpen}
           setOpen={setDialogOpen}
           confirm={sendEmail}
+          dialogTitle="Sending email..."
+          confirmationMessage="Are you sure you want to contact with me?"
+          yesMessage="Let's talk"
         />
       </div>
     </>

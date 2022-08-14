@@ -11,7 +11,7 @@ const projectSlice = createSlice({
     },
     addProject(state, action) {
       const newProject = action.payload;
-      const existingProject = state.items.find(
+      const existingProject = state.list.find(
         (item) => item.title === newProject.title
       );
 
@@ -28,6 +28,14 @@ const projectSlice = createSlice({
       } else {
         return;
       }
+    },
+    deleteProject(state, action) {
+      console.log(state, action);
+      const filterProjects = state.list.filter(
+        (project) => project.title !== action.payload
+      );
+
+      state.list = filterProjects;
     },
   },
 });

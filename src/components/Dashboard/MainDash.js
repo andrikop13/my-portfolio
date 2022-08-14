@@ -7,6 +7,7 @@ import Wrapper from "./Wrapper";
 const CustomCard = styled.div`
   width: 300px;
   height: 300px;
+  text-align: center;
   background-color: var(--lightest-slate);
   box-shadow: 1rem 2rem 4rem var(--navy-shadow);
   border-radius: 3px;
@@ -25,7 +26,7 @@ const CustomCard = styled.div`
     box-shadow: 1rem 2rem 4rem rgba(0, 0, 0, 0.5);
   }
 
-  @media only screen and (max-width: 580px) {
+  @media only screen and (max-width: 675px) {
     width: 200px;
     height: 200px;
   }

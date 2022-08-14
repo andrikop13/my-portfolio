@@ -50,12 +50,11 @@ const App = () => {
             </Route>
 
             <Route path="" element={<ProtectedRoute />}>
-              <Route path="/admin/projects" element={<ProjectList />}>
-                <Route
-                  path="/admin/projects/:projectId"
-                  element={<ProjectForm />}
-                />
-              </Route>
+              <Route path="/admin/projects" element={<ProjectList />} />
+              <Route
+                path="/admin/projects/:projectId"
+                element={<ProjectForm />}
+              />
             </Route>
 
             <Route path="*" element={<NotFound />} />

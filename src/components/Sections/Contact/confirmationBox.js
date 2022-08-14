@@ -56,12 +56,22 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function ConfirmationBox({ open, setOpen, confirm }) {
+export default function ConfirmationBox({
+  dialog,
+  open,
+  setOpen,
+  confirm,
+  dialogTitle,
+  confirmationMessage,
+  yesMessage,
+}) {
   const handleClose = () => {
+    dialog && setOpen({ ...dialog, open: dialog.open });
     setOpen(false);
   };
 
   const handleAgree = () => {
+    dialog && setOpen({ ...dialog, open: dialog.open });
     setOpen(false);
     confirm();
   };
@@ -79,7 +89,7 @@ export default function ConfirmationBox({ open, setOpen, confirm }) {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title" sx={{ ...titleStyling }}>
-          {"Sending email..."}
+          {dialogTitle}
         </DialogTitle>
         <hr />
         <DialogContent>
@@ -92,7 +102,7 @@ export default function ConfirmationBox({ open, setOpen, confirm }) {
               alignItems: "start",
             }}
           >
-            Are you sure you want to contact with me ?
+            {confirmationMessage}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -100,7 +110,7 @@ export default function ConfirmationBox({ open, setOpen, confirm }) {
             No
           </Button>
           <Button onClick={handleAgree} autoFocus sx={agreeButton}>
-            Let's talk!
+            {yesMessage}
           </Button>
         </DialogActions>
       </Dialog>
