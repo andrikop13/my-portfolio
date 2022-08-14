@@ -1,5 +1,7 @@
+import Wrapper from "../Wrapper";
+
 const JobList = () => {
-  return <div>Job list page</div>;
+  return <Wrapper>Job list page</Wrapper>;
 };
 
 export default JobList;

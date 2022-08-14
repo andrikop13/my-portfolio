@@ -1,5 +1,7 @@
+import Wrapper from "../Wrapper";
+
 const ProjectForm = () => {
-  return <div>Project form page</div>;
+  return <Wrapper>Project form page</Wrapper>;
 };
 
 export default ProjectForm;

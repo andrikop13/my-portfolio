@@ -1,5 +1,7 @@
+import Wrapper from "../Wrapper";
+
 const JobForm = () => {
-  return <div>Job form page</div>;
+  return <Wrapper>Job form page</Wrapper>;
 };
 
 export default JobForm;

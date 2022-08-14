@@ -38,7 +38,15 @@ const HeaderAdmin = () => {
               Login
             </Link>
           )}
-
+          {isAuthenticated && (
+            <Link
+              to={URL_CONFIG.baseURLs.dashboard}
+              replace
+              className="resume-button small-button"
+            >
+              Dashboard
+            </Link>
+          )}
           <Link to={"/"} replace className="resume-button small-button">
             Portfolio
           </Link>

@@ -1,0 +1,17 @@
+.dash-container {
+  @include flex_center;
+  flex-wrap: wrap;
+  gap: 4.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+
+  & .card-title {
+    font-size: var(--fonts-xl);
+    color: var(--logo-color);
+  }
+
+  & .card-number {
+    font-size: var(--fonts-xxxxl);
+    color: var(--dark-slate);
+  }
+}

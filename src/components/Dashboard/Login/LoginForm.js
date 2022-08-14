@@ -39,7 +39,7 @@ const LoginForm = ({
   };
 
   return (
-    <div className="login-container">
+    <form className="login-container" onSubmit={submitLoginForm}>
       <div className="login-sidebar">
         <div className="login-sidebar__flex">
           <div style={{ width: "10rem", height: "10rem" }}>
@@ -112,14 +112,14 @@ const LoginForm = ({
             <button
               className="login-button"
               disabled={!formValid}
-              onClick={submitLoginForm}
+              type="submit"
             >
               Continue &rarr;
             </button>
           </Grid>
         </Grid>
       </div>
-    </div>
+    </form>
   );
 };
 

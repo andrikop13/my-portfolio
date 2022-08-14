@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
 const CenteredWrapper = styled.div`
+  min-height: calc(100vh - var(--nav-height) - 4rem);
+  overflow-y: scroll;
   font-size: var(--fonts-md);
   color: var(--white);
-  min-height: 75rem;
+  overflow: auto;
   width: 100vw;
   display: flex;
   flex-direction: column;

@@ -56,7 +56,8 @@ const Login = () => {
     navigate(URL_CONFIG.baseURLs.dashboard);
   };
 
-  const submitLogin = () => {
+  const submitLogin = (e) => {
+    e.preventDefault();
     dispatch(
       uiActions.showMessage({
         message: "Login request...",
