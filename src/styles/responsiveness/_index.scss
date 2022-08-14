@@ -169,6 +169,14 @@
     gap: 1rem;
     margin: 0 1rem;
   }
+
+  .login-container {
+    & .main-form {
+      & .login-button {
+        width: 200px;
+      }
+    }
+  }
 }
 
 @include respond(small-phone) {
@@ -218,5 +226,17 @@
 
   .MuiBox-root {
     padding: 0 0rem !important;
+  }
+}
+
+@media only screen and (max-width: 790px) {
+  .login-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr;
+
+    & .login-sidebar {
+      max-width: 100%;
+      height: auto;
+    }
   }
 }

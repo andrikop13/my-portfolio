@@ -8,6 +8,7 @@ const useInput = (validateValue) => {
   const hasError = !valueIsValid && isTouched;
 
   const valueChangeHandler = (event) => {
+    console.log(event.target.value);
     setEnteredValue(event.target.value);
   };
 

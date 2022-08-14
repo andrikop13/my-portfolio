@@ -6,15 +6,18 @@ import "leaflet/dist/leaflet";
 import "./styles/style.css";
 import store from "./store";
 import { Provider } from "react-redux";
+import { AuthContextProvider } from "./store/auth-context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <BrowserRouter>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </BrowserRouter>
+  <AuthContextProvider>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
+  </AuthContextProvider>
 );
 
 // "@testing-library/jest-dom": "^5.16.4",

@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import Header from "./Header/Header";
 import SideSocial from "./SideSocial";
 import MessageWindow from "./MessageWindow";
+import HeaderAdmin from "./Header/HeaderAdmin";
 
 const Home = (props) => {
   const isHome = props.location.pathname === "/";
@@ -41,6 +42,7 @@ const Home = (props) => {
       ) : (
         <>
           {!isAdmin && <Header isHome={isHome} />}
+          {isAdmin && <HeaderAdmin />}
           <SideSocial />
           {props.children}
           <Footer />
