@@ -4,18 +4,15 @@ import { FiLinkedin } from "react-icons/fi";
 import { FiTwitter } from "react-icons/fi";
 import { socialMedia } from "../../config/content";
 
-const iconSize = 21;
+let iconSize = 21;
 const iconColor = "var(--light-slate)";
 
-const SideSocial = () => {
+const SideSocial = (props) => {
+  if (props.iconSize) iconSize = props.iconSize;
+
   return (
-    <div className="socials-sidebar">
-      <ul>
-        <li>
-          {/* <a href={`mailto:${socialMedia.email.url}`}>
-            <SiGmail size={iconSizeSm} color={iconColor} />
-          </a> */}
-        </li>
+    <div className={`socials-sidebar ${!props.flexRow ? "fixed" : ""}`}>
+      <ul className={props.flexRow ? "ul__flex" : ""}>
         <li>
           <a
             href={socialMedia.github.url}

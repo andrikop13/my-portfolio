@@ -597,12 +597,15 @@ body {
 
 .footer {
   padding: 2rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: var(--fonts-xs);
   color: var(--lightest-slate);
   background-color: var(--dark-navy);
+}
+.footer .flexRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .footer a {
   color: var(--lightest-slate);
@@ -692,10 +695,6 @@ header .scroll-down {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30px;
-  position: fixed;
-  bottom: 0px;
-  left: 12px;
   right: auto;
   z-index: 999;
 }
@@ -708,14 +707,30 @@ header .scroll-down {
   justify-content: center;
   align-items: center;
 }
+.socials-sidebar .ul__flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.4rem;
+}
 .socials-sidebar a:hover {
   transform: translateY(-2px);
 }
 .socials-sidebar a:hover::after {
   width: 0;
 }
+
+.fixed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  position: fixed;
+  left: 12px;
+  bottom: 0px;
+}
 @media only screen and (max-width: 56.25em) {
-  .socials-sidebar {
+  .fixed {
     display: none;
   }
 }

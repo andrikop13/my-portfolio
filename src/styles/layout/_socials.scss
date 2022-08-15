@@ -1,9 +1,6 @@
 .socials-sidebar {
   @include flex_center;
-  width: 30px;
-  position: fixed;
-  bottom: 0px;
-  left: 12px;
+
   right: auto;
   z-index: 999;
 
@@ -16,6 +13,11 @@
     }
   }
 
+  & .ul__flex {
+    @include flex_center;
+    gap: 2.4rem;
+  }
+
   & a {
     &:hover {
       transform: translateY(-2px);
@@ -24,6 +26,16 @@
       }
     }
   }
+}
+
+.fixed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  position: fixed;
+  left: 12px;
+  bottom: 0px;
 
   @include respond(tab-port) {
     display: none;

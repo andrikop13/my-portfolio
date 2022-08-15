@@ -9,6 +9,7 @@ import { useScrollDirection } from "../../../hooks/use-scroll_direction";
 import Logo from "./Logo";
 import Resume from "./Resume";
 import LoginButton from "./LoginButton";
+import { useWindowSize } from "../../../hooks/use-window_size";
 
 const HeaderShow = styled.header`
   ${(props) =>
@@ -30,14 +31,9 @@ const HeaderShow = styled.header`
 
 const Header = (props) => {
   const [isAnimeDelay, setAnimeDelay] = useState(!props.isHome);
-  const [isMobile, setIsMobile] = useState(null);
   const burgerRef = useRef();
   const { scrollDirection, scrolledToTop } = useScrollDirection();
-
-  const handleResize = () => {
-    const w = window.innerWidth / responsive.baseDivider;
-    setIsMobile(w < responsive.tablet[1]);
-  };
+  const { isMobile } = useWindowSize(responsive.tablet[1]);
 
   const handleScrolling = (id) => {
     const element = document.getElementById(id);
@@ -51,13 +47,8 @@ const Header = (props) => {
       setAnimeDelay(true);
     }, 100);
 
-    const width = window.innerWidth / responsive.baseDivider;
-    setIsMobile(width < responsive.tablet[1]);
-    window.addEventListener("resize", handleResize);
-
     return () => {
       clearTimeout(timeout);
-      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
