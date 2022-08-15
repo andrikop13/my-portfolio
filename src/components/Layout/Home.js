@@ -43,7 +43,7 @@ const Home = (props) => {
         <>
           {!isAdmin && <Header isHome={isHome} />}
           {isAdmin && <HeaderAdmin />}
-          <SideSocial />
+          <SideSocial flexRow={false} />
           {props.children}
           <Footer />
 

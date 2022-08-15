@@ -48,13 +48,14 @@ const Loader = (props) => {
     loader
       .add({
         targets: "#myLogo path",
-        duration: 1200, // duration: 1500
+        delay: 300,
+        duration: 1500, // duration: 1500
         easing: "easeInOutQuart",
         strokeDashoffset: [anime.setDashoffset, 0],
       })
       .add({
         targets: "#logoText",
-        duration: 600, //duration: 700
+        duration: 700, //duration: 700
         easing: "easeInOutQuart",
         opacity: 1,
       });
@@ -63,7 +64,7 @@ const Loader = (props) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsOverlay(true);
-    }, 300);
+    }, 10);
 
     animate();
     return () => clearTimeout(timeout);

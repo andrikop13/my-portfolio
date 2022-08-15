@@ -1,9 +1,13 @@
 .footer {
   padding: 2rem 0;
-  @include flex_center;
   font-size: var(--fonts-xs);
   color: var(--lightest-slate);
   background-color: var(--dark-navy);
+
+  .flexRow {
+    @include flex_center;
+    flex-direction: column;
+  }
 
   a {
     color: var(--lightest-slate);
