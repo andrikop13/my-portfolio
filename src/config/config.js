@@ -14,6 +14,8 @@ module.exports = {
       login: "/admin/login",
       dashboard: "/admin/dashboard",
       projects: "/admin/projects",
+      newProject: "/admin/projects/newProject",
+      newJob: "/admin/jobs/newJob",
       jobs: "/admin/jobs",
     },
   },

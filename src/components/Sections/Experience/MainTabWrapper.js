@@ -56,11 +56,16 @@ const MainTabWrapper = () => {
         textColor="secondary"
       >
         {jobs.map((job, i) => (
-          <Tab label={job.organization} {...a11yProps(i)} value={i} />
+          <Tab
+            label={job.organization}
+            {...a11yProps(i)}
+            value={i}
+            key={`jobtab_${i}`}
+          />
         ))}
       </Tabs>
       {jobs.map((job, i) => (
-        <TabPanel value={value} index={i}>
+        <TabPanel value={value} index={i} key={`jobpanel_${i}`}>
           <div className="experience__description">
             <h1 className="experience__description-title">
               <label className="experience__position">{job.position}</label>{" "}

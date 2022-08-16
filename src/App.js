@@ -47,12 +47,17 @@ const App = () => {
             <Route path="" element={<ProtectedRoute />}>
               <Route path="/admin/jobs" element={<JobList />} />
               <Route path="/admin/jobs/:jobId" element={<JobForm />} />
+              <Route path="/admin/jobs/newJob" element={<JobForm />} />
             </Route>
 
             <Route path="" element={<ProtectedRoute />}>
               <Route path="/admin/projects" element={<ProjectList />} />
               <Route
                 path="/admin/projects/:projectId"
+                element={<ProjectForm />}
+              />
+              <Route
+                path="/admin/projects/newProject"
                 element={<ProjectForm />}
               />
             </Route>

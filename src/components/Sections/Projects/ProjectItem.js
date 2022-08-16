@@ -22,7 +22,12 @@ const ProjectItem = ({ project, pIndex }) => {
           emulateTouch={true}
         >
           {project.images.map((img, i) => (
-            <img className="slider-image" src={img} alt={`image_${i}`} />
+            <img
+              className="slider-image"
+              src={img}
+              alt={`image_${i}`}
+              key={`image_${i}`}
+            />
           ))}
         </Carousel>
       </div>

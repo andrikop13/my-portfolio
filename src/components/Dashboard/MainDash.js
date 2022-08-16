@@ -1,3 +1,4 @@
+import { ConstructionOutlined } from "@mui/icons-material";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -36,12 +37,14 @@ const MainDash = () => {
   const navigate = useNavigate();
   const projects = useSelector((state) => state.projects.list);
   const jobs = useSelector((state) => state.jobs.list);
+  console.log("Projects:", projects);
+  console.log("Jobs", jobs);
 
   return (
     <Wrapper>
       <div className="dash-container">
         <CustomCard onClick={() => navigate(URL_CONFIG.baseURLs.jobs)}>
-          <div className="card-title">Experience (Jobs)</div>
+          <div className="card-title">Experience</div>
           <div className="card-number">{jobs.length}</div>
         </CustomCard>
 

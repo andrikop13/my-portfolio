@@ -19,7 +19,7 @@ const MessageWindow = () => {
     >
       <Alert
         onClose={handleClose}
-        severity={message.severity}
+        severity={message.severity !== "" ? message.severity : "error"}
         sx={{ fontSize: "var(--fonts-xxs)", color: "var(--white)" }}
         variant="filled"
       >

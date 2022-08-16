@@ -19,7 +19,8 @@
 .paper-container {
   max-height: calc(100vh - var(--nav-height) - 10rem);
   z-index: 100;
-  min-width: 80vw;
+  max-width: 80vw;
+  background-color: var(--light-slate);
 
   & .links {
     @include flex_center;

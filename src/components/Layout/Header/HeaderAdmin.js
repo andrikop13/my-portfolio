@@ -29,7 +29,7 @@ const HeaderAdmin = () => {
               Dashboard
             </Link>
           )}
-          <a href="/" replace className="resume-button small-button">
+          <a href="/" className="resume-button small-button">
             Portfolio
           </a>
           {isAuthenticated && (

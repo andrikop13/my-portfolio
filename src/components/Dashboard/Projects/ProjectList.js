@@ -45,9 +45,13 @@ const ProjectList = () => {
     dispatch(projectsActions.deleteProject(dialog.projectTitle));
   };
 
+  const createNewProject = () => {
+    navigate(`${URL_CONFIG.baseURLs.newProject}`);
+  };
+
   return (
     <Wrapper>
-      <CustomTable columns={columns}>
+      <CustomTable columns={columns} createNewItem={createNewProject}>
         <TableBody>
           {projects.map((project, id) => (
             <StyledTableRow key={id}>
