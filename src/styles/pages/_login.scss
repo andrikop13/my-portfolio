@@ -42,40 +42,5 @@
     &__input {
       font-size: var(--fonts-sm) !important;
     }
-
-    & .login-button {
-      text-transform: uppercase;
-      width: 300px;
-      margin-bottom: 0rem;
-      padding: 2rem 4rem;
-      border-radius: 3px;
-      font-weight: 550;
-
-      -webkit-transition: all 0.2s;
-      transition: all 0.3s;
-      font-size: var(--fonts-xs);
-      background-color: var(--dark-slate);
-      color: var(--white);
-      box-shadow: 0.5rem 1rem 1rem rgba(0, 0, 0, 0.09);
-
-      border: none;
-      cursor: pointer;
-
-      &:hover:not(:disabled) {
-        background-color: var(--navy);
-        transform: translateY(-2px);
-        box-shadow: 0.5rem 1rem 1rem rgba(0, 0, 0, 0.2);
-      }
-
-      &:active:not(:disabled) {
-        outline: none;
-        transform: scale(0.97);
-      }
-
-      &:disabled {
-        opacity: 0.6;
-        cursor: default;
-      }
-    }
   }
 }

@@ -27,6 +27,14 @@ const jobsSlice = createSlice({
         return;
       }
     },
+    deleteJob(state, action) {
+      console.log(state, action);
+      const filterProjects = state.list.filter(
+        (job) => job.id !== action.payload
+      );
+
+      state.list = filterProjects;
+    },
   },
 });
 

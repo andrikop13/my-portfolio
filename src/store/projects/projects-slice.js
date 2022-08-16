@@ -32,7 +32,7 @@ const projectSlice = createSlice({
     deleteProject(state, action) {
       console.log(state, action);
       const filterProjects = state.list.filter(
-        (project) => project.title !== action.payload
+        (project) => project.id !== action.payload
       );
 
       state.list = filterProjects;

@@ -53,13 +53,13 @@ const ProjectList = () => {
     <Wrapper>
       <CustomTable columns={columns} createNewItem={createNewProject}>
         <TableBody>
-          {projects.map((project, id) => (
-            <StyledTableRow key={id}>
+          {projects.map((project) => (
+            <StyledTableRow key={project.id}>
               <StyledTableCell align="left">
                 <IconButton
                   sx={{ marginLeft: "15px" }}
                   aria-label="edit"
-                  onClick={() => onToggleEditMode(id)}
+                  onClick={() => onToggleEditMode(project.id)}
                 >
                   <EditIcon sx={{ fontSize: "2.5rem" }} />
                 </IconButton>
@@ -67,7 +67,7 @@ const ProjectList = () => {
                 <IconButton
                   sx={{ marginLeft: "15px" }}
                   aria-label="edit"
-                  onClick={() => onDelete(project.title)}
+                  onClick={() => onDelete(project.id)}
                 >
                   <DeleteIcon sx={{ fontSize: "2.5rem" }} />
                 </IconButton>

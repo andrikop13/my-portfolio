@@ -60,7 +60,7 @@ const MainTabWrapper = () => {
             label={job.organization}
             {...a11yProps(i)}
             value={i}
-            key={`jobtab_${i}`}
+            key={`jobtab_${job.id}`}
           />
         ))}
       </Tabs>

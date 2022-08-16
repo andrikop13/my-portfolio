@@ -38,13 +38,13 @@ const JobList = () => {
     <Wrapper>
       <CustomTable columns={columns}>
         <TableBody>
-          {jobs.map((job, id) => (
-            <StyledTableRow key={id}>
+          {jobs.map((job) => (
+            <StyledTableRow key={job.id}>
               <StyledTableCell align="left">
                 <IconButton
                   sx={{ marginLeft: "15px" }}
                   aria-label="edit"
-                  onClick={() => onToggleEditMode(id)}
+                  onClick={() => onToggleEditMode(job.id)}
                 >
                   <EditIcon sx={{ fontSize: "2.5rem" }} />
                 </IconButton>
@@ -52,7 +52,7 @@ const JobList = () => {
                 <IconButton
                   sx={{ marginLeft: "15px" }}
                   aria-label="edit"
-                  onClick={() => onDelete(id)}
+                  onClick={() => onDelete(job.id)}
                 >
                   <DeleteIcon sx={{ fontSize: "2.5rem" }} />
                 </IconButton>

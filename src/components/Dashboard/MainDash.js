@@ -37,8 +37,6 @@ const MainDash = () => {
   const navigate = useNavigate();
   const projects = useSelector((state) => state.projects.list);
   const jobs = useSelector((state) => state.jobs.list);
-  console.log("Projects:", projects);
-  console.log("Jobs", jobs);
 
   return (
     <Wrapper>

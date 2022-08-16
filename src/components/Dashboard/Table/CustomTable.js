@@ -14,7 +14,7 @@ export const StyledTableCell = styled(TableCell)(({ theme }) => ({
     backgroundColor: "var(--logo-color)",
     color: "var(--lightest-slate)",
     fontSize: "var(--fonts-md)",
-    padding: "2.5rem",
+    padding: "2rem 1rem 2rem 1rem",
     borderBottom: "1px solid black",
     fontFamily: "inherit",
   },
@@ -44,14 +44,18 @@ const CustomTable = (props) => {
   return (
     <Paper
       className="paper-container"
-      sx={{ borderRadius: 4, backgroundColor: "var(light-slate)" }}
+      sx={{
+        borderRadius: 2,
+        backgroundColor: "var(light-slate)",
+        overflow: "hidden",
+      }}
     >
       <div
         style={{
           padding: "0.5rem 2.5rem 0 2.5rem",
           backgroundColor: "var(--logo-color)",
-          borderTopLeftRadius: "5px",
-          borderTopRightRadius: "5px",
+          borderTopLeftRadius: "1px",
+          borderTopRightRadius: "1px",
         }}
       >
         <button
@@ -64,8 +68,8 @@ const CustomTable = (props) => {
       </div>
       <TableContainer
         sx={{
-          borderBottomLeftRadius: 5,
-          borderBottomRightRadius: 5,
+          borderBottomLeftRadius: 1,
+          borderBottomRightRadius: 1,
           maxWidth: "90vw",
           maxHeight: "calc(100vh - var(--nav-height) - 13rem)",
         }}

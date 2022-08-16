@@ -1,6 +1,6 @@
 {
-  "jobs": [
-    {
+  "jobs": {
+    "-N9blHoDP2Ba_BBAhTwi": {
       "position": "Software Engineer",
       "organization": "Hellenic Army IT Support Centre",
       "descriptionItems": [
@@ -10,7 +10,7 @@
       "date": "Feb 2022 - October 2022",
       "link": "http://army.gr/el/organosi/monades-ypiresies/kentro-pliroforikis-ypostirixis-ellinikoy-stratoy-kepyes"
     },
-    {
+    "-N9blL20E47MywWmI0E1": {
       "position": "Software Engineer",
 
       "organization": "Meazon S.A.",
@@ -23,7 +23,7 @@
       "date": "Jun 2018 - Oct 2021",
       "link": "https://meazon.com/"
     },
-    {
+    "-N9blNL_A4-owb5B-bEW": {
       "position": "Software Engineer",
 
       "organization": "Meazon S.A. (Internship)",
@@ -33,7 +33,7 @@
       "date": "Mar 2018 - May 2018",
       "link": "https://meazon.com/"
     },
-    {
+    "-N9blPetiGS0HkCl6Irt": {
       "position": "Teacher Assistant",
 
       "organization": "CEID - University of Patras",
@@ -43,5 +43,5 @@
       "date": "Oct 2020 - Sep 2021",
       "link": "https://www.ceid.upatras.gr/en"
     }
-  ]
+  }
 }

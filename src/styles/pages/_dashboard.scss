@@ -20,7 +20,9 @@
   max-height: calc(100vh - var(--nav-height) - 10rem);
   z-index: 100;
   max-width: 80vw;
+  min-width: 80vw;
   background-color: var(--light-slate);
+  overflow: auto;
 
   & .links {
     @include flex_center;
