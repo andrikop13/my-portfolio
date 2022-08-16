@@ -9,7 +9,7 @@ const About = () => {
         <div className="about__description-text">
           <p className="u-margin-bottom-small">
             Hello, my name is Andreas Andrikopoulos and I am an electrical
-            engineer graduate from the
+            engineer graduate from the{" "}
             <a
               href="http://www.ece.upatras.gr/index.php/en/"
               target="_blank"
