@@ -25,8 +25,8 @@ const LoginForm = ({
 
   const textStyle = {
     style: {
-      fontSize: "var(--fonts-sm)",
-      padding: "1.5rem 2rem",
+      fontSize: "var(--fonts-xs)",
+      padding: "1.25rem 2rem",
     },
   };
 

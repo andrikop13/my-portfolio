@@ -507,6 +507,7 @@ body {
   line-height: 1;
   text-decoration: none;
   transition: var(--transition);
+  cursor: pointer;
 }
 .small-button:hover, .small-button:focus, .small-button:active {
   background-color: var(--green-tint);

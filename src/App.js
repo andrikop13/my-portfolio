@@ -21,12 +21,11 @@ import AnimationLayout from "./components/Layout/AnimationLayout";
 const App = () => {
   const location = useLocation();
   const dispatch = useDispatch();
-  const { sendRequest: fetchData } = useHttp();
 
   useEffect(() => {
-    dispatch(fetchProjectsData(fetchData));
-    dispatch(fetchJobsData(fetchData));
-  }, [dispatch, fetchData]);
+    dispatch(fetchProjectsData());
+    dispatch(fetchJobsData());
+  }, [dispatch]);
 
   return (
     <>

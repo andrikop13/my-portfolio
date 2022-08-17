@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import styled from "styled-components";
 
@@ -7,6 +7,7 @@ const DropzoneContainer = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
+  font-size: var(--fonts-md);
   align-items: center;
   padding: 20px;
   border-width: 2px;
@@ -33,10 +34,17 @@ const Thumb = styled.div`
   margin-bottom: 8px;
   margin-right: 8px;
   margin-top: 10px;
-  width: 125px;
-  height: 100px;
+  width: 182px;
+  height: 98px;
   padding: 4;
   box-sizing: border-box;
+
+  transition: all 0.3s;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.5);
+  }
 }
 `;
 
@@ -52,12 +60,35 @@ const Image = styled.img`
   height: 100%;
 }`;
 
-const DropZone = ({ formIsValid, files, setFiles }) => {
+const ExistingImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1.6rem;
+  margin-bottom: 1.6rem;
+`;
+
+const ExistingImage = styled.img`
+  width: 182px;
+  height: 98px;
+  transition: all 0.3s;
+  transition-delay: 0.3s;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(2);
+  }
+`;
+
+const DropZone = ({ formIsValid, files, setFiles, existingImages }) => {
+  const [showExistingImages, setShowExistingImages] = useState(true);
+
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
       "image/*": [],
     },
     onDrop: (acceptedFiles) => {
+      console.log("Accepted files", acceptedFiles);
+      setShowExistingImages(false);
       setFiles(
         acceptedFiles.map((file) =>
           Object.assign(file, {
@@ -67,6 +98,13 @@ const DropZone = ({ formIsValid, files, setFiles }) => {
       );
     },
   });
+
+  useEffect(() => {
+    // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
+    return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
+  }, [files]);
+
+  console.log(files, { ...getRootProps() }, { ...getInputProps() });
 
   const thumbs = files.map((file) => (
     <Thumb key={file.name}>
@@ -83,16 +121,21 @@ const DropZone = ({ formIsValid, files, setFiles }) => {
     </Thumb>
   ));
 
-  useEffect(() => {
-    // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
-    return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
-  }, [files]);
-
   return (
     <section className="container">
+      {showExistingImages && (
+        <ExistingImageContainer>
+          {existingImages.map((img, i) => (
+            <ExistingImage src={img} alt={`image_${i}`} />
+          ))}
+        </ExistingImageContainer>
+      )}
       <DropzoneContainer {...getRootProps({ className: "dropzone" })}>
         <input {...getInputProps()} />
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        <p>
+          Drag 'n' drop some images here, or click to select files and replace
+          existing ones.
+        </p>
       </DropzoneContainer>
       <ThumbsContainer>{thumbs}</ThumbsContainer>
 

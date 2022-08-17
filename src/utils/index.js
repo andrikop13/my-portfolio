@@ -35,4 +35,15 @@ module.exports = {
 
     return result_base64;
   },
+
+  urlToFile: (url, filename, mimeType = "image/*") => {
+    const blob = new Blob([url], { type: "multipart/form-data" });
+    const blobUrl = URL.createObjectURL(blob);
+    let data = new File([blobUrl], filename, { type: "image/jpeg" });
+    Object.defineProperty(data, "preview", {
+      value: blobUrl,
+    });
+
+    return data;
+  },
 };

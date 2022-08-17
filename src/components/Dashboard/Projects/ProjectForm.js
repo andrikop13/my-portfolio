@@ -1,21 +1,13 @@
-import {
-  FormControl,
-  Grid,
-  IconButton,
-  InputAdornment,
-  InputLabel,
-  OutlinedInput,
-  Paper,
-} from "@mui/material";
-import { useEffect, useState } from "react";
+import { Grid, Paper } from "@mui/material";
 import Wrapper from "../Wrapper";
-import DeleteIcon from "@mui/icons-material/Delete";
-import useInput from "../../../hooks/use-input";
-import DropZone from "./DropZone";
 import ConfirmationBox from "../../Sections/Contact/confirmationBox";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import DropZone from "./DropZone";
+import ProjectInfo from "./ProjectInfo";
 import { fileToBase64 } from "../../../utils";
+import { useParams } from "react-router-dom";
+import useInput from "../../../hooks/use-input";
 import { addProject } from "../../../store/projects/projects-actions";
 
 const isNotEmpty = (value) => String(value).toLowerCase() !== "";
@@ -28,16 +20,17 @@ const isValidUrl = (urlString) => {
 };
 
 const ProjectForm = () => {
-  const [tools, setTools] = useState({ data: [""] });
   const [dialog, setDialog] = useState(false);
   const [images, setFiles] = useState([]);
-  const dispatch = useDispatch();
+  const [tools, setTools] = useState({ data: [""] });
 
   const projects = useSelector((state) => state.projects.list);
   const { projectId } = useParams();
   const currentProject = projectId
     ? projects.find((pr) => pr.id === projectId)
     : null;
+  const existingImages = projectId ? currentProject.images : [];
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (currentProject) {
@@ -79,28 +72,6 @@ const ProjectForm = () => {
   let formIsValid =
     titleIsValid && subtitleIsValid && descIsValid && linkIsValid && gitIsValid;
 
-  const onAddTool = () => {
-    tools.data.length < 6 &&
-      setTools((prevState) => ({
-        data: [...prevState.data, ""],
-      }));
-  };
-
-  const onRemoveTool = (index) => {
-    setTools((prevState) => ({
-      data: prevState.data.filter((t, i) => i !== index),
-    }));
-  };
-
-  const changeValue = (e, index) => {
-    const toolsBack = [...tools.data];
-    toolsBack[index] = e.target.value;
-
-    setTools((prevState) => ({
-      data: toolsBack,
-    }));
-  };
-
   const submitProject = (e) => {
     e.preventDefault();
     setDialog(true);
@@ -108,6 +79,7 @@ const ProjectForm = () => {
 
   const saveProject = async () => {
     const base64Images = [];
+
     const send = () => {
       dispatch(
         addProject({
@@ -123,6 +95,7 @@ const ProjectForm = () => {
     };
 
     images.forEach(async (file, index) => {
+      console.log("file", file);
       const result = await fileToBase64(file);
       base64Images.push(result);
 
@@ -140,140 +113,29 @@ const ProjectForm = () => {
             className="paper-container"
             sx={{ borderRadius: 1, padding: "1rem 1rem 2rem 2rem" }}
           >
-            <h3>Basic Information</h3>
-            <Grid
-              container
-              spacing={5}
-              style={{ padding: "25px 40px 5px 40px" }}
-            >
-              <Grid item xs={3}>
-                <FormControl variant="outlined" required fullWidth={true}>
-                  <InputLabel htmlFor="outlined-adornment-password">
-                    Project Title
-                  </InputLabel>
-                  <OutlinedInput
-                    label="Project Title"
-                    value={titleValue}
-                    onChange={titleChangeHandler}
-                    error={!titleIsValid}
-                  />
-                </FormControl>
-              </Grid>
-
-              <Grid item xs={3}>
-                <FormControl variant="outlined" required fullWidth={true}>
-                  <InputLabel htmlFor="outlined-adornment-password">
-                    Project Subtitle
-                  </InputLabel>
-                  <OutlinedInput
-                    label="Project Subtitle"
-                    value={subtitleValue}
-                    onChange={subtitleChangeHandler}
-                    error={!subtitleIsValid}
-                  />
-                </FormControl>
-              </Grid>
-
-              <Grid item xs={3}>
-                <FormControl variant="outlined" fullWidth={true}>
-                  <InputLabel htmlFor="outlined-adornment-password">
-                    Project Link
-                  </InputLabel>
-                  <OutlinedInput
-                    label="Project Link"
-                    value={linkValue}
-                    onChange={linkChangeHandler}
-                    error={!linkIsValid}
-                  />
-                </FormControl>
-              </Grid>
-
-              <Grid item xs={3}>
-                <FormControl variant="outlined" fullWidth={true}>
-                  <InputLabel htmlFor="outlined-adornment-password">
-                    Github Link
-                  </InputLabel>
-                  <OutlinedInput
-                    label="Github link"
-                    value={gitValue}
-                    onChange={gitChangeHandler}
-                    error={!gitIsValid}
-                  />
-                </FormControl>
-              </Grid>
-
-              <Grid item xs={12}>
-                <FormControl variant="outlined" required fullWidth={true}>
-                  <InputLabel htmlFor="outlined-adornment-password">
-                    Project Description
-                  </InputLabel>
-                  <OutlinedInput
-                    fullWidth={true}
-                    multiline
-                    rows={2}
-                    label="Project Description"
-                    value={descValue}
-                    onChange={descChangeHandler}
-                    error={!descIsValid}
-                  />
-                </FormControl>
-              </Grid>
-
-              <br />
-              <br />
-              <Grid item xs={12} style={{ padding: "25px 40px 5px 0px" }}>
-                <h3 style={{ margin: "0" }}>Technologies Used</h3>
-              </Grid>
-
-              <Grid item xs={12} style={{ padding: "25px 40px 5px 40px" }}>
-                <button
-                  className="add-button"
-                  type="button"
-                  onClick={onAddTool}
-                >
-                  +
-                </button>
-                <span>
-                  {" "}
-                  <h5 style={{ display: "inline-block" }}>(max: 6)</h5>
-                </span>
-              </Grid>
-
-              {tools.data.map((tool, index) => (
-                <Grid
-                  key={`index_${index}`}
-                  item
-                  xs={parseInt(2)}
-                  style={{ paddingTop: "20px" }}
-                >
-                  <FormControl variant="outlined" fullWidth={true}>
-                    <InputLabel htmlFor="outlined-adornment-password">
-                      Tool {index + 1}
-                    </InputLabel>
-                    <OutlinedInput
-                      label="Project tools"
-                      value={tool}
-                      onChange={(event) => changeValue(event, index)}
-                      endAdornment={
-                        <InputAdornment position="end">
-                          <IconButton
-                            sx={{ marginLeft: "15px" }}
-                            aria-label="edit"
-                            onClick={onRemoveTool.bind(null, index)}
-                          >
-                            <DeleteIcon sx={{ fontSize: "2rem" }} />
-                          </IconButton>
-                        </InputAdornment>
-                      }
-                    ></OutlinedInput>
-                  </FormControl>
-                </Grid>
-              ))}
-            </Grid>
+            <ProjectInfo
+              tools={tools}
+              setTools={setTools}
+              title={titleValue}
+              titleChange={titleChangeHandler}
+              titleIsValid={titleIsValid}
+              subtitle={subtitleValue}
+              subtitleChange={subtitleChangeHandler}
+              subtitleIsValid={subtitleIsValid}
+              description={descValue}
+              descriptionChange={descChangeHandler}
+              descriptionIsValid={descIsValid}
+              link={linkValue}
+              linkChange={linkChangeHandler}
+              linkIsValid={linkIsValid}
+              github={gitValue}
+              githubChange={gitChangeHandler}
+              gitIsValid={gitIsValid}
+            />
 
             <br />
             <hr style={{ backgroundColor: "var(--lightest-slate)" }} />
-            <Grid item xs={12} style={{ padding: "25px 40px 5px 0px" }}>
+            <Grid item xs={6} style={{ padding: "25px 40px 5px 0px" }}>
               <h3 style={{ margin: "0" }}>Project Images</h3>
             </Grid>
 
@@ -281,6 +143,7 @@ const ProjectForm = () => {
               <DropZone
                 formIsValid={formIsValid}
                 files={images}
+                existingImages={existingImages}
                 setFiles={setFiles}
               />
             </Grid>
