@@ -12,7 +12,6 @@ import CustomTable, {
 import ConfirmationBox from "../../Sections/Contact/confirmationBox";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useState } from "react";
-import { projectsActions } from "../../../store/projects/projects-slice";
 import { deleteProject } from "../../../store/projects/projects-actions";
 
 const columns = [

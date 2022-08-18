@@ -17,38 +17,66 @@ import ProtectedRoute from "./components/Dashboard/ProtectedRoute";
 import Home from "./components/Layout/Home";
 import Admin from "./components/Dashboard/Admin";
 import AnimationLayout from "./components/Layout/AnimationLayout";
+import { projectsActions } from "./store/projects/projects-slice";
 import { uiActions } from "./store/ui/ui-slice";
+import { jobsActions } from "./store/jobs/jobs-slice";
 
 const App = () => {
   const location = useLocation();
   const dispatch = useDispatch();
+
   const projectsChanged = useSelector(
     (state) => state.projects.projectsChanged
   );
+  const jobsChanged = useSelector((state) => state.jobs.jobsChanged);
+
   const deletedProject = useSelector((state) => state.projects.projectDelete);
+  const deletedJob = useSelector((state) => state.jobs.jobDelete);
 
   useEffect(() => {
     dispatch(fetchProjectsData());
     dispatch(fetchJobsData());
-  }, [dispatch]);
 
-  if (projectsChanged) {
-    dispatch(
-      uiActions.showMessage({
-        message: "Projects saved successfully",
-        status: "success",
-      })
-    );
-  }
+    if (projectsChanged) {
+      dispatch(
+        uiActions.showMessage({
+          message: "Projects saved successfully",
+          status: "success",
+        })
+      );
+      dispatch(projectsActions.updateFlag({ flag: "save", value: false }));
+    }
 
-  if (deletedProject) {
-    dispatch(
-      uiActions.showMessage({
-        message: "Project was deleted successfully",
-        status: "success",
-      })
-    );
-  }
+    if (deletedProject) {
+      dispatch(
+        uiActions.showMessage({
+          message: "Project was deleted successfully",
+          status: "success",
+        })
+      );
+      dispatch(projectsActions.updateFlag({ flag: "delete", value: false }));
+    }
+
+    if (jobsChanged) {
+      dispatch(
+        uiActions.showMessage({
+          message: "Jobs saved successfully",
+          status: "success",
+        })
+      );
+      dispatch(jobsActions.updateFlag({ flag: "save", value: false }));
+    }
+
+    if (deletedJob) {
+      dispatch(
+        uiActions.showMessage({
+          message: "Job was deleted successfully",
+          status: "success",
+        })
+      );
+      dispatch(jobsActions.updateFlag({ flag: "delete", value: false }));
+    }
+  }, [deletedJob, deletedProject, dispatch, jobsChanged, projectsChanged]);
 
   return (
     <>

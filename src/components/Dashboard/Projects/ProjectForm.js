@@ -36,11 +36,13 @@ const ProjectForm = () => {
   const existingImages = projectId ? currentProject.images : [];
   const dispatch = useDispatch();
 
+  const { technologies_used } = currentProject;
+
   useEffect(() => {
     if (currentProject) {
-      setTools({ data: currentProject.technologies_used });
+      setTools({ data: technologies_used });
     }
-  }, [currentProject]);
+  }, [currentProject, technologies_used]);
 
   const {
     value: titleValue,
@@ -92,7 +94,7 @@ const ProjectForm = () => {
             subtitle: subtitleValue,
             description: descValue,
             images: base64Images,
-            technologies_used: tools.data,
+            technologies_used: tools.data.filter((tool) => tool !== ""),
             link: linkValue,
             github: gitValue,
           },
@@ -127,49 +129,47 @@ const ProjectForm = () => {
 
   return (
     <Wrapper>
-      <Paper className="paper-container">
-        <form onSubmit={submitProject}>
-          <Paper
-            className="paper-container"
-            sx={{ borderRadius: 1, padding: "1rem 1rem 2rem 2rem" }}
-          >
-            <ProjectInfo
-              tools={tools}
-              setTools={setTools}
-              title={titleValue}
-              titleChange={titleChangeHandler}
-              titleIsValid={titleIsValid}
-              subtitle={subtitleValue}
-              subtitleChange={subtitleChangeHandler}
-              subtitleIsValid={subtitleIsValid}
-              description={descValue}
-              descriptionChange={descChangeHandler}
-              descriptionIsValid={descIsValid}
-              link={linkValue}
-              linkChange={linkChangeHandler}
-              linkIsValid={linkIsValid}
-              github={gitValue}
-              githubChange={gitChangeHandler}
-              gitIsValid={gitIsValid}
+      <form onSubmit={submitProject}>
+        <Paper
+          className="paper-container"
+          sx={{ borderRadius: 1, padding: "1rem 1rem 2rem 2rem" }}
+        >
+          <ProjectInfo
+            tools={tools}
+            setTools={setTools}
+            title={titleValue}
+            titleChange={titleChangeHandler}
+            titleIsValid={titleIsValid}
+            subtitle={subtitleValue}
+            subtitleChange={subtitleChangeHandler}
+            subtitleIsValid={subtitleIsValid}
+            description={descValue}
+            descriptionChange={descChangeHandler}
+            descriptionIsValid={descIsValid}
+            link={linkValue}
+            linkChange={linkChangeHandler}
+            linkIsValid={linkIsValid}
+            github={gitValue}
+            githubChange={gitChangeHandler}
+            gitIsValid={gitIsValid}
+          />
+
+          <br />
+          <hr style={{ backgroundColor: "var(--lightest-slate)" }} />
+          <Grid item xs={6} style={{ padding: "25px 40px 5px 0px" }}>
+            <h3 style={{ margin: "0" }}>Project Images</h3>
+          </Grid>
+
+          <Grid item xs={12} style={{ padding: "10px 40px 0px 40px" }}>
+            <DropZone
+              formIsValid={formIsValid}
+              files={images}
+              existingImages={existingImages}
+              setFiles={setFiles}
             />
-
-            <br />
-            <hr style={{ backgroundColor: "var(--lightest-slate)" }} />
-            <Grid item xs={6} style={{ padding: "25px 40px 5px 0px" }}>
-              <h3 style={{ margin: "0" }}>Project Images</h3>
-            </Grid>
-
-            <Grid item xs={12} style={{ padding: "10px 40px 0px 40px" }}>
-              <DropZone
-                formIsValid={formIsValid}
-                files={images}
-                existingImages={existingImages}
-                setFiles={setFiles}
-              />
-            </Grid>
-          </Paper>
-        </form>
-      </Paper>
+          </Grid>
+        </Paper>
+      </form>
 
       <ConfirmationBox
         open={dialog}

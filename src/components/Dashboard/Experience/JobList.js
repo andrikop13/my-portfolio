@@ -1,5 +1,5 @@
 import { IconButton, TableBody } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { URL_CONFIG } from "../../../config/config";
 import EditIcon from "@material-ui/icons/EditOutlined";
@@ -13,14 +13,16 @@ import CustomTable, {
 } from "../Table/CustomTable";
 import { useState } from "react";
 import ConfirmationBox from "../../Sections/Contact/confirmationBox";
+import { deleteJob } from "../../../store/jobs/jobs-actions";
 
 const columns = ["Actions", "Position", "Organization", "Date", "Link"];
 
 const JobList = () => {
   const [dialog, setDialog] = useState({
     open: false,
-    projectId: null,
+    jobId: null,
   });
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const jobs = useSelector((state) => state.jobs.list);
 
@@ -29,14 +31,20 @@ const JobList = () => {
   };
 
   const onDelete = (jobId) => {
-    setDialog({ open: true, projectId: jobId });
+    setDialog({ open: true, jobId: jobId });
   };
 
-  const deleteJob = (jobId) => {};
+  const createNewJob = () => {
+    navigate(`${URL_CONFIG.baseURLs.newJob}`);
+  };
+
+  const deleteJobCompletely = () => {
+    dispatch(deleteJob(dialog.jobId));
+  };
 
   return (
     <Wrapper>
-      <CustomTable columns={columns}>
+      <CustomTable columns={columns} createNewItem={createNewJob}>
         <TableBody>
           {jobs.map((job) => (
             <StyledTableRow key={job.id}>
@@ -85,7 +93,7 @@ const JobList = () => {
         dialog={dialog}
         open={dialog.open}
         setOpen={setDialog}
-        confirm={deleteJob}
+        confirm={deleteJobCompletely}
         dialogTitle="Deleting a job completely..."
         confirmationMessage="Are you sure you want to delete this job? If accept, there is no way back."
         yesMessage="Delete!"

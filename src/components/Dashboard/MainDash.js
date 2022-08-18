@@ -1,10 +1,13 @@
-import { ConstructionOutlined } from "@mui/icons-material";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { URL_CONFIG } from "../../config/config";
 import { skills } from "../../config/content";
 import Wrapper from "./Wrapper";
+import { projectsActions } from "../../store/projects/projects-slice";
+import { jobsActions } from "../../store/jobs/jobs-slice";
+import { uiActions } from "../../store/ui/ui-slice";
+
 const CustomCard = styled.div`
   width: 300px;
   height: 300px;

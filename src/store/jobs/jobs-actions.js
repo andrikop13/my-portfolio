@@ -1,6 +1,7 @@
+import { uiActions } from "../ui/ui-slice";
 import { jobsActions } from "./jobs-slice";
 
-export const fetchJobsData = (fetchJobsFn) => {
+export const fetchJobsData = () => {
   const jobs = [];
   const updateState = (projectData, projects, dispatch) => {
     Object.entries(projectData).forEach(([key, value]) => {
@@ -34,3 +35,85 @@ export const fetchJobsData = (fetchJobsFn) => {
     }
   };
 };
+
+export function addJob(jobData, existingJobId) {
+  if (existingJobId) {
+    jobData = { ...jobData, id: existingJobId };
+  }
+  return async (dispatch) => {
+    const saveJob = async () => {
+      const hitUrl = existingJobId
+        ? `${process.env.REACT_APP_FIREBASE_URL}/jobs/${existingJobId}.json`
+        : `${process.env.REACT_APP_FIREBASE_URL}/jobs.json`;
+
+      const accessToken = localStorage.getItem("token");
+
+      const response = await fetch(`${hitUrl}?auth=${accessToken}`, {
+        method: existingJobId ? "PATCH" : "POST",
+        body: JSON.stringify(jobData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(response.status + " - " + response.statusText);
+      }
+
+      const data = await response.json();
+      return data;
+    };
+
+    try {
+      const responseData = await saveJob();
+
+      if (responseData.name) {
+        jobData.id = responseData.name;
+      }
+
+      existingJobId
+        ? dispatch(jobsActions.updateJob(jobData))
+        : dispatch(jobsActions.addJob(jobData));
+    } catch (error) {
+      dispatch(
+        uiActions.showMessage({
+          message: error.message,
+          status: "error",
+        })
+      );
+    }
+  };
+}
+
+export function deleteJob(jobId) {
+  return async (dispatch) => {
+    const deleteId = async () => {
+      const hitUrl = `${process.env.REACT_APP_FIREBASE_URL}/jobs/${jobId}.json`;
+
+      const accessToken = localStorage.getItem("token");
+
+      const response = await fetch(`${hitUrl}?auth=${accessToken}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        throw new Error(response.status + " - " + response.statusText);
+      }
+
+      const data = await response.json();
+      return data;
+    };
+
+    try {
+      await deleteId();
+      dispatch(jobsActions.deleteJob(jobId));
+    } catch (error) {
+      dispatch(
+        uiActions.showMessage({
+          message: error.message,
+          status: "error",
+        })
+      );
+    }
+  };
+}

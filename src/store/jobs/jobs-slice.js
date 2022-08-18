@@ -4,6 +4,8 @@ const jobsSlice = createSlice({
   name: "jobs",
   initialState: {
     list: [],
+    jobsChanged: false,
+    jobDelete: false,
   },
   reducers: {
     fillData(state, action) {
@@ -11,28 +13,42 @@ const jobsSlice = createSlice({
     },
     addJob(state, action) {
       const newJob = action.payload;
-      const existingnJob = state.items.find(
-        (item) => item.title === newJob.title
-      );
+      const existingnJob = state.list.find((item) => item.id === newJob.id);
 
       if (!existingnJob) {
         state.list.push({
+          id: newJob.id,
           position: newJob.position,
           organization: newJob.organization,
           descriptionItems: newJob.descriptionItems,
           date: newJob.date,
           link: newJob.link,
         });
+        state.jobsChanged = true;
       } else {
         return;
       }
     },
-    deleteJob(state, action) {
-      const filterProjects = state.list.filter(
-        (job) => job.id !== action.payload
+    updateJob(state, action) {
+      const findItem = state.list.findIndex(
+        (job) => job.id === action.payload.id
       );
 
-      state.list = filterProjects;
+      state.list[findItem] = action.payload;
+      state.jobsChanged = true;
+    },
+    deleteJob(state, action) {
+      const filterJobs = state.list.filter((job) => job.id !== action.payload);
+
+      state.list = filterJobs;
+      state.jobDelete = true;
+    },
+    updateFlag(state, action) {
+      if (action.payload.flag === "save") {
+        state.jobsChanged = action.payload.value;
+      } else if (action.payload.flag === "delete") {
+        state.jobDelete = action.payload.value;
+      }
     },
   },
 });

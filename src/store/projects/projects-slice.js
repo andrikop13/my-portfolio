@@ -34,13 +34,11 @@ const projectSlice = createSlice({
       }
     },
     updateProject(state, action) {
-      console.log(action.payload);
       const findItem = state.list.findIndex(
         (project) => project.id === action.payload.id
       );
 
       state.list[findItem] = action.payload;
-      console.log(action.payload);
       state.projectsChanged = true;
     },
     deleteProject(state, action) {
@@ -49,6 +47,13 @@ const projectSlice = createSlice({
       );
       state.list = filterProjects;
       state.projectDelete = true;
+    },
+    updateFlag(state, action) {
+      if (action.payload.flag === "save") {
+        state.projectsChanged = action.payload.value;
+      } else if (action.payload.flag === "delete") {
+        state.deleteProject = action.payload.value;
+      }
     },
   },
 });

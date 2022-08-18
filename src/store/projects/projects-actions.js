@@ -37,7 +37,6 @@ export const fetchProjectsData = () => {
 };
 
 export function addProject(projectData, existingProjectId) {
-  console.log("Project data to send", projectData);
   if (existingProjectId) {
     projectData = { ...projectData, id: existingProjectId };
   }
