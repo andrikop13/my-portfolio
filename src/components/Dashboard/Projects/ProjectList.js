@@ -13,6 +13,7 @@ import ConfirmationBox from "../../Sections/Contact/confirmationBox";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useState } from "react";
 import { projectsActions } from "../../../store/projects/projects-slice";
+import { deleteProject } from "../../../store/projects/projects-actions";
 
 const columns = [
   "Action",
@@ -37,12 +38,12 @@ const ProjectList = () => {
     navigate(`${URL_CONFIG.baseURLs.projects}/${projectId}`);
   };
 
-  const onDelete = (projectTitle) => {
-    setDialog({ open: true, projectTitle: projectTitle });
+  const onDelete = (projectId) => {
+    setDialog({ open: true, projectId: projectId });
   };
 
-  const deleteProject = () => {
-    dispatch(projectsActions.deleteProject(dialog.projectTitle));
+  const deleteProjectCompletely = () => {
+    dispatch(deleteProject(dialog.projectId));
   };
 
   const createNewProject = () => {
@@ -75,7 +76,7 @@ const ProjectList = () => {
 
               <StyledTableCell align="left">
                 <img
-                  src={project.images[0]}
+                  src={project.images?.length ? project.images[0] : ""}
                   alt="Preview photography"
                   style={{
                     width: "140px",
@@ -135,7 +136,7 @@ const ProjectList = () => {
         dialog={dialog}
         open={dialog.open}
         setOpen={setDialog}
-        confirm={deleteProject}
+        confirm={deleteProjectCompletely}
         dialogTitle="Deleting a project completely..."
         confirmationMessage="Are you sure you want to delete this project? If accept, there is no way back."
         yesMessage="Delete!"

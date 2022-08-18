@@ -4,6 +4,8 @@ const projectSlice = createSlice({
   name: "projects",
   initialState: {
     list: [],
+    projectsChanged: false,
+    projectDelete: false,
   },
   reducers: {
     fillData(state, action) {
@@ -17,6 +19,7 @@ const projectSlice = createSlice({
 
       if (!existingProject) {
         state.list.push({
+          id: newProject.id,
           title: newProject.title,
           subtitle: newProject?.subtitle,
           description: newProject.description,
@@ -25,17 +28,27 @@ const projectSlice = createSlice({
           link: newProject?.link,
           github: newProject?.github,
         });
+        state.projectsChanged = true;
       } else {
         return;
       }
     },
+    updateProject(state, action) {
+      console.log(action.payload);
+      const findItem = state.list.findIndex(
+        (project) => project.id === action.payload.id
+      );
+
+      state.list[findItem] = action.payload;
+      console.log(action.payload);
+      state.projectsChanged = true;
+    },
     deleteProject(state, action) {
-      console.log(state, action);
       const filterProjects = state.list.filter(
         (project) => project.id !== action.payload
       );
-
       state.list = filterProjects;
+      state.projectDelete = true;
     },
   },
 });

@@ -45,14 +45,14 @@ const CustomTable = (props) => {
     <Paper
       className="paper-container"
       sx={{
-        borderRadius: 2,
-        backgroundColor: "var(light-slate)",
+        borderRadius: 1,
+        backgroundColor: "var(--logo-color)",
         overflow: "hidden",
       }}
     >
       <div
         style={{
-          padding: "0.5rem 2.5rem 0 2.5rem",
+          padding: "0.5rem 2.5rem 0 1.5rem",
           backgroundColor: "var(--logo-color)",
           borderTopLeftRadius: "1px",
           borderTopRightRadius: "1px",

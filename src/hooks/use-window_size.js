@@ -19,8 +19,6 @@ const useWindowSize = (upperBound) => {
     };
   }, [upperBound]);
 
-  console.log(isMobile);
-
   return { isMobile };
 };
 

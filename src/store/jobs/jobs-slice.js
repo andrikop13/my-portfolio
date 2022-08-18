@@ -28,7 +28,6 @@ const jobsSlice = createSlice({
       }
     },
     deleteJob(state, action) {
-      console.log(state, action);
       const filterProjects = state.list.filter(
         (job) => job.id !== action.payload
       );

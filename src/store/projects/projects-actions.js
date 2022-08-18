@@ -1,6 +1,7 @@
 import { projectsActions } from "./projects-slice";
+import { uiActions } from "../ui/ui-slice";
 
-export const fetchProjectsData = (fetchProjectsFn, error, planB = false) => {
+export const fetchProjectsData = () => {
   const projects = [];
   const updateState = (projectData, projects, dispatch) => {
     Object.entries(projectData).forEach(([key, value]) => {
@@ -35,22 +36,86 @@ export const fetchProjectsData = (fetchProjectsFn, error, planB = false) => {
   };
 };
 
-export async function addProject(projectData, addProjectFn) {
-  console.log(projectData);
+export function addProject(projectData, existingProjectId) {
+  console.log("Project data to send", projectData);
+  if (existingProjectId) {
+    projectData = { ...projectData, id: existingProjectId };
+  }
+  return async (dispatch) => {
+    const saveProject = async () => {
+      const hitUrl = existingProjectId
+        ? `${process.env.REACT_APP_FIREBASE_URL}/projects/${existingProjectId}.json`
+        : `${process.env.REACT_APP_FIREBASE_URL}/projects.json`;
 
-  return (dispatch) => {
-    const projectsUpdate = (data) => {
-      console.log(data);
+      const accessToken = localStorage.getItem("token");
 
-      // dispatch(projectsActions.addProject(projects));
+      const response = await fetch(`${hitUrl}?auth=${accessToken}`, {
+        method: existingProjectId ? "PATCH" : "POST",
+        body: JSON.stringify(projectData),
+        headers: {
+          "Content-Type": "application/json",
+          // Authorization: `Bearer ${accessToken}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(response.status + " - " + response.statusText);
+      }
+
+      const data = await response.json();
+      return data;
     };
 
-    addProjectFn(
-      {
-        url: `${process.env.REACT_APP_FIREBASE_URL}/projects.json`,
-        body: JSON.stringify(projectData),
-      },
-      projectsUpdate
-    );
+    try {
+      const responseData = await saveProject();
+
+      if (responseData.name) {
+        projectData.id = responseData.name;
+      }
+
+      existingProjectId
+        ? dispatch(projectsActions.updateProject(projectData))
+        : dispatch(projectsActions.addProject(projectData));
+    } catch (error) {
+      dispatch(
+        uiActions.showMessage({
+          message: error.message,
+          status: "error",
+        })
+      );
+    }
+  };
+}
+
+export function deleteProject(projectId) {
+  return async (dispatch) => {
+    const deleteId = async () => {
+      const hitUrl = `${process.env.REACT_APP_FIREBASE_URL}/projects/${projectId}.json`;
+
+      const accessToken = localStorage.getItem("token");
+
+      const response = await fetch(`${hitUrl}?auth=${accessToken}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        throw new Error(response.status + " - " + response.statusText);
+      }
+
+      const data = await response.json();
+      return data;
+    };
+
+    try {
+      await deleteId();
+      dispatch(projectsActions.deleteProject(projectId));
+    } catch (error) {
+      dispatch(
+        uiActions.showMessage({
+          message: error.message,
+          status: "error",
+        })
+      );
+    }
   };
 }

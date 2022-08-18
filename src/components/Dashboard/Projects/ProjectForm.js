@@ -6,9 +6,11 @@ import { useEffect, useState } from "react";
 import DropZone from "./DropZone";
 import ProjectInfo from "./ProjectInfo";
 import { fileToBase64 } from "../../../utils";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useInput from "../../../hooks/use-input";
 import { addProject } from "../../../store/projects/projects-actions";
+import { uiActions } from "../../../store/ui/ui-slice";
+import { URL_CONFIG } from "../../../config/config";
 
 const isNotEmpty = (value) => String(value).toLowerCase() !== "";
 const isValidUrl = (urlString) => {
@@ -23,12 +25,14 @@ const ProjectForm = () => {
   const [dialog, setDialog] = useState(false);
   const [images, setFiles] = useState([]);
   const [tools, setTools] = useState({ data: [""] });
+  const navigate = useNavigate();
 
   const projects = useSelector((state) => state.projects.list);
   const { projectId } = useParams();
   const currentProject = projectId
     ? projects.find((pr) => pr.id === projectId)
     : null;
+
   const existingImages = projectId ? currentProject.images : [];
   const dispatch = useDispatch();
 
@@ -78,30 +82,46 @@ const ProjectForm = () => {
   };
 
   const saveProject = async () => {
-    const base64Images = [];
+    let base64Images = [];
 
     const send = () => {
       dispatch(
-        addProject({
-          title: titleValue,
-          subtitle: subtitleValue,
-          description: descValue,
-          images: base64Images,
-          technologies_used: tools,
-          link: linkValue,
-          github: gitValue,
-        })
+        addProject(
+          {
+            title: titleValue,
+            subtitle: subtitleValue,
+            description: descValue,
+            images: base64Images,
+            technologies_used: tools.data,
+            link: linkValue,
+            github: gitValue,
+          },
+          currentProject ? projectId : null
+        )
       );
+
+      navigate(URL_CONFIG.baseURLs.projects);
     };
 
+    if (!projectId && projects.find((pr) => pr.title === titleValue)) {
+      dispatch(
+        uiActions.showMessage({
+          message: "Project with that name already exists!",
+          status: "error",
+        })
+      );
+
+      return;
+    }
+
     images.forEach(async (file, index) => {
-      console.log("file", file);
       const result = await fileToBase64(file);
       base64Images.push(result);
 
       images.length && index === images.length - 1 && send();
     });
 
+    if (!images.length) base64Images = existingImages;
     !images.length && send();
   };
 

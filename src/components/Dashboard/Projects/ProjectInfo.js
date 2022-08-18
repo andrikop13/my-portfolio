@@ -55,7 +55,7 @@ const ProjectInfo = ({
   return (
     <>
       <Grid container>
-        <Grid Grid item xs={6}>
+        <Grid item xs={6}>
           <h3>Basic Information</h3>
         </Grid>
         <Grid item xs={6}>

@@ -1,7 +1,7 @@
 import { Outlet, Route, Routes, useLocation } from "react-router-dom";
 import ParticlesBackground from "./components/ParticlesBackground";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchProjectsData } from "./store/projects/projects-actions";
 import useHttp from "./hooks/use-http";
 import { fetchJobsData } from "./store/jobs/jobs-actions";
@@ -17,15 +17,38 @@ import ProtectedRoute from "./components/Dashboard/ProtectedRoute";
 import Home from "./components/Layout/Home";
 import Admin from "./components/Dashboard/Admin";
 import AnimationLayout from "./components/Layout/AnimationLayout";
+import { uiActions } from "./store/ui/ui-slice";
 
 const App = () => {
   const location = useLocation();
   const dispatch = useDispatch();
+  const projectsChanged = useSelector(
+    (state) => state.projects.projectsChanged
+  );
+  const deletedProject = useSelector((state) => state.projects.projectDelete);
 
   useEffect(() => {
     dispatch(fetchProjectsData());
     dispatch(fetchJobsData());
   }, [dispatch]);
+
+  if (projectsChanged) {
+    dispatch(
+      uiActions.showMessage({
+        message: "Projects saved successfully",
+        status: "success",
+      })
+    );
+  }
+
+  if (deletedProject) {
+    dispatch(
+      uiActions.showMessage({
+        message: "Project was deleted successfully",
+        status: "success",
+      })
+    );
+  }
 
   return (
     <>

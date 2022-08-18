@@ -34,12 +34,12 @@ const Thumb = styled.div`
   margin-bottom: 8px;
   margin-right: 8px;
   margin-top: 10px;
-  width: 182px;
+  width: 172px;
   height: 98px;
   padding: 4;
   box-sizing: border-box;
 
-  transition: all 0.3s;
+  transition: all 0.3s ease-in-out;
 
   &:hover {
     cursor: pointer;
@@ -68,7 +68,7 @@ const ExistingImageContainer = styled.div`
 `;
 
 const ExistingImage = styled.img`
-  width: 182px;
+  width: 172px;
   height: 98px;
   transition: all 0.3s;
   transition-delay: 0.3s;
@@ -87,7 +87,6 @@ const DropZone = ({ formIsValid, files, setFiles, existingImages }) => {
       "image/*": [],
     },
     onDrop: (acceptedFiles) => {
-      console.log("Accepted files", acceptedFiles);
       setShowExistingImages(false);
       setFiles(
         acceptedFiles.map((file) =>
@@ -103,8 +102,6 @@ const DropZone = ({ formIsValid, files, setFiles, existingImages }) => {
     // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
     return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
   }, [files]);
-
-  console.log(files, { ...getRootProps() }, { ...getInputProps() });
 
   const thumbs = files.map((file) => (
     <Thumb key={file.name}>
@@ -126,7 +123,7 @@ const DropZone = ({ formIsValid, files, setFiles, existingImages }) => {
       {showExistingImages && (
         <ExistingImageContainer>
           {existingImages.map((img, i) => (
-            <ExistingImage src={img} alt={`image_${i}`} />
+            <ExistingImage src={img} alt={`image_${i}`} key={img} />
           ))}
         </ExistingImageContainer>
       )}
