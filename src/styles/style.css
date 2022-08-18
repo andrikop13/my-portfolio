@@ -33,6 +33,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
   --slate: #8892b0;
   --light-slate: #a8b2d1;
   --lightest-slate: rgb(204, 214, 246);
+  --lightesttt-slate:rgb(226, 230, 241);
   --lightest-slate-rgba: rgba(204, 214, 246, 0.7);
   --white: #e6f1ff;
   --green-light: #64ffda;
@@ -1479,6 +1480,11 @@ leaflet-popup-content-wrapper,
   font-weight: 600;
   line-height: 1.2;
 }
+@media only screen and (max-width: 675px) {
+  .dash-container {
+    gap: 3.2rem;
+  }
+}
 .dash-container .card-title {
   font-size: var(--fonts-xl);
   color: var(--logo-color);
@@ -1489,10 +1495,11 @@ leaflet-popup-content-wrapper,
 }
 
 .paper-container {
-  max-height: calc(100vh - var(--nav-height) - 10rem);
+  max-height: calc(100vh - var(--nav-height) - 15rem);
+  margin-top: -5rem;
   z-index: 100;
-  max-width: 80vw;
-  min-width: 80vw;
+  max-width: 90vw;
+  min-width: 90vw;
   background-color: var(--light-slate);
   overflow: auto;
 }
@@ -1854,6 +1861,9 @@ leaflet-popup-content-wrapper,
 .section-contact,
 .section-projects {
     padding: 10rem 4rem;
+  }
+  .nav-admin {
+    margin-right: 1rem;
   }
   .section-about {
     padding: 10rem 4rem 0rem 4rem;

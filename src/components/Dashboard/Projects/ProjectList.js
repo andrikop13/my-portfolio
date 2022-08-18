@@ -57,7 +57,7 @@ const ProjectList = () => {
             <StyledTableRow key={project.id}>
               <StyledTableCell align="left">
                 <IconButton
-                  sx={{ marginLeft: "15px" }}
+                  sx={{ marginLeft: "10px" }}
                   aria-label="edit"
                   onClick={() => onToggleEditMode(project.id)}
                 >
@@ -65,7 +65,7 @@ const ProjectList = () => {
                 </IconButton>
 
                 <IconButton
-                  sx={{ marginLeft: "15px" }}
+                  sx={{ marginLeft: "0px" }}
                   aria-label="edit"
                   onClick={() => onDelete(project.id)}
                 >

@@ -23,7 +23,7 @@ const LoginButton = () => {
           replace
           className=" login-button-main small-button"
         >
-          Dashboard
+          Menu
         </Link>
       )}
     </>

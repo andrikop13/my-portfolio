@@ -74,7 +74,7 @@ const JobInfo = ({
         </Grid>
       </Grid>
       <Grid container spacing={5} style={{ padding: "25px 40px 5px 40px" }}>
-        <Grid item xs={4}>
+        <Grid item md={4}>
           <FormControl variant="outlined" required fullWidth={true}>
             <InputLabel htmlFor="outlined-adornment-password">
               Job position
@@ -88,7 +88,7 @@ const JobInfo = ({
           </FormControl>
         </Grid>
 
-        <Grid item xs={4}>
+        <Grid item md={4}>
           <FormControl variant="outlined" required fullWidth={true}>
             <InputLabel htmlFor="outlined-adornment-password">
               Job organization
@@ -102,7 +102,7 @@ const JobInfo = ({
           </FormControl>
         </Grid>
 
-        <Grid item xs={4}>
+        <Grid item md={4}>
           <FormControl variant="outlined" fullWidth={true}>
             <InputLabel htmlFor="outlined-adornment-password">
               Date range

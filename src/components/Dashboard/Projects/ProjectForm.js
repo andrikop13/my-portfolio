@@ -36,13 +36,12 @@ const ProjectForm = () => {
   const existingImages = projectId ? currentProject.images : [];
   const dispatch = useDispatch();
 
-  const { technologies_used } = currentProject;
-
   useEffect(() => {
     if (currentProject) {
+      const { technologies_used } = currentProject;
       setTools({ data: technologies_used });
     }
-  }, [currentProject, technologies_used]);
+  }, [currentProject]);
 
   const {
     value: titleValue,
@@ -132,7 +131,12 @@ const ProjectForm = () => {
       <form onSubmit={submitProject}>
         <Paper
           className="paper-container"
-          sx={{ borderRadius: 1, padding: "1rem 1rem 2rem 2rem" }}
+          sx={{
+            borderRadius: 1,
+            padding: "1rem 1rem 2rem 2rem",
+            background: "var(--lightesttt-slate)",
+            boxShadow: "-1rem -0.5rem 4rem rgba(0, 0, 0, 0.4)",
+          }}
         >
           <ProjectInfo
             tools={tools}

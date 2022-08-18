@@ -50,7 +50,7 @@ const JobList = () => {
             <StyledTableRow key={job.id}>
               <StyledTableCell align="left">
                 <IconButton
-                  sx={{ marginLeft: "15px" }}
+                  sx={{ marginLeft: "10px" }}
                   aria-label="edit"
                   onClick={() => onToggleEditMode(job.id)}
                 >
@@ -58,7 +58,7 @@ const JobList = () => {
                 </IconButton>
 
                 <IconButton
-                  sx={{ marginLeft: "15px" }}
+                  sx={{ marginLeft: "0px" }}
                   aria-label="edit"
                   onClick={() => onDelete(job.id)}
                 >

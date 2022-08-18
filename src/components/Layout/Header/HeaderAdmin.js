@@ -16,7 +16,7 @@ const HeaderAdmin = () => {
 
   return (
     <header>
-      <nav>
+      <nav class="nav-admin">
         <Logo />
 
         <div className="nav--links">
@@ -25,11 +25,16 @@ const HeaderAdmin = () => {
               to={URL_CONFIG.baseURLs.dashboard}
               replace
               className="resume-button small-button"
+              style={{ marginLeft: "0.5rem", marginRight: "0rem" }}
             >
-              Dashboard
+              Menu
             </Link>
           )}
-          <a href="/" className="resume-button small-button">
+          <a
+            href="/"
+            className="resume-button small-button"
+            style={{ marginLeft: "0.5rem", marginRight: "0rem" }}
+          >
             Portfolio
           </a>
           {isAuthenticated && (
@@ -37,7 +42,7 @@ const HeaderAdmin = () => {
               to={URL_CONFIG.baseURLs.login}
               replace
               className="login-button-main small-button"
-              style={{ marginLeft: "15px" }}
+              style={{ marginLeft: "0.5rem", marginRight: "0rem" }}
               onClick={logoutHandler}
             >
               Logout

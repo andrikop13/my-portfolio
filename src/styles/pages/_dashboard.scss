@@ -5,6 +5,10 @@
   font-weight: 600;
   line-height: 1.2;
 
+  @media only screen and (max-width: 675px) {
+    gap: 3.2rem;
+  }
+
   & .card-title {
     font-size: var(--fonts-xl);
     color: var(--logo-color);
@@ -17,10 +21,11 @@
 }
 
 .paper-container {
-  max-height: calc(100vh - var(--nav-height) - 10rem);
+  max-height: calc(100vh - var(--nav-height) - 15rem);
+  margin-top: -5rem;
   z-index: 100;
-  max-width: 80vw;
-  min-width: 80vw;
+  max-width: 90vw;
+  min-width: 90vw;
   background-color: var(--light-slate);
   overflow: auto;
 

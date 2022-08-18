@@ -34,7 +34,7 @@ const Thumb = styled.div`
   margin-bottom: 8px;
   margin-right: 8px;
   margin-top: 10px;
-  width: 172px;
+  width: 162px;
   height: 98px;
   padding: 4;
   box-sizing: border-box;
@@ -63,12 +63,13 @@ const Image = styled.img`
 const ExistingImageContainer = styled.div`
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 1.6rem;
   margin-bottom: 1.6rem;
 `;
 
 const ExistingImage = styled.img`
-  width: 172px;
+  width: 162px;
   height: 98px;
   transition: all 0.3s;
   transition-delay: 0.3s;
@@ -122,7 +123,7 @@ const DropZone = ({ formIsValid, files, setFiles, existingImages }) => {
     <section className="container">
       {showExistingImages && (
         <ExistingImageContainer>
-          {existingImages.map((img, i) => (
+          {existingImages?.map((img, i) => (
             <ExistingImage src={img} alt={`image_${i}`} key={img} />
           ))}
         </ExistingImageContainer>

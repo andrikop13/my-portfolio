@@ -13,13 +13,13 @@ export const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: "var(--logo-color)",
     color: "var(--lightest-slate)",
-    fontSize: "var(--fonts-md)",
-    padding: "2rem 1rem 2rem 1rem",
+    fontSize: "var(--fonts-sm)",
+    padding: "1.5rem 1rem 1.5rem 1rem",
     borderBottom: "1px solid black",
     fontFamily: "inherit",
   },
   [`&.${tableCellClasses.body}`]: {
-    fontSize: "var(--fonts-sm)",
+    fontSize: "var(--fonts-xs)",
     backgroundColor: "var(--lightest-slate)",
     fontFamily: "inherit",
   },
@@ -35,7 +35,7 @@ export const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 
   "& .MuiSvgIcon-root": {
-    fontSize: "2.2rem",
+    fontSize: "2rem",
     fill: "var(--logo-color)",
   },
 }));
@@ -48,14 +48,13 @@ const CustomTable = (props) => {
         borderRadius: 1,
         backgroundColor: "var(--logo-color)",
         overflow: "hidden",
+        minWidth: "90vw",
       }}
     >
       <div
         style={{
-          padding: "0.5rem 2.5rem 0 1.5rem",
+          padding: "1rem 2.5rem 0 1.5rem",
           backgroundColor: "var(--logo-color)",
-          borderTopLeftRadius: "1px",
-          borderTopRightRadius: "1px",
         }}
       >
         <button
@@ -71,7 +70,7 @@ const CustomTable = (props) => {
           borderBottomLeftRadius: 1,
           borderBottomRightRadius: 1,
           maxWidth: "90vw",
-          maxHeight: "calc(100vh - var(--nav-height) - 13rem)",
+          maxHeight: "calc(100vh - var(--nav-height) - 20rem)",
         }}
       >
         <Table aria-label="simple table" stickyHeader>

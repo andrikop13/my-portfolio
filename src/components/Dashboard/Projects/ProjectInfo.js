@@ -64,7 +64,7 @@ const ProjectInfo = ({
               type="button"
               className="small-button"
               style={{
-                margin: "0",
+                margin: "0.5rem 0 0 0",
                 border: "1px solid var(--navy)",
                 color: "var(--navy)",
                 backgroundColor: "var(--green-tint)",
@@ -77,7 +77,7 @@ const ProjectInfo = ({
         </Grid>
       </Grid>
       <Grid container spacing={5} style={{ padding: "25px 40px 5px 40px" }}>
-        <Grid item xs={3}>
+        <Grid item md={3}>
           <FormControl variant="outlined" required fullWidth={true}>
             <InputLabel htmlFor="outlined-adornment-password">
               Project Title
@@ -91,7 +91,7 @@ const ProjectInfo = ({
           </FormControl>
         </Grid>
 
-        <Grid item xs={3}>
+        <Grid item md={3}>
           <FormControl variant="outlined" required fullWidth={true}>
             <InputLabel htmlFor="outlined-adornment-password">
               Project Subtitle
@@ -105,7 +105,7 @@ const ProjectInfo = ({
           </FormControl>
         </Grid>
 
-        <Grid item xs={3}>
+        <Grid item md={3}>
           <FormControl variant="outlined" fullWidth={true}>
             <InputLabel htmlFor="outlined-adornment-password">
               Project Link
@@ -119,7 +119,7 @@ const ProjectInfo = ({
           </FormControl>
         </Grid>
 
-        <Grid item xs={3}>
+        <Grid item md={3}>
           <FormControl variant="outlined" fullWidth={true}>
             <InputLabel htmlFor="outlined-adornment-password">
               Github Link
@@ -167,12 +167,7 @@ const ProjectInfo = ({
         </Grid>
 
         {tools.data.map((tool, index) => (
-          <Grid
-            key={`index_${index}`}
-            item
-            xs={parseInt(2)}
-            style={{ paddingTop: "20px" }}
-          >
+          <Grid key={`index_${index}`} item style={{ paddingTop: "20px" }}>
             <FormControl variant="outlined" fullWidth={true}>
               <InputLabel htmlFor="outlined-adornment-password">
                 Tool {index + 1}

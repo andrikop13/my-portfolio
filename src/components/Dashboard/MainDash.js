@@ -6,6 +6,7 @@ import { skills } from "../../config/content";
 import Wrapper from "./Wrapper";
 
 const CustomCard = styled.div`
+  margin-top: -7rem;
   width: 300px;
   height: 300px;
   text-align: center;
@@ -27,9 +28,32 @@ const CustomCard = styled.div`
     box-shadow: 1rem 2rem 4rem rgba(0, 0, 0, 0.5);
   }
 
-  @media only screen and (max-width: 675px) {
+  @media only screen and (max-width: 1075px) {
     width: 200px;
     height: 200px;
+    gap: 1.5rem;
+  }
+
+  @media only screen and (max-width: 675px) {
+    margin-top: 0rem;
+    width: 200px;
+    height: 200px;
+  }
+
+  @media only screen and (max-width: 450px) {
+    width: 150px;
+    height: 150px;
+    gap: 1rem;
+
+    & .card-title {
+      font-size: var(--fonts-lg);
+      color: var(--logo-color);
+    }
+
+    & .card-number {
+      font-size: var(--fonts-xxxl);
+      color: var(--dark-slate);
+    }
   }
 `;
 

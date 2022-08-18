@@ -39,7 +39,11 @@ const LoginForm = ({
   };
 
   return (
-    <form className="login-container" onSubmit={submitLoginForm}>
+    <form
+      className="login-container"
+      onSubmit={submitLoginForm}
+      style={{ marginTop: "-7rem" }}
+    >
       <div className="login-sidebar">
         <div className="login-sidebar__flex">
           <div style={{ width: "10rem", height: "10rem" }}>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const CenteredWrapper = styled.div`
-  min-height: calc(100vh - var(--nav-height) - 4rem);
+  min-height: calc(100vh - var(--nav-height) - 10rem);
   overflow-y: scroll;
   font-size: var(--fonts-md);
   color: var(--white);

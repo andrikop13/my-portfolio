@@ -51,7 +51,7 @@ I think that last years, i have learned a lot as a developer, having experience 
 
 <br/>
 
-|                                                       Admin Login Page                                                        |                                                          Admin Dash                                                          |
+|                                                       Admin Login Page                                                        |                                                          Admin Menu                                                          |
 | :---------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------: |
 | ![](https://raw.githubusercontent.com/andrikop13/my-portfolio/admin_dashboard/src/assets/images/readme_images/login_page.png) | ![](https://raw.githubusercontent.com/andrikop13/my-portfolio/admin_dashboard/src/assets/images/readme_images/dashboard.png) |
 
