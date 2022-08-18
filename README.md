@@ -1,70 +1,107 @@
-# Getting Started with Create React App
+<!-- <div align="center" >
+  <img alt="Logo" src="https://raw.githubusercontent.com/andrikop13/my-portfolio/admin_dashboard/src/assets/images/readme_logo.png" width="250" height="250"/>
+</div> -->
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+  andrikopoulosdev.com
+</h1>
 
-## Available Scripts
+<p align="center">
+  My personal portfolio of <a href="https://andrikopoulosdev.com" target="_blank">andrikopoulosdev.com</a> built with <a href="https://reactjs.org/" target="_blank">React & Redux</a> and hosted with <a href="https://www.netlify.com/" target="_blank">Netlify</a>
+</p>
 
-In the project directory, you can run:
+<p align="center">
+  <a href="https://app.netlify.com/sites/brittanychiang/deploys" target="_blank">
+    <img src="https://api.netlify.com/api/v1/badges/1963b488-7b78-48c9-9e2d-6fb5e47ab3af/deploy-status" alt="Netlify Status"/>
+  </a>
+</p>
 
-### `npm start`
+![hero page](https://raw.githubusercontent.com/andrikop13/my-portfolio/admin_dashboard/src/assets/images/readme_images/hero.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<br/>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# About The Project
 
-### `npm test`
+<p>
+Hello, my name is Andreas Andrikopoulos and thank you for checking out this repo. This is my personal Portfolio Website, which is designed and built by me. This website isn't just my portfolio website, but also a personal project in and of itself. I tried to make website as an application, implementing in addition to the main page, an administration dashboard, where admin user can create new content or update and delete the old one. The CRUD operations are handled with Redux and the final content is saved in the Firebase platform.
+</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<p>
+I think that last years, i have learned a lot as a developer, having experience with JavaScript, TypeScript and Angular ecosystem. I would like to get my hands dirty on React as well. That's why i choose to build this project in React and Redux.
+</p>
 
-### `npm run build`
+<br/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Built With
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [React.js](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
+- [Firebase](https://firebase.google.com/)
+- [EmailJS](https://www.emailjs.com/)
+- [Material UI](https://mui.com/)
+- [Styled-Components](https://styled-components.com/)
+- [Custom SCSS](https://sass-lang.com/)
+- [React Transition Group](https://reactcommunity.org/react-transition-group/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [React Leaflet](https://react-leaflet.js.org/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br/>
 
-### `npm run eject`
+## Screenshots from Administrator dashboard
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<br/>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+|                                                       Admin Login Page                                                        |                                                          Admin Dash                                                          |
+| :---------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------: |
+| ![](https://raw.githubusercontent.com/andrikop13/my-portfolio/admin_dashboard/src/assets/images/readme_images/login_page.png) | ![](https://raw.githubusercontent.com/andrikop13/my-portfolio/admin_dashboard/src/assets/images/readme_images/dashboard.png) |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+|                                                     Project List Panel                                                      |                                                       Project Edit Form                                                        |
+| :-------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
+| ![](https://raw.githubusercontent.com/andrikop13/my-portfolio/admin_dashboard/src/assets/images/readme_images/projects.png) | ![](https://raw.githubusercontent.com/andrikop13/my-portfolio/admin_dashboard/src/assets/images/readme_images/projectEdit.png) |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+| Job Edit Panel |
+| :------------: |
 
-## Learn More
+![](https://raw.githubusercontent.com/andrikop13/my-portfolio/admin_dashboard/src/assets/images/readme_images/jobEdit.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Installation
 
-### Code Splitting
+1. Clone the repo
+   ```sh
+   git clone https://github.com/andrikop13/my-portfolio.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Enter API tokens in `.env`
+   ```
+    REACT_APP_EMAILJS_SERVICE_ID = <emailjs_service_id>
+    REACT_APP_EMAILJS_TEMPLATE_ID = <emailjs_template>
+    REACT_APP_EMAILJS_PUBLIC_KEY = <your_emailjs_public_key>
+    REACT_APP_FIREBASE_API_KEY = <your_firebase_project_api_key>
+    REACT_APP_FIREBASE_URL = <your_firebase_project_url>
+   ```
+4. Use `package.json` to start in development server or build the app for production
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<!-- LICENSE -->
+<br/>
 
-### Analyzing the Bundle Size
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-### Making a Progressive Web App
+<!-- CONTACT -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Contact
 
-### Advanced Configuration
+#### Andreas Andrikopoulos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- [LinkedIn Profile](https://www.linkedin.com/in/a-andrikopoulos/)
+- andreas.andrikopoulos1994@gmail.com
 
-### Deployment
+Project Link: [https://github.com/andrikop13/my-portfolio](https://github.com/andrikop13/my-portfolio)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p align="right">(<a href="#top">back to top</a>)</p>

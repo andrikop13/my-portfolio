@@ -1,9 +1,8 @@
-import { Outlet, Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import ParticlesBackground from "./components/ParticlesBackground";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProjectsData } from "./store/projects/projects-actions";
-import useHttp from "./hooks/use-http";
 import { fetchJobsData } from "./store/jobs/jobs-actions";
 import Main from "./components/Layout/MainRoute";
 import NotFound from "./components/Layout/NotFound";
