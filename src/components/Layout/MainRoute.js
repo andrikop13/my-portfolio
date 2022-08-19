@@ -12,6 +12,7 @@ const Main = () => {
       <ButtonToTop />
 
       <Hero />
+      
       <SectionReveal>
         <About />
       </SectionReveal>
