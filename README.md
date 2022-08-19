@@ -61,7 +61,6 @@ I think that last years, i have learned a lot as a developer, having experience 
 
 | Job Edit Panel |
 | :------------: |
-
 | ![](https://raw.githubusercontent.com/andrikop13/my-portfolio/admin_dashboard/src/assets/images/readme_images/jobEdit.png) |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
