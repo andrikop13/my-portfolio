@@ -133,7 +133,7 @@ const ProjectForm = () => {
           className="paper-container"
           sx={{
             borderRadius: 1,
-            padding: "1rem 1rem 2rem 2rem",
+            padding: "1.5rem 2rem",
             background: "var(--lightesttt-slate)",
             boxShadow: "-1rem -0.5rem 4rem rgba(0, 0, 0, 0.4)",
           }}

@@ -10,6 +10,8 @@ import { Box } from "@mui/system";
 import { useNavigate } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
 
+const fontSize = { fontSize: "var(--fonts-mui-size)" };
+
 const JobInfo = ({
   position,
   positionChange,
@@ -61,7 +63,6 @@ const JobInfo = ({
               type="button"
               className="small-button"
               style={{
-                margin: "0",
                 border: "1px solid var(--navy)",
                 color: "var(--navy)",
                 backgroundColor: "var(--green-tint)",
@@ -82,6 +83,7 @@ const JobInfo = ({
             <OutlinedInput
               label="Job position"
               value={position}
+              sx={fontSize}
               onChange={positionChange}
               error={!positionIsValid}
             />
@@ -98,6 +100,7 @@ const JobInfo = ({
               value={organization}
               onChange={organizationChange}
               error={!organizationIsValid}
+              sx={fontSize}
             />
           </FormControl>
         </Grid>
@@ -112,6 +115,7 @@ const JobInfo = ({
               value={date}
               onChange={dateChange}
               error={!dateIsValid}
+              sx={fontSize}
             />
           </FormControl>
         </Grid>
@@ -126,14 +130,15 @@ const JobInfo = ({
               value={link}
               onChange={linkChange}
               error={!linkIsValid}
+              sx={fontSize}
             />
           </FormControl>
         </Grid>
 
         <br />
         <br />
-        <Grid item xs={12} style={{ padding: "25px 40px 5px 0px" }}>
-          <h3 style={{ margin: "0" }}>Descriptions of the Job</h3>
+        <Grid item xs={12} style={{ padding: "45px 40px 5px 0px" }}>
+          <h3>Descriptions of the Job</h3>
         </Grid>
 
         <Grid item xs={12} style={{ padding: "25px 40px 5px 40px" }}>
@@ -162,6 +167,7 @@ const JobInfo = ({
                 multiline
                 rows={2}
                 value={desc}
+                sx={fontSize}
                 onChange={(event) => changeDescValue(event, index)}
                 endAdornment={
                   <InputAdornment position="end">

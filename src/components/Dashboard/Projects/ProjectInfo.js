@@ -10,6 +10,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { useNavigate } from "react-router-dom";
 import { Box } from "@mui/system";
 
+const fontSize = { fontSize: "var(--fonts-mui-size)" };
+
 const ProjectInfo = ({
   tools,
   setTools,
@@ -87,6 +89,7 @@ const ProjectInfo = ({
               value={title}
               onChange={titleChange}
               error={!titleIsValid}
+              sx={fontSize}
             />
           </FormControl>
         </Grid>
@@ -101,6 +104,7 @@ const ProjectInfo = ({
               value={subtitle}
               onChange={subtitleChange}
               error={!subtitleIsValid}
+              sx={fontSize}
             />
           </FormControl>
         </Grid>
@@ -115,6 +119,7 @@ const ProjectInfo = ({
               value={link}
               onChange={linkChange}
               error={!linkIsValid}
+              sx={fontSize}
             />
           </FormControl>
         </Grid>
@@ -129,6 +134,7 @@ const ProjectInfo = ({
               value={github}
               onChange={githubChange}
               error={!gitIsValid}
+              sx={fontSize}
             />
           </FormControl>
         </Grid>
@@ -146,14 +152,15 @@ const ProjectInfo = ({
               value={description}
               onChange={descriptionChange}
               error={!descriptionIsValid}
+              sx={fontSize}
             />
           </FormControl>
         </Grid>
 
         <br />
         <br />
-        <Grid item xs={12} style={{ padding: "25px 40px 5px 0px" }}>
-          <h3 style={{ margin: "0" }}>Technologies Used</h3>
+        <Grid item xs={12} style={{ padding: "45px 40px 5px 0px" }}>
+          <h3>Technologies Used</h3>
         </Grid>
 
         <Grid item xs={12} style={{ padding: "25px 40px 5px 40px" }}>
@@ -176,6 +183,7 @@ const ProjectInfo = ({
                 label="Project tools"
                 value={tool}
                 onChange={(event) => changeToolValue(event, index)}
+                sx={fontSize}
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton

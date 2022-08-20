@@ -23,10 +23,9 @@ const MyLogo = (props) => {
         dy="0"
         fontFamily='"Times"'
         fontSize="64"
-        fontStyle="italic"
         fontWeight={props.fontWeight || "400"}
         textDecoration="none"
-        transform="translate(102.394 154.345)"
+        transform="translate(100.394 154.345)"
       >
         <tspan y="0">AA</tspan>
       </text>

@@ -46,6 +46,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
   --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
   --fonts-xxxs: 1em;
   --fonts-xxs: 1.2em;
+  --fonts-mui-size: 1.4rem;
   --tabs-size: 1.6rem;
   --fonts-xs: 1.5rem;
   --fonts-sm: 1.7rem;
@@ -1174,7 +1175,7 @@ nav .nav--links .login-button-main {
   -webkit-animation: bottomUp 1s;
 }
 .hero__contact-button {
-  padding: 0.8rem 3.6rem;
+  padding: 1rem 3.2rem;
   letter-spacing: 0.5px;
   border-radius: 100px;
   background-color: var(--green);
@@ -1788,12 +1789,14 @@ leaflet-popup-content-wrapper,
   }
   .section-experience,
 .section-hero,
-.section-contact,
-.section-projects {
+.section-contact {
     padding: 10rem 4rem;
   }
   .section-projects {
-    padding: 25rem 4rem 10rem 4rem;
+    padding: 13rem 4rem 10rem 4rem;
+  }
+  .section-experience {
+    min-height: 50vh;
   }
   .nav-admin {
     margin-right: 1rem;
@@ -1824,7 +1827,7 @@ leaflet-popup-content-wrapper,
     padding: 0 0rem;
   }
   .section-projects {
-    padding: 35rem 3rem 15rem 3rem;
+    padding: 15rem 3rem 15rem 3rem;
   }
   .project-container:nth-child(even) .carousel-root, .project-container:nth-child(odd) .carousel-root {
     height: 190px !important;
@@ -1875,6 +1878,16 @@ leaflet-popup-content-wrapper,
   }
   .project-container:nth-child(even) .project-tools li:not(:last-child), .project-container:nth-child(odd) .project-tools li:not(:last-child) {
     margin-right: 7px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .section-projects {
+    padding: 25rem 3rem 15rem 3rem;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .section-projects {
+    margin: 20rem 3rem 15rem 3rem;
   }
 }
 @media only screen and (max-width: 745px) {
