@@ -18,7 +18,7 @@ const titleStyling = {
 
 const typographyStyling = {
   fontWeight: "bold",
-  fontSize: "var(--fonts-xs)",
+  fontSize: "var(--fonts-sm)",
   padding: "0 0 1rem 0",
 };
 

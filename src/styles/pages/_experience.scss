@@ -2,6 +2,7 @@
   padding: 10rem 22rem;
   min-height: 80vh;
   max-height: 80vh;
+  font-size: var(--fonts-sm) !important;
 }
 
 .experience {
@@ -10,7 +11,7 @@
   padding: 3rem 0;
 
   &__jobs-tab {
-    font-size: var(--fonts-sm);
+    font-size: var(--fonts-sm) !important;
     min-width: 80%;
     max-width: 80%;
   }

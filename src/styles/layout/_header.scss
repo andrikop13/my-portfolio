@@ -6,6 +6,7 @@ header {
   width: 100%;
   height: var(--nav-height);
   background-color: var(--navy);
+  font-family: var(--fonts-sans);
   // box-shadow: 0 5px 15px -5px var(--navy-shadow);
 
   filter: none !important;
@@ -42,14 +43,18 @@ header {
     gap: 0.3rem;
 
     & .nameText {
+      letter-spacing: 0.5px;
       flex-grow: 1;
       color: white;
-      font-size: 1.5rem;
+      font-size: var(--fonts-xs);
+      line-height: 2;
     }
 
     & .jobTitle {
       font-size: 1.3rem;
-      margin-top: -5px;
+      margin-top: -3px;
+      margin-left: -3px;
+      letter-spacing: 0.5px;
     }
   }
 
@@ -69,7 +74,6 @@ header {
   }
 
   & .text-column {
-    font-style: italic;
     display: flex;
     flex-direction: column;
     justify-content: center;

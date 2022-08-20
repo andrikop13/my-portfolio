@@ -19,6 +19,7 @@
   & .project-title {
     letter-spacing: 0.1rem;
     line-height: 1.2;
+    font-family: var(--fonts-sans);
 
     &__main {
       color: var(--white);
@@ -34,7 +35,7 @@
 
   & .project-content {
     font-size: 1.5rem;
-    line-height: 1.4;
+    line-height: 1.5;
     z-index: 3;
     box-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.6);
     background-color: var(--dark-navy);

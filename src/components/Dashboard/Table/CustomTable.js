@@ -19,7 +19,7 @@ export const StyledTableCell = styled(TableCell)(({ theme }) => ({
     fontFamily: "inherit",
   },
   [`&.${tableCellClasses.body}`]: {
-    fontSize: "var(--fonts-xs)",
+    fontSize: "var(--fonts-sm)",
     backgroundColor: "var(--lightest-slate)",
     fontFamily: "inherit",
   },

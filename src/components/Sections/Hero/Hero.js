@@ -30,7 +30,7 @@ const Hero = () => {
             className="hero__contact-button"
             onClick={handleScrolling.bind(this, "contact")}
           >
-            Contact me!
+            <div>Contact me!</div>
           </Link>
         </div>
         <div className="hero__image-box">
