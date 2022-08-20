@@ -21,7 +21,7 @@ const MyLogo = (props) => {
         strokeWidth="0"
         dx="0"
         dy="0"
-        fontFamily='"ePiHgLp7XcT1:::Lora"'
+        fontFamily='"Times"'
         fontSize="64"
         fontStyle="italic"
         fontWeight={props.fontWeight || "400"}

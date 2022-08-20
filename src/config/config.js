@@ -11,6 +11,7 @@ module.exports = {
     login:
       "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword",
     baseURLs: {
+      hero: "/",
       login: "/admin/login",
       dashboard: "/admin/dashboard",
       projects: "/admin/projects",

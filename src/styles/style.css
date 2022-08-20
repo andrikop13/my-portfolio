@@ -1214,8 +1214,8 @@ nav .nav--links .login-button-main {
 }
 .section-experience {
   padding: 10rem 22rem;
-  min-height: 80vh;
-  max-height: 80vh;
+  min-height: 90vh;
+  max-height: 100vh;
   font-size: var(--fonts-sm) !important;
 }
 
@@ -1240,6 +1240,7 @@ nav .nav--links .login-button-main {
 .experience__description-date {
   color: var(--light-slate);
   margin-bottom: 2rem;
+  font-size: var(--fonts-xs);
 }
 .experience__description-text {
   font-size: var(--tabs-size);
@@ -1470,7 +1471,7 @@ leaflet-popup-content-wrapper,
     max-width: 80%;
   }
   .section-projects {
-    padding: 10rem 16rem;
+    padding: 15rem 16rem;
   }
 }
 @media only screen and (max-width: 85em) {
@@ -1487,7 +1488,7 @@ leaflet-popup-content-wrapper,
     margin-top: -16rem;
   }
   .section-projects {
-    padding: 10rem 16rem;
+    padding: 15rem 16rem;
   }
   .project-container {
     padding: 0;
@@ -1506,7 +1507,7 @@ leaflet-popup-content-wrapper,
     padding: 10rem 10rem;
   }
   .section-projects {
-    padding: 10rem 15rem;
+    padding: 15rem 15rem;
   }
   .experience__jobs-tab {
     min-width: 100%;
@@ -1539,12 +1540,6 @@ leaflet-popup-content-wrapper,
 .contact__tags-box canvas {
     width: 100%;
     overflow: visible;
-  }
-  .hero .section-experience,
-.about .section-experience,
-.contact .section-experience {
-    min-height: 70vh;
-    max-height: 100vh;
   }
   .contact {
     row-gap: 3.6rem;
@@ -1742,7 +1737,7 @@ leaflet-popup-content-wrapper,
 }
 @media only screen and (max-width: 48.25em) {
   .section-projects {
-    padding: 10rem 10rem;
+    padding: 15rem 10rem;
   }
   .section-about {
     padding: 10rem 6rem;
@@ -1797,6 +1792,9 @@ leaflet-popup-content-wrapper,
 .section-projects {
     padding: 10rem 4rem;
   }
+  .section-projects {
+    padding: 25rem 4rem 10rem 4rem;
+  }
   .nav-admin {
     margin-right: 1rem;
   }
@@ -1826,7 +1824,7 @@ leaflet-popup-content-wrapper,
     padding: 0 0rem;
   }
   .section-projects {
-    padding: 10rem 3rem;
+    padding: 35rem 3rem 15rem 3rem;
   }
   .project-container:nth-child(even) .carousel-root, .project-container:nth-child(odd) .carousel-root {
     height: 190px !important;
@@ -1879,11 +1877,11 @@ leaflet-popup-content-wrapper,
     margin-right: 7px;
   }
 }
-@media only screen and (max-width: 595px) {
+@media only screen and (max-width: 745px) {
   .MuiTabs-root {
     min-width: 120% !important;
     max-width: auto !important;
-    padding: 0;
+    padding: 0 !important;
     margin-bottom: 4rem;
   }
   .MuiBox-root {

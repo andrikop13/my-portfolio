@@ -1,7 +1,7 @@
 .section-experience {
   padding: 10rem 22rem;
-  min-height: 80vh;
-  max-height: 80vh;
+  min-height: 90vh;
+  max-height: 100vh;
   font-size: var(--fonts-sm) !important;
 }
 
@@ -27,6 +27,7 @@
   &__description-date {
     color: var(--light-slate);
     margin-bottom: 2rem;
+    font-size: var(--fonts-xs);
   }
 
   &__description-text {

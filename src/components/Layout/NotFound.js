@@ -1,11 +1,9 @@
-import { useNavigate } from "react-router-dom";
+import { URL_CONFIG } from "../../config/config";
 import Footer from "./Footer";
 
 const NotFound = () => {
-  const navigate = useNavigate();
-
   const goHome = () => {
-    navigate(-1);
+    window.location.href = URL_CONFIG.baseURLs.hero;
   };
   return (
     <>

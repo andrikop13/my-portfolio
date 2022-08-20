@@ -20,12 +20,12 @@ const MainTabWrapper = () => {
 
   const handleResize = () => {
     const w = window.innerWidth / responsive.baseDivider;
-    setIsMobile(w < responsive.phone[1]);
+    setIsMobile(w < 75);
   };
 
   useEffect(() => {
     const width = window.innerWidth / responsive.baseDivider;
-    setIsMobile(width < responsive.phone[1]);
+    setIsMobile(width < 75);
     window.addEventListener("resize", handleResize);
 
     return () => {
