@@ -261,6 +261,21 @@ a:after {
   opacity: 0.5;
 }
 
+.loader-hidden {
+  display: none;
+}
+
+.loader-active {
+  display: block;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
 .heading-primary {
   backface-visibility: hidden;
   margin-bottom: 6rem;

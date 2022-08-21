@@ -71,6 +71,12 @@ const JobForm = () => {
   const saveJob = async () => {
     const send = () => {
       dispatch(
+        uiActions.showMessage({
+          message: "Saving job...",
+          status: "info",
+        })
+      );
+      dispatch(
         addJob(
           {
             position: positionValue,

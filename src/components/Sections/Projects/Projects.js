@@ -2,10 +2,11 @@ import { createRef, useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import ProjectItem from "./ProjectItem";
 import { useSelector } from "react-redux";
+import Loader from "react-loaders";
 
 const Projects = () => {
   const [showMore, setShowMore] = useState(false);
-  const projects = useSelector((state) => state.projects.list);
+  let projects = useSelector((state) => state.projects.list);
 
   const handleMoreProjects = () => {
     setShowMore((prevState) => !prevState);
@@ -20,6 +21,12 @@ const Projects = () => {
       <h1 className="section-heading">Projects I've worked on</h1>
       <br />
       <br />
+
+      {!projects.length && (
+        <div className="loader-container">
+          <Loader type="ball-grid-pulse" />
+        </div>
+      )}
       <div>
         <TransitionGroup component={"ul"}>
           {projectsToShow.map((pr, p) => {
@@ -49,11 +56,14 @@ const Projects = () => {
         </TransitionGroup>
       </div>
       <br />
-      <div className="flex-button">
-        <button className="small-button" onClick={handleMoreProjects}>
-          {!showMore ? "Show More" : "Show Less"}
-        </button>
-      </div>
+
+      {projects.length > PROJECTS_LIMIT && (
+        <div className="flex-button">
+          <button className="small-button" onClick={handleMoreProjects}>
+            {!showMore ? "Show More" : "Show Less"}
+          </button>
+        </div>
+      )}
     </section>
   );
 };

@@ -10,8 +10,6 @@ const ImageContainer = styled.div`
     position: relative;
 
     & .hero-img {
-      animation: leftRotation 1.5s;
-      -webkit-animation: leftRotation 1.5s;
       transform: rotate(-10deg);
       width: 29rem;
       position: relative;
@@ -22,8 +20,6 @@ const ImageContainer = styled.div`
     }
 
     &::before {
-      animation: leftRotation 1.5s;
-      -webkit-animation: leftRotation 1.5s;
       transform: rotate(-10deg);
       top: 0px;
       transform: rotate(-10deg);
@@ -35,8 +31,6 @@ const ImageContainer = styled.div`
     }
 
     &::after {
-      animation: rightRotation 1.5s;
-      -webkit-animation: rightRotation 1.5s;
       transform: rotate(10deg);
       border: 2px solid var(--green);
       top: -3.25%;

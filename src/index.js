@@ -4,6 +4,7 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import "leaflet/dist/leaflet";
 import "./styles/style.css";
+import "loaders.css/src/animations/ball-grid-pulse.scss";
 import store from "./store";
 import { Provider } from "react-redux";
 import { AuthContextProvider } from "./store/auth-context";

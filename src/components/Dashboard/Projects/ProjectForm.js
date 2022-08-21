@@ -87,6 +87,12 @@ const ProjectForm = () => {
 
     const send = () => {
       dispatch(
+        uiActions.showMessage({
+          message: "Saving project...",
+          status: "info",
+        })
+      );
+      dispatch(
         addProject(
           {
             title: titleValue,

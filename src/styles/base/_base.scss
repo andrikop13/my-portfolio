@@ -110,3 +110,16 @@ a {
 
   @include inline_link;
 }
+
+$primary-color: var(--white);
+.loader-hidden {
+  display: none;
+}
+.loader-active {
+  display: block;
+}
+
+.loader-container {
+  @include flex_center;
+  margin-top: 5rem;
+}
