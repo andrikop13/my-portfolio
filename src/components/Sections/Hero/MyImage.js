@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { responsive } from "../../../config/config";
+import image from "../../../assets/images/myself.jpg";
 
 const ImageContainer = styled.div`
   @media (max-width: ${responsive.phone[1]}rem) {
@@ -10,6 +11,8 @@ const ImageContainer = styled.div`
     position: relative;
 
     & .hero-img {
+      animation: leftRotation 1s ;
+      -webkit-animation: leftRotation 1s;
       transform: rotate(-10deg);
       width: 29rem;
       position: relative;
@@ -20,9 +23,10 @@ const ImageContainer = styled.div`
     }
 
     &::before {
+      animation: leftRotation 1s ;
+      -webkit-animation: leftRotation 1s ;
       transform: rotate(-10deg);
       top: 0px;
-      transform: rotate(-10deg);
       left: 0px;
       background-color: var(--green);
       width: 100%;
@@ -31,6 +35,8 @@ const ImageContainer = styled.div`
     }
 
     &::after {
+      animation: rightRotation 1s ;
+      -webkit-animation: rightRotation 1s;
       transform: rotate(10deg);
       border: 2px solid var(--green);
       top: -3.25%;
@@ -103,15 +109,9 @@ const ImageContainer = styled.div`
 const MyImage = () => {
   return (
     <ImageContainer>
-      <picture>
-        <div className="img-wrapper">
-          <img
-            src={require("../../../assets/images/myself.jpg")}
-            className="hero-img"
-            alt="My Profile"
-          ></img>
-        </div>
-      </picture>
+      <div className="img-wrapper">
+        <img src={image} className="hero-img" alt="My Profile"></img>
+      </div>
     </ImageContainer>
   );
 };
