@@ -22,13 +22,9 @@
 
 # About The Project
 
-<p>
 Hello, my name is Andreas Andrikopoulos and thank you for checking out this repo. This is my personal Portfolio Website, which is designed and built by me. This website isn't just my portfolio website, but also a personal project in and of itself. I tried to make website as an application, implementing in addition to the main page, an administration dashboard, where admin user can create new content or update and delete the old one. The CRUD operations are handled with Redux and the final content is saved in the Firebase platform.
-</p>
 
-<p>
-I think that last years, i have learned a lot as a developer, having experience with JavaScript, TypeScript and Angular ecosystem. I would like to get my hands dirty on React as well. That's why i choose to build this project in React and Redux.
-</p>
+So, you can use this project as a portfolio template with the appropriate reference as described in `LICENSE.txt` file of the project. I think that last years, i have learned a lot as a developer, having experience with JavaScript, TypeScript and Angular ecosystem. I would like to get my hands dirty on React as well. That's why i choose to build this project in React and Redux.
 
 <br/>
 
@@ -59,8 +55,8 @@ I think that last years, i have learned a lot as a developer, having experience 
 | :-------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
 | ![](https://raw.githubusercontent.com/andrikop13/my-portfolio/admin_dashboard/src/assets/images/readme_images/projects.png) | ![](https://raw.githubusercontent.com/andrikop13/my-portfolio/admin_dashboard/src/assets/images/readme_images/projectEdit.png) |
 
-| Job Edit Panel |
-| :------------: |
+|                                                       Job Edit Panel                                                       |
+| :------------------------------------------------------------------------------------------------------------------------: |
 | ![](https://raw.githubusercontent.com/andrikop13/my-portfolio/admin_dashboard/src/assets/images/readme_images/jobEdit.png) |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
