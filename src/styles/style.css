@@ -837,6 +837,7 @@ nav .logo a svg {
 nav .nav--links {
   display: flex;
   align-items: center;
+  letter-spacing: 0.5px;
 }
 nav .nav--links ol {
   display: flex;
@@ -848,7 +849,6 @@ nav .nav--links ol {
 }
 nav .nav--links ol li {
   counter-increment: item 1;
-  margin: 0 5px;
   position: relative;
   font-size: var(--fonts-sm);
 }
@@ -873,11 +873,10 @@ nav .nav--links .login-button-main {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 10px;
   font-size: var(--fonts-xs);
 }
 nav .nav--links .login-button-main {
-  margin-left: 30px;
+  margin-left: 10px;
   border: 1px solid var(--not-found-shade);
   color: var(--not-found-shade);
 }
@@ -1512,7 +1511,7 @@ leaflet-popup-content-wrapper,
 }
 @media only screen and (max-width: 75em) {
   .section-projects {
-    padding: 10rem 12rem;
+    padding: 10rem 10rem;
   }
 }
 @media only screen and (max-width: 56.25em) {
