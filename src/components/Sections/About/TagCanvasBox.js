@@ -15,6 +15,7 @@ const TagCanvasBox = () => {
       zoom={1}
       noSelect
       pinchZoom
+      wheelZoom={false}
       tags={skills}
     />
   );

@@ -1,5 +1,5 @@
 .section-experience {
-  padding: 10rem 22rem;
+  padding: 10rem 18rem;
   min-height: 90vh;
   max-height: 100vh;
   font-size: var(--fonts-sm) !important;
@@ -32,7 +32,7 @@
 
   &__description-text {
     font-size: var(--tabs-size);
-    line-height: 1.8;
+    line-height: 1.5;
     color: var(--light-slate);
 
     & li:not(:last-child) {

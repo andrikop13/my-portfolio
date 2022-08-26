@@ -21,11 +21,8 @@
 @include respond(tab-land) {
   .section-experience,
   .section-hero,
-  .section-about {
-    padding: 10rem 6rem;
-  }
-
-  .section-hero {
+  .section-about,
+   .section-contact {
     padding: 10rem 10rem;
   }
 
@@ -50,12 +47,6 @@
 }
 
 @include respond(tab-port) {
-  .section-experience,
-  .section-hero,
-  .section-about,
-  .section-contact {
-    padding: 10rem 10rem;
-  }
 
   .section-projects {
     padding: 15rem 15rem;
