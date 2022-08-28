@@ -1,7 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import jobsSlice from "./jobs/jobs-slice";
-import projectSlice from "./projects/projects-slice";
-import uiSlice from "./ui/ui-slice";
+import { jobsSlice, projectSlice, uiSlice } from "@store";
 
 const store = configureStore({
   reducer: {
@@ -12,3 +10,17 @@ const store = configureStore({
 });
 
 export default store;
+export { default as jobsSlice, jobsActions } from "./jobs/jobs-slice";
+export { fetchJobsData, addJob, deleteJob } from "./jobs/jobs-actions";
+export {
+  default as projectSlice,
+  projectsActions,
+} from "./projects/projects-slice";
+export {
+  fetchProjectsData,
+  addProject,
+  deleteProject,
+} from "./projects/projects-actions";
+export { default as uiSlice, uiActions } from "./ui/ui-slice";
+export { default as AuthContext } from "./auth-context";
+export { AuthContextProvider } from "./auth-context";

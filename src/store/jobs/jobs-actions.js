@@ -1,5 +1,4 @@
-import { uiActions } from "../ui/ui-slice";
-import { jobsActions } from "./jobs-slice";
+import { jobsActions, uiActions } from "@store";
 
 export const fetchJobsData = () => {
   const jobs = [];

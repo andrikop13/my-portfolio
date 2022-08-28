@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { calculateRemainingTime } from "../utils";
+import { calculateRemainingTime } from "@utils";
 
 let logoutTimer;
 

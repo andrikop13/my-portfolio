@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { responsive } from "../config/config";
+import { responsive } from "@config";
 
 const useWindowSize = (upperBound) => {
   const [isMobile, setIsMobile] = useState(null);
@@ -22,4 +22,4 @@ const useWindowSize = (upperBound) => {
   return { isMobile };
 };
 
-export { useWindowSize };
+export default useWindowSize;

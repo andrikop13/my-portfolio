@@ -1,0 +1,15 @@
+export { default as About } from "./About/About";
+export { default as TagCanvasBox } from "./About/TagCanvasBox";
+export { default as MarkerWithOpenPopup } from "./Contact/Map/Marker";
+export { default as MarkerIcon } from "./Contact/Map/MarkerIcon";
+export { default as MyLocation } from "./Contact/Map/MyLocation";
+export { default as ConfirmationBox } from "./Contact/confirmationBox";
+export { default as Contact } from "./Contact/Contact";
+export { default as ContactForm } from "./Contact/ContactForm";
+export { default as Experience } from "./Experience/Experience";
+export { default as MainTabWrapper } from "./Experience/MainTabWrapper";
+export { default as TabPanel } from "./Experience/TabPanel";
+export { default as Hero } from "./Hero/Hero";
+export { default as MyImage } from "./Hero/MyImage";
+export { default as ProjectItem } from "./Projects/ProjectItem";
+export { default as Projects } from "./Projects/Projects";

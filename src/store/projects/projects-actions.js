@@ -1,5 +1,4 @@
-import { projectsActions } from "./projects-slice";
-import { uiActions } from "../ui/ui-slice";
+import { projectsActions, uiActions } from "@store";
 
 export const fetchProjectsData = () => {
   const projects = [];

@@ -1,24 +1,25 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import ParticlesBackground from "./components/ParticlesBackground";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProjectsData } from "./store/projects/projects-actions";
-import { fetchJobsData } from "./store/jobs/jobs-actions";
-import Main from "./components/Layout/MainRoute";
-import NotFound from "./components/Layout/NotFound";
-import MainDash from "./components/Dashboard/MainDash";
-import Login from "./components/Dashboard/Login/Login";
-import JobList from "./components/Dashboard/Experience/JobList";
-import ProjectList from "./components/Dashboard/Projects/ProjectList";
-import JobForm from "./components/Dashboard/Experience/JobForm";
-import ProjectForm from "./components/Dashboard/Projects/ProjectForm";
-import ProtectedRoute from "./components/Dashboard/ProtectedRoute";
-import Home from "./components/Layout/Home";
-import Admin from "./components/Dashboard/Admin";
-import AnimationLayout from "./components/Layout/AnimationLayout";
-import { projectsActions } from "./store/projects/projects-slice";
-import { uiActions } from "./store/ui/ui-slice";
-import { jobsActions } from "./store/jobs/jobs-slice";
+import { Home, Main, NotFound, AnimationLayout } from "@components/layout";
+import { ParticlesBackground } from "@components/particles";
+import {
+  fetchProjectsData,
+  fetchJobsData,
+  projectsActions,
+  uiActions,
+  jobsActions,
+} from "@store";
+import {
+  MainDash,
+  Login,
+  JobList,
+  ProjectList,
+  JobForm,
+  ProjectForm,
+  ProtectedRoute,
+  Admin,
+} from "@components/dashboard";
 
 const App = () => {
   const location = useLocation();

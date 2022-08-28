@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import "leaflet/dist/leaflet";
 import "./styles/style.css";
 import "loaders.css/src/animations/ball-grid-pulse.scss";
-import store from "./store";
-import { Provider } from "react-redux";
-import { AuthContextProvider } from "./store/auth-context";
+import store from "@store";
+import { AuthContextProvider } from "@store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

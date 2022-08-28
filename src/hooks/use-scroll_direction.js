@@ -44,4 +44,4 @@ const useScrollDirection = () => {
   return { scrollDirection, scrolledToTop };
 };
 
-export { useScrollDirection };
+export default useScrollDirection;
