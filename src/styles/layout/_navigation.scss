@@ -61,6 +61,10 @@ nav {
           &:hover,
           &:focus {
             color: var(--green);
+
+            &::after {
+              margin-top: 3px;
+            }
           }
         }
 
