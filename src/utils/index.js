@@ -50,3 +50,4 @@ export { _imgToBase64 as imgToBase64 };
 export { _calculateRemainingTime as calculateRemainingTime };
 export { _urlToFile as urlToFile };
 export { _fileToBase64 as fileToBase64 };
+export { default as httpRequest } from "./http-request";

@@ -1,4 +1,5 @@
 import { jobsActions, uiActions } from "@store";
+import { httpRequest } from "@utils";
 
 export const fetchJobsData = () => {
   const jobs = [];
@@ -11,25 +12,18 @@ export const fetchJobsData = () => {
   };
 
   return async (dispatch) => {
-    const fetchData = async () => {
-      const response = await fetch(
-        `${process.env.REACT_APP_FIREBASE_URL}/jobs.json`
-      );
+    const { data: jobData, errorExists } = await httpRequest(
+      `${process.env.REACT_APP_FIREBASE_URL}/jobs.json`,
+      "GET"
+    );
 
-      if (!response.ok) {
-        throw new Error("Could not fetch cart data!");
-      }
-
-      const data = await response.json();
-      return data;
-    };
-
-    try {
-      const jobData = await fetchData();
+    if (!errorExists) {
       updateState(jobData, jobs, dispatch);
-    } catch (error) {
-      const response = await fetch(`../content/experience.json`);
-      const jobData = await response.json();
+    } else {
+      const { data: jobData } = await httpRequest(
+        `../content/experience.json`,
+        "GET"
+      );
       updateState(jobData.jobs, jobs, dispatch);
     }
   };
@@ -40,43 +34,37 @@ export function addJob(jobData, existingJobId) {
     jobData = { ...jobData, id: existingJobId };
   }
   return async (dispatch) => {
-    const saveJob = async () => {
-      const hitUrl = existingJobId
-        ? `${process.env.REACT_APP_FIREBASE_URL}/jobs/${existingJobId}.json`
-        : `${process.env.REACT_APP_FIREBASE_URL}/jobs.json`;
+    const hitUrl = existingJobId
+      ? `${process.env.REACT_APP_FIREBASE_URL}/jobs/${existingJobId}.json`
+      : `${process.env.REACT_APP_FIREBASE_URL}/jobs.json`;
 
-      const accessToken = localStorage.getItem("token");
+    const accessToken = localStorage.getItem("token");
 
-      const response = await fetch(`${hitUrl}?auth=${accessToken}`, {
-        method: existingJobId ? "PATCH" : "POST",
-        body: JSON.stringify(jobData),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error(response.status + " - " + response.statusText);
+    const {
+      data: newJobData,
+      errorExists,
+      errorDetails,
+    } = await httpRequest(
+      `${hitUrl}?auth=${accessToken}`,
+      existingJobId ? "PATCH" : "POST",
+      JSON.stringify(jobData),
+      {
+        "Content-Type": "application/json",
       }
+    );
 
-      const data = await response.json();
-      return data;
-    };
-
-    try {
-      const responseData = await saveJob();
-
-      if (responseData.name) {
-        jobData.id = responseData.name;
+    if (!errorExists) {
+      if (newJobData.name) {
+        jobData.id = newJobData.name;
       }
 
       existingJobId
-        ? dispatch(jobsActions.updateJob(jobData))
-        : dispatch(jobsActions.addJob(jobData));
-    } catch (error) {
+        ? dispatch(jobsActions.updateJob(newJobData))
+        : dispatch(jobsActions.addJob(newJobData));
+    } else {
       dispatch(
         uiActions.showMessage({
-          message: error.message,
+          message: errorDetails.message,
           status: "error",
         })
       );
@@ -86,30 +74,21 @@ export function addJob(jobData, existingJobId) {
 
 export function deleteJob(jobId) {
   return async (dispatch) => {
-    const deleteId = async () => {
-      const hitUrl = `${process.env.REACT_APP_FIREBASE_URL}/jobs/${jobId}.json`;
+    const hitUrl = `${process.env.REACT_APP_FIREBASE_URL}/jobs/${jobId}.json`;
 
-      const accessToken = localStorage.getItem("token");
+    const accessToken = localStorage.getItem("token");
 
-      const response = await fetch(`${hitUrl}?auth=${accessToken}`, {
-        method: "DELETE",
-      });
+    const { errorExists, errorDetails } = await httpRequest(
+      `${hitUrl}?auth=${accessToken}`,
+      "DELETE"
+    );
 
-      if (!response.ok) {
-        throw new Error(response.status + " - " + response.statusText);
-      }
-
-      const data = await response.json();
-      return data;
-    };
-
-    try {
-      await deleteId();
+    if (!errorExists) {
       dispatch(jobsActions.deleteJob(jobId));
-    } catch (error) {
+    } else {
       dispatch(
         uiActions.showMessage({
-          message: error.message,
+          message: errorDetails.message,
           status: "error",
         })
       );

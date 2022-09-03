@@ -1,4 +1,5 @@
 import { projectsActions, uiActions } from "@store";
+import { httpRequest } from "@utils";
 
 export const fetchProjectsData = () => {
   const projects = [];
@@ -11,25 +12,18 @@ export const fetchProjectsData = () => {
   };
 
   return async (dispatch) => {
-    const fetchData = async () => {
-      const response = await fetch(
-        `${process.env.REACT_APP_FIREBASE_URL}/projects.json`
-      );
+    const { data: projectData, errorExists } = await httpRequest(
+      `${process.env.REACT_APP_FIREBASE_URL}/projects.json`,
+      "GET"
+    );
 
-      if (!response.ok) {
-        throw new Error("Could not fetch cart data!");
-      }
-
-      const data = await response.json();
-      return data;
-    };
-
-    try {
-      const projectData = await fetchData();
+    if (!errorExists) {
       updateState(projectData, projects, dispatch);
-    } catch (error) {
-      const response = await fetch(`../content/projects.json`);
-      const projectData = await response.json();
+    } else {
+      const { data: projectData } = await httpRequest(
+        `../content/projects.json`,
+        "GET"
+      );
       updateState(projectData.projects, projects, dispatch);
     }
   };
@@ -40,44 +34,37 @@ export function addProject(projectData, existingProjectId) {
     projectData = { ...projectData, id: existingProjectId };
   }
   return async (dispatch) => {
-    const saveProject = async () => {
-      const hitUrl = existingProjectId
-        ? `${process.env.REACT_APP_FIREBASE_URL}/projects/${existingProjectId}.json`
-        : `${process.env.REACT_APP_FIREBASE_URL}/projects.json`;
+    const hitUrl = existingProjectId
+      ? `${process.env.REACT_APP_FIREBASE_URL}/projects/${existingProjectId}.json`
+      : `${process.env.REACT_APP_FIREBASE_URL}/projects.json`;
 
-      const accessToken = localStorage.getItem("token");
+    const accessToken = localStorage.getItem("token");
 
-      const response = await fetch(`${hitUrl}?auth=${accessToken}`, {
-        method: existingProjectId ? "PATCH" : "POST",
-        body: JSON.stringify(projectData),
-        headers: {
-          "Content-Type": "application/json",
-          // Authorization: `Bearer ${accessToken}`,
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error(response.status + " - " + response.statusText);
+    const {
+      data: newProjectData,
+      errorExists,
+      errorDetails,
+    } = await httpRequest(
+      `${hitUrl}?auth=${accessToken}`,
+      existingProjectId ? "PATCH" : "POST",
+      JSON.stringify(projectData),
+      {
+        "Content-Type": "application/json",
       }
+    );
 
-      const data = await response.json();
-      return data;
-    };
-
-    try {
-      const responseData = await saveProject();
-
-      if (responseData.name) {
-        projectData.id = responseData.name;
+    if (!errorExists) {
+      if (newProjectData.name) {
+        newProjectData.id = newProjectData.name;
       }
 
       existingProjectId
-        ? dispatch(projectsActions.updateProject(projectData))
-        : dispatch(projectsActions.addProject(projectData));
-    } catch (error) {
+        ? dispatch(projectsActions.updateProject(newProjectData))
+        : dispatch(projectsActions.addProject(newProjectData));
+    } else {
       dispatch(
         uiActions.showMessage({
-          message: error.message,
+          message: errorDetails.message,
           status: "error",
         })
       );
@@ -87,30 +74,21 @@ export function addProject(projectData, existingProjectId) {
 
 export function deleteProject(projectId) {
   return async (dispatch) => {
-    const deleteId = async () => {
-      const hitUrl = `${process.env.REACT_APP_FIREBASE_URL}/projects/${projectId}.json`;
+    const hitUrl = `${process.env.REACT_APP_FIREBASE_URL}/projects/${projectId}.json`;
 
-      const accessToken = localStorage.getItem("token");
+    const accessToken = localStorage.getItem("token");
 
-      const response = await fetch(`${hitUrl}?auth=${accessToken}`, {
-        method: "DELETE",
-      });
+    const { errorExists, errorDetails } = await httpRequest(
+      `${hitUrl}?auth=${accessToken}`,
+      "DELETE"
+    );
 
-      if (!response.ok) {
-        throw new Error(response.status + " - " + response.statusText);
-      }
-
-      const data = await response.json();
-      return data;
-    };
-
-    try {
-      await deleteId();
+    if (!errorExists) {
       dispatch(projectsActions.deleteProject(projectId));
-    } catch (error) {
+    } else {
       dispatch(
         uiActions.showMessage({
-          message: error.message,
+          message: errorDetails.message,
           status: "error",
         })
       );

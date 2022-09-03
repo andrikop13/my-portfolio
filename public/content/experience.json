@@ -1,47 +1,50 @@
 {
   "jobs": {
     "-N9blHoDP2Ba_BBAhTwi": {
-      "position": "Software Engineer",
-      "organization": "Hellenic Army IT Support Centre",
+      "date": "Feb 2022 - October 2022",
       "descriptionItems": [
         "Web application development with Angular 13 Framework and UI libraries like Bootstrap, PrimeNg and Nebular for Greek army use cases.",
-        "Web service for creating and collecting a high number of documents and materials that records important events in Hellenic history."
+        "Built a web service for creating and collecting a high number of documents and materials that records important events in Hellenic history.",
+        "Contributed in the development of a web application used by the Greek Army to issue boarding statements to its executives."
       ],
-      "date": "Feb 2022 - October 2022",
-      "link": "http://army.gr/el/organosi/monades-ypiresies/kentro-pliroforikis-ypostirixis-ellinikoy-stratoy-kepyes"
+      "id": "-N9blHoDP2Ba_BBAhTwi",
+      "link": "http://army.gr/el/organosi/monades-ypiresies/kentro-pliroforikis-ypostirixis-ellinikoy-stratoy-kepyes",
+      "organization": "Hellenic Army IT Support Centre",
+      "position": "Software Engineer"
     },
     "-N9blL20E47MywWmI0E1": {
-      "position": "Software Engineer",
-
-      "organization": "Meazon S.A.",
+      "date": "Jun 2018 - Oct 2021",
       "descriptionItems": [
         "Developed modern and responsive UI for company’s IoT platform, capable of visualizing real time data from IoT devices like energy meters, sensors and light controllers.",
-        "Worked with a variety of different languages, libraries & frameworks, like JavaScript (ES6), Typescript, Angular, Node.js, Express, HTML, CSS3/Sass, Chart.js, D3.js, Leafltet etc.",
+        "Worked with a variety of different languages, libraries & frameworks, like JavaScript (ES6), Typescript, Angular, Node.js, Express.js, HTML, CSS3/Sass, Chart.js, D3.js, Leafltet etc.",
+        "Worked with Apache Cassandra and Firebase platform. ",
         "IoT Platform Administration & Management on Thingsboard IoT platform.",
         "Communicated and collaborated with multi-disciplinary teams of engineers, producers and clients, on a daily basis"
       ],
-      "date": "Jun 2018 - Oct 2021",
-      "link": "https://meazon.com/"
+      "id": "-N9blL20E47MywWmI0E1",
+      "link": "https://meazon.com/",
+      "organization": "Meazon S.A.",
+      "position": "Software Engineer"
     },
     "-N9blNL_A4-owb5B-bEW": {
-      "position": "Software Engineer",
-
-      "organization": "Meazon S.A. (Internship)",
+      "date": "Mar 2018 - May 2018",
       "descriptionItems": [
         "Application Development (LW2M2 Iot Protocol Usage) for bi-directional communication between Power meters and cloud gateway (C, C++)"
       ],
-      "date": "Mar 2018 - May 2018",
-      "link": "https://meazon.com/"
+      "id": "-N9blNL_A4-owb5B-bEW",
+      "link": "https://meazon.com/",
+      "organization": "Meazon S.A. (Internship)",
+      "position": "Software Engineer"
     },
-    "-N9blPetiGS0HkCl6Irt": {
-      "position": "Teacher Assistant",
-
-      "organization": "CEID - University of Patras",
+    "-N9lrGUNyMW7BT23jLlI": {
+      "date": "Oct 2020 - Sep 2021",
       "descriptionItems": [
         "Worked with the professor and in conjunction with other teacher assistants ensure collaboration in helping students learn Object-Oriented Programming (Java) and Databases (MySQL)"
       ],
-      "date": "Oct 2020 - Sep 2021",
-      "link": "https://www.ceid.upatras.gr/en"
+      "id": "-N9lrGUNyMW7BT23jLlI",
+      "link": "  https://www.ceid.upatras.gr/en",
+      "organization": "CEID - University of Patras",
+      "position": "Teacher Assistantttt"
     }
   }
 }
