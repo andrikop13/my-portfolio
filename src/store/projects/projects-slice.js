@@ -1,4 +1,4 @@
-const { createSlice } = require("@reduxjs/toolkit");
+const { createSlice, current } = require("@reduxjs/toolkit");
 
 const projectSlice = createSlice({
   name: "projects",
@@ -17,6 +17,8 @@ const projectSlice = createSlice({
         (item) => item.title === newProject.title
       );
 
+      console.log(newProject);
+
       if (!existingProject) {
         state.list.push({
           id: newProject.id,
@@ -29,6 +31,7 @@ const projectSlice = createSlice({
           github: newProject?.github,
         });
         state.projectsChanged = true;
+        console.log(current(state.list));
       } else {
         return;
       }
@@ -47,13 +50,6 @@ const projectSlice = createSlice({
       );
       state.list = filterProjects;
       state.projectDelete = true;
-    },
-    updateFlag(state, action) {
-      if (action.payload.flag === "save") {
-        state.projectsChanged = action.payload.value;
-      } else if (action.payload.flag === "delete") {
-        state.deleteProject = action.payload.value;
-      }
     },
   },
 });

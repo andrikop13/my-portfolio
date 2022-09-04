@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { BsBoxArrowUpRight } from "react-icons/bs";
@@ -13,7 +13,7 @@ import {
   StyledTableRow,
 } from "@components/dashboard";
 import { ConfirmationBox } from "@components/sections";
-import { deleteProject } from "@store";
+import { deleteProject, uiActions } from "@store";
 
 const columns = [
   "Action",
@@ -31,8 +31,35 @@ const ProjectList = () => {
     projectId: null,
   });
 
+  const projectsChanged = useSelector(
+    (state) => state.projects.projectsChanged
+  );
+  const deletedProject = useSelector((state) => state.projects.projectDelete);
+
   const navigate = useNavigate();
   const projects = useSelector((state) => state.projects.list);
+
+  const checkForMessages = useCallback(() => {
+    deletedProject &&
+      dispatch(
+        uiActions.showMessage({
+          message: "Project was deleted successfully",
+          status: "success",
+        })
+      );
+
+    projectsChanged &&
+      dispatch(
+        uiActions.showMessage({
+          message: "Projects saved successfully",
+          status: "success",
+        })
+      );
+  }, [deletedProject, dispatch, projectsChanged]);
+
+  useEffect(() => {
+    checkForMessages();
+  });
 
   const onToggleEditMode = (projectId) => {
     navigate(`${URL_CONFIG.baseURLs.projects}/${projectId}`);

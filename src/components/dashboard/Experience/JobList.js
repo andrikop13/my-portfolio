@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { IconButton, TableBody } from "@mui/material";
@@ -13,7 +13,7 @@ import {
 } from "@components/dashboard";
 import { URL_CONFIG } from "@config";
 import { ConfirmationBox } from "@components/sections";
-import { deleteJob } from "@store";
+import { deleteJob, uiActions } from "@store";
 
 const columns = ["Actions", "Position", "Organization", "Date", "Link"];
 
@@ -25,6 +25,31 @@ const JobList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const jobs = useSelector((state) => state.jobs.list);
+
+  const jobsChanged = useSelector((state) => state.jobs.jobsChanged);
+  const deletedJob = useSelector((state) => state.jobs.jobDelete);
+
+  const checkForMessages = useCallback(() => {
+    deletedJob &&
+      dispatch(
+        uiActions.showMessage({
+          message: "Job was deleted successfully",
+          status: "success",
+        })
+      );
+
+    jobsChanged &&
+      dispatch(
+        uiActions.showMessage({
+          message: "Jobs saved successfully",
+          status: "success",
+        })
+      );
+  }, [jobsChanged, dispatch, deletedJob]);
+
+  useEffect(() => {
+    checkForMessages();
+  });
 
   const onToggleEditMode = (jobId) => {
     navigate(`${URL_CONFIG.baseURLs.jobs}/${jobId}`);

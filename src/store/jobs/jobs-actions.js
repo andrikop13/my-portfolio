@@ -55,7 +55,8 @@ export function addJob(jobData, existingJobId) {
 
     if (!errorExists) {
       if (newJobData.name) {
-        jobData.id = newJobData.name;
+        Object.keys(jobData).forEach((key) => (newJobData[key] = jobData[key]));
+        newJobData.id = newJobData.name;
       }
 
       existingJobId

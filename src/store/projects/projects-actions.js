@@ -55,6 +55,9 @@ export function addProject(projectData, existingProjectId) {
 
     if (!errorExists) {
       if (newProjectData.name) {
+        Object.keys(projectData).forEach(
+          (key) => (newProjectData[key] = projectData[key])
+        );
         newProjectData.id = newProjectData.name;
       }
 
