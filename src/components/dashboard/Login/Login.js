@@ -46,10 +46,7 @@ const Login = () => {
         status: "success",
       })
     );
-    const expirationTime = new Date(
-      new Date().getTime() + +data.expiresIn * 1000
-    );
-    authCtx.login(data.idToken, expirationTime.toISOString());
+    authCtx.login(data.token, data.expires);
     navigate(URL_CONFIG.baseURLs.dashboard);
   };
 
@@ -64,12 +61,11 @@ const Login = () => {
 
     login(
       {
-        url: `${URL_CONFIG.login}?key=${process.env.REACT_APP_FIREBASE_API_KEY}`,
+        url: `${process.env.REACT_APP_BACKEND_URL}/${URL_CONFIG.users.login}`,
         method: "POST",
         body: {
           email: emailValue,
           password: passwordValue,
-          returnSecureToken: true,
         },
         headers: {
           "Content-Type": "application/json",

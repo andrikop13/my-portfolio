@@ -11,12 +11,11 @@ const httpRequest = (url, method, body = null, headers = null) => {
   return new Promise((resolve, reject) => {
     fetch(url, options)
       .then((res) => {
-        if (!res.ok) {
-          throw new Error("Could execute request succesfully!");
-        }
-        return res.json();
+        return +res.status !== 204 ? res.json() : {};
       })
       .then((data) => {
+        if (data?.status === "error" || data?.status === "fail")
+          throw new Error(data.message);
         resolve({ data, errorExists: false });
       })
       .catch((err) =>

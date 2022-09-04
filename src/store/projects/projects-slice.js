@@ -48,13 +48,6 @@ const projectSlice = createSlice({
       state.list = filterProjects;
       state.projectDelete = true;
     },
-    updateFlag(state, action) {
-      if (action.payload.flag === "save") {
-        state.projectsChanged = action.payload.value;
-      } else if (action.payload.flag === "delete") {
-        state.deleteProject = action.payload.value;
-      }
-    },
   },
 });
 

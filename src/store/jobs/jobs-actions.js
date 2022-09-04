@@ -1,30 +1,26 @@
 import { jobsActions, uiActions } from "@store";
 import { httpRequest } from "@utils";
+import { URL_CONFIG } from "@config";
+
+const jobsURL = `${process.env.REACT_APP_BACKEND_URL}/${URL_CONFIG.jobs.crudURL}`;
 
 export const fetchJobsData = () => {
-  const jobs = [];
-  const updateState = (projectData, projects, dispatch) => {
-    Object.entries(projectData).forEach(([key, value]) => {
-      value["id"] = key;
-      projects.push(value);
-    });
+  const updateState = (jobsData, dispatch) => {
+    const jobs = jobsData.data.jobs;
     dispatch(jobsActions.fillData(jobs));
   };
 
   return async (dispatch) => {
-    const { data: jobData, errorExists } = await httpRequest(
-      `${process.env.REACT_APP_FIREBASE_URL}/jobs.json`,
-      "GET"
-    );
+    const { data: jobData, errorExists } = await httpRequest(jobsURL, "GET");
 
     if (!errorExists) {
-      updateState(jobData, jobs, dispatch);
+      updateState(jobData, dispatch);
     } else {
       const { data: jobData } = await httpRequest(
         `../content/experience.json`,
         "GET"
       );
-      updateState(jobData.jobs, jobs, dispatch);
+      updateState(jobData.jobs, dispatch);
     }
   };
 };
@@ -34,10 +30,6 @@ export function addJob(jobData, existingJobId) {
     jobData = { ...jobData, id: existingJobId };
   }
   return async (dispatch) => {
-    const hitUrl = existingJobId
-      ? `${process.env.REACT_APP_FIREBASE_URL}/jobs/${existingJobId}.json`
-      : `${process.env.REACT_APP_FIREBASE_URL}/jobs.json`;
-
     const accessToken = localStorage.getItem("token");
 
     const {
@@ -45,22 +37,21 @@ export function addJob(jobData, existingJobId) {
       errorExists,
       errorDetails,
     } = await httpRequest(
-      `${hitUrl}?auth=${accessToken}`,
+      existingJobId ? `${jobsURL}/${existingJobId}` : jobsURL,
       existingJobId ? "PATCH" : "POST",
       JSON.stringify(jobData),
       {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
       }
     );
 
     if (!errorExists) {
-      if (newJobData.name) {
-        jobData.id = newJobData.name;
-      }
+      const data = newJobData.data.job;
 
       existingJobId
-        ? dispatch(jobsActions.updateJob(newJobData))
-        : dispatch(jobsActions.addJob(newJobData));
+        ? dispatch(jobsActions.updateJob(data))
+        : dispatch(jobsActions.addJob(data));
     } else {
       dispatch(
         uiActions.showMessage({
@@ -74,13 +65,15 @@ export function addJob(jobData, existingJobId) {
 
 export function deleteJob(jobId) {
   return async (dispatch) => {
-    const hitUrl = `${process.env.REACT_APP_FIREBASE_URL}/jobs/${jobId}.json`;
-
     const accessToken = localStorage.getItem("token");
 
     const { errorExists, errorDetails } = await httpRequest(
-      `${hitUrl}?auth=${accessToken}`,
-      "DELETE"
+      `${jobsURL}/${jobId}`,
+      "DELETE",
+      null,
+      {
+        Authorization: `Bearer ${accessToken}`,
+      }
     );
 
     if (!errorExists) {

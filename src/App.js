@@ -1,15 +1,9 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Home, Main, NotFound, AnimationLayout } from "@components/layout";
 import { ParticlesBackground } from "@components/particles";
-import {
-  fetchProjectsData,
-  fetchJobsData,
-  projectsActions,
-  uiActions,
-  jobsActions,
-} from "@store";
+import { fetchProjectsData, fetchJobsData } from "@store";
 import {
   MainDash,
   Login,
@@ -25,58 +19,10 @@ const App = () => {
   const location = useLocation();
   const dispatch = useDispatch();
 
-  const projectsChanged = useSelector(
-    (state) => state.projects.projectsChanged
-  );
-  const jobsChanged = useSelector((state) => state.jobs.jobsChanged);
-
-  const deletedProject = useSelector((state) => state.projects.projectDelete);
-  const deletedJob = useSelector((state) => state.jobs.jobDelete);
-
   useEffect(() => {
     dispatch(fetchProjectsData());
     dispatch(fetchJobsData());
-
-    if (projectsChanged) {
-      dispatch(
-        uiActions.showMessage({
-          message: "Projects saved successfully",
-          status: "success",
-        })
-      );
-      dispatch(projectsActions.updateFlag({ flag: "save", value: false }));
-    }
-
-    if (deletedProject) {
-      dispatch(
-        uiActions.showMessage({
-          message: "Project was deleted successfully",
-          status: "success",
-        })
-      );
-      dispatch(projectsActions.updateFlag({ flag: "delete", value: false }));
-    }
-
-    if (jobsChanged) {
-      dispatch(
-        uiActions.showMessage({
-          message: "Jobs saved successfully",
-          status: "success",
-        })
-      );
-      dispatch(jobsActions.updateFlag({ flag: "save", value: false }));
-    }
-
-    if (deletedJob) {
-      dispatch(
-        uiActions.showMessage({
-          message: "Job was deleted successfully",
-          status: "success",
-        })
-      );
-      dispatch(jobsActions.updateFlag({ flag: "delete", value: false }));
-    }
-  }, [deletedJob, deletedProject, dispatch, jobsChanged, projectsChanged]);
+  }, [dispatch]);
 
   return (
     <>

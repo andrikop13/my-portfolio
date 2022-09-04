@@ -1,4 +1,4 @@
-const { createSlice } = require("@reduxjs/toolkit");
+const { createSlice, current } = require("@reduxjs/toolkit");
 
 const jobsSlice = createSlice({
   name: "jobs",
@@ -42,13 +42,6 @@ const jobsSlice = createSlice({
 
       state.list = filterJobs;
       state.jobDelete = true;
-    },
-    updateFlag(state, action) {
-      if (action.payload.flag === "save") {
-        state.jobsChanged = action.payload.value;
-      } else if (action.payload.flag === "delete") {
-        state.jobDelete = action.payload.value;
-      }
     },
   },
 });

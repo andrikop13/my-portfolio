@@ -8,8 +8,15 @@ module.exports = {
   },
 
   URL_CONFIG: {
-    login:
-      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword",
+    users: {
+      login: "api/v1/users/login",
+    },
+    jobs: {
+      crudURL: "api/v1/jobs",
+    },
+    projects: {
+      getAll: "api/v1/projects",
+    },
     baseURLs: {
       hero: "/",
       login: "/admin/login",
