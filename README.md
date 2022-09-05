@@ -7,22 +7,24 @@
 </h1>
 
 <p align="center">
-  My personal portfolio of <a href="https://andrikopoulosdev.com" target="_blank">andrikopoulosdev.com</a> built with <a href="https://reactjs.org/" target="_blank">React & Redux</a> and hosted with <a href="https://www.netlify.com/" target="_blank">Netlify</a>
+  My personal portfolio of <a href="https://andrikopoulosdev.com" target="_blank">andrikopoulosdev.com</a> built with <a href="https://reactjs.org/" target="_blank">React</a> and hosted on <a href="https://www.netlify.com/" target="_blank">Netlify</a>
 </p>
 
 <p align="center">
-  <a href="https://app.netlify.com/sites/brittanychiang/deploys" target="_blank">
+  <a href="https://app.netlify.com/sites/andrikopoulosdev/deploys" target="_blank">
     <img src="https://api.netlify.com/api/v1/badges/1963b488-7b78-48c9-9e2d-6fb5e47ab3af/deploy-status" alt="Netlify Status"/>
   </a>
 </p>
 
-![hero page](https://raw.githubusercontent.com/andrikop13/my-portfolio/admin_dashboard/src/assets/images/readme_images/hero.png)
+![hero page](https://raw.githubusercontent.com/andrikop13/my-portfolio/firebase-platform/src/assets/images/readme_images/hero.png)
 
 <br/>
 
 # About The Project
 
 Hello, my name is Andreas Andrikopoulos and thank you for checking out this repo. This is my personal Portfolio Website, which is designed and built by me. This website isn't just my portfolio website, but also a personal project in and of itself. I tried to make website as an application, implementing in addition to the main page, an administration dashboard, where admin user can create new content or update and delete the old one. The CRUD operations are handled with Redux and the final content is saved in the Firebase platform.
+
+In adition to the default branch that uses Firabase platform as the backend service, you can check `expressjs-mongodb` branch, that connects with my custom backend service built in Express.js and MongoDB. Check the repo of this project out <a href="https://github.com/andrikop13/portfolio-nodejs-mongodb" target="_blank">here</a>.
 
 So, you can use this project as a portfolio template with the appropriate reference as described in `LICENSE.txt` file of the project. I think that last years, i have learned a lot as a developer, having experience with JavaScript, TypeScript and Angular ecosystem. I would like to get my hands dirty on React as well. That's why i choose to build this project in React and Redux.
 
@@ -47,17 +49,17 @@ So, you can use this project as a portfolio template with the appropriate refere
 
 <br/>
 
-|                                                       Admin Login Page                                                        |                                                          Admin Menu                                                          |
-| :---------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------: |
-| ![](https://raw.githubusercontent.com/andrikop13/my-portfolio/admin_dashboard/src/assets/images/readme_images/login_page.png) | ![](https://raw.githubusercontent.com/andrikop13/my-portfolio/admin_dashboard/src/assets/images/readme_images/dashboard.png) |
+|                                                        Admin Login Page                                                         |                                                           Admin Menu                                                           |
+| :-----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
+| ![](https://raw.githubusercontent.com/andrikop13/my-portfolio/firebase-platform/src/assets/images/readme_images/login_page.png) | ![](https://raw.githubusercontent.com/andrikop13/my-portfolio/firebase-platform/src/assets/images/readme_images/dashboard.png) |
 
-|                                                     Project List Panel                                                      |                                                       Project Edit Form                                                        |
-| :-------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
-| ![](https://raw.githubusercontent.com/andrikop13/my-portfolio/admin_dashboard/src/assets/images/readme_images/projects.png) | ![](https://raw.githubusercontent.com/andrikop13/my-portfolio/admin_dashboard/src/assets/images/readme_images/projectEdit.png) |
+|                                                      Project List Panel                                                       |                                                        Project Edit Form                                                         |
+| :---------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------: |
+| ![](https://raw.githubusercontent.com/andrikop13/my-portfolio/firebase-platform/src/assets/images/readme_images/projects.png) | ![](https://raw.githubusercontent.com/andrikop13/my-portfolio/firebase-platform/src/assets/images/readme_images/projectEdit.png) |
 
-|                                                       Job Edit Panel                                                       |
-| :------------------------------------------------------------------------------------------------------------------------: |
-| ![](https://raw.githubusercontent.com/andrikop13/my-portfolio/admin_dashboard/src/assets/images/readme_images/jobEdit.png) |
+|                                                        Job Edit Panel                                                        |
+| :--------------------------------------------------------------------------------------------------------------------------: |
+| ![](https://raw.githubusercontent.com/andrikop13/my-portfolio/firebase-platform/src/assets/images/readme_images/jobEdit.png) |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -71,7 +73,7 @@ So, you can use this project as a portfolio template with the appropriate refere
    ```sh
    npm install
    ```
-3. Enter API tokens in `.env`
+3. Enter enviroment variables in `.env`
    ```
     REACT_APP_EMAILJS_SERVICE_ID = <emailjs_service_id>
     REACT_APP_EMAILJS_TEMPLATE_ID = <emailjs_template>
