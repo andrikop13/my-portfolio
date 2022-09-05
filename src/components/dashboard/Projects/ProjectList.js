@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { BsBoxArrowUpRight } from "react-icons/bs";
+import Loader from "react-loaders";
 import { IconButton, TableBody } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@material-ui/icons/EditOutlined";
@@ -78,85 +79,94 @@ const ProjectList = () => {
 
   return (
     <Wrapper>
-      <CustomTable columns={columns} createNewItem={createNewProject}>
-        <TableBody>
-          {projects.map((project) => (
-            <StyledTableRow key={project.id}>
-              <StyledTableCell align="left">
-                <IconButton
-                  sx={{ marginLeft: "10px" }}
-                  aria-label="edit"
-                  onClick={() => onToggleEditMode(project.id)}
-                >
-                  <EditIcon sx={{ fontSize: "2.5rem" }} />
-                </IconButton>
-
-                <IconButton
-                  sx={{ marginLeft: "0px" }}
-                  aria-label="edit"
-                  onClick={() => onDelete(project.id)}
-                >
-                  <DeleteIcon sx={{ fontSize: "2.5rem" }} />
-                </IconButton>
-              </StyledTableCell>
-
-              <StyledTableCell align="left">
-                <img
-                  src={project.images?.length ? project.images[0] : ""}
-                  alt="Preview photography"
-                  style={{
-                    width: "140px",
-                    height: "80px",
-                    boxShadow: "0.1rem 0.2rem 0.4rem rgba(0, 0, 0, 0.5)",
-                  }}
-                />{" "}
-              </StyledTableCell>
-
-              <StyledTableCell align="left">{project.subtitle}</StyledTableCell>
-
-              <StyledTableCell align="left">{project.title}</StyledTableCell>
-
-              <StyledTableCell align="left">
-                {project.link !== undefined ? (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+      {!projects.length && (
+        <div className="loader-container">
+          <Loader type="ball-grid-pulse" />
+        </div>
+      )}
+      {projects.length && (
+        <CustomTable columns={columns} createNewItem={createNewProject}>
+          <TableBody>
+            {projects.map((project) => (
+              <StyledTableRow key={project.id}>
+                <StyledTableCell align="left">
+                  <IconButton
+                    sx={{ marginLeft: "10px" }}
+                    aria-label="edit"
+                    onClick={() => onToggleEditMode(project.id)}
                   >
-                    <div className="links">
-                      Link
-                      <BsBoxArrowUpRight
-                        size={15}
-                        style={{ marginTop: "-0.3rem" }}
-                      />
-                    </div>
-                  </a>
-                ) : null}
-              </StyledTableCell>
+                    <EditIcon sx={{ fontSize: "2.5rem" }} />
+                  </IconButton>
 
-              <StyledTableCell align="left">
-                {project.github !== undefined ? (
-                  <>
+                  <IconButton
+                    sx={{ marginLeft: "0px" }}
+                    aria-label="edit"
+                    onClick={() => onDelete(project.id)}
+                  >
+                    <DeleteIcon sx={{ fontSize: "2.5rem" }} />
+                  </IconButton>
+                </StyledTableCell>
+
+                <StyledTableCell align="left">
+                  <img
+                    src={project.images?.length ? project.images[0] : ""}
+                    alt="Preview photography"
+                    style={{
+                      width: "140px",
+                      height: "80px",
+                      boxShadow: "0.1rem 0.2rem 0.4rem rgba(0, 0, 0, 0.5)",
+                    }}
+                  />{" "}
+                </StyledTableCell>
+
+                <StyledTableCell align="left">
+                  {project.subtitle}
+                </StyledTableCell>
+
+                <StyledTableCell align="left">{project.title}</StyledTableCell>
+
+                <StyledTableCell align="left">
+                  {project.link !== undefined ? (
                     <a
-                      href={project.github}
+                      href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <div className="links">
-                        Github
+                        Link
                         <BsBoxArrowUpRight
                           size={15}
                           style={{ marginTop: "-0.3rem" }}
                         />
                       </div>
                     </a>
-                  </>
-                ) : null}
-              </StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </CustomTable>
+                  ) : null}
+                </StyledTableCell>
+
+                <StyledTableCell align="left">
+                  {project.github !== undefined ? (
+                    <>
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <div className="links">
+                          Github
+                          <BsBoxArrowUpRight
+                            size={15}
+                            style={{ marginTop: "-0.3rem" }}
+                          />
+                        </div>
+                      </a>
+                    </>
+                  ) : null}
+                </StyledTableCell>
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </CustomTable>
+      )}
 
       <ConfirmationBox
         dialog={dialog}
