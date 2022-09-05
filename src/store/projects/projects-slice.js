@@ -34,6 +34,7 @@ const projectSlice = createSlice({
       }
     },
     updateProject(state, action) {
+      console.log(action);
       const findItem = state.list.findIndex(
         (project) => project.id === action.payload.id
       );

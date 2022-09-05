@@ -15,7 +15,7 @@ module.exports = {
       crudURL: "api/v1/jobs",
     },
     projects: {
-      getAll: "api/v1/projects",
+      crudURL: "api/v1/projects",
     },
     baseURLs: {
       hero: "/",

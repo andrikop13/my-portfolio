@@ -1,30 +1,29 @@
 import { projectsActions, uiActions } from "@store";
 import { httpRequest } from "@utils";
+import { URL_CONFIG } from "@config";
+
+const projectsURL = `${process.env.REACT_APP_BACKEND_URL}/${URL_CONFIG.projects.crudURL}`;
 
 export const fetchProjectsData = () => {
-  const projects = [];
-  const updateState = (projectData, projects, dispatch) => {
-    Object.entries(projectData).forEach(([key, value]) => {
-      value["id"] = key;
-      projects.push(value);
-    });
+  const updateState = (projectData, dispatch) => {
+    const projects = projectData.data.projects;
     dispatch(projectsActions.fillData(projects));
   };
 
   return async (dispatch) => {
-    const { data: projectData, errorExists } = await httpRequest(
-      `${process.env.REACT_APP_FIREBASE_URL}/projects.json`,
+    const { data: projectsData, errorExists } = await httpRequest(
+      projectsURL,
       "GET"
     );
 
     if (!errorExists) {
-      updateState(projectData, projects, dispatch);
+      updateState(projectsData, dispatch);
     } else {
-      const { data: projectData } = await httpRequest(
+      const { data: projectsData } = await httpRequest(
         `../content/projects.json`,
         "GET"
       );
-      updateState(projectData.projects, projects, dispatch);
+      updateState(projectsData.projects, dispatch);
     }
   };
 };
@@ -34,10 +33,6 @@ export function addProject(projectData, existingProjectId) {
     projectData = { ...projectData, id: existingProjectId };
   }
   return async (dispatch) => {
-    const hitUrl = existingProjectId
-      ? `${process.env.REACT_APP_FIREBASE_URL}/projects/${existingProjectId}.json`
-      : `${process.env.REACT_APP_FIREBASE_URL}/projects.json`;
-
     const accessToken = localStorage.getItem("token");
 
     const {
@@ -45,22 +40,21 @@ export function addProject(projectData, existingProjectId) {
       errorExists,
       errorDetails,
     } = await httpRequest(
-      `${hitUrl}?auth=${accessToken}`,
+      existingProjectId ? `${projectsURL}/${existingProjectId}` : projectsURL,
       existingProjectId ? "PATCH" : "POST",
       JSON.stringify(projectData),
       {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
       }
     );
 
     if (!errorExists) {
-      if (newProjectData.name) {
-        newProjectData.id = newProjectData.name;
-      }
+      const data = newProjectData.data.project;
 
       existingProjectId
-        ? dispatch(projectsActions.updateProject(newProjectData))
-        : dispatch(projectsActions.addProject(newProjectData));
+        ? dispatch(projectsActions.updateProject(data))
+        : dispatch(projectsActions.addProject(data));
     } else {
       dispatch(
         uiActions.showMessage({
@@ -74,13 +68,15 @@ export function addProject(projectData, existingProjectId) {
 
 export function deleteProject(projectId) {
   return async (dispatch) => {
-    const hitUrl = `${process.env.REACT_APP_FIREBASE_URL}/projects/${projectId}.json`;
-
     const accessToken = localStorage.getItem("token");
 
     const { errorExists, errorDetails } = await httpRequest(
-      `${hitUrl}?auth=${accessToken}`,
-      "DELETE"
+      `${projectsURL}/${projectId}`,
+      "DELETE",
+      null,
+      {
+        Authorization: `Bearer ${accessToken}`,
+      }
     );
 
     if (!errorExists) {
