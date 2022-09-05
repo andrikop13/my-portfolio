@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Loader } from "react-loaders";
 import { IconButton, TableBody } from "@mui/material";
 import EditIcon from "@material-ui/icons/EditOutlined";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -69,50 +70,63 @@ const JobList = () => {
 
   return (
     <Wrapper>
-      <CustomTable columns={columns} createNewItem={createNewJob}>
-        <TableBody>
-          {jobs.map((job) => (
-            <StyledTableRow key={job.id}>
-              <StyledTableCell align="left">
-                <IconButton
-                  sx={{ marginLeft: "10px" }}
-                  aria-label="edit"
-                  onClick={() => onToggleEditMode(job.id)}
-                >
-                  <EditIcon sx={{ fontSize: "2.5rem" }} />
-                </IconButton>
+      {!jobs.length && (
+        <div className="loader-container">
+          <Loader type="ball-grid-pulse" />
+        </div>
+      )}
+      {jobs.length && (
+        <CustomTable columns={columns} createNewItem={createNewJob}>
+          <TableBody>
+            {jobs.map((job) => (
+              <StyledTableRow key={job.id}>
+                <StyledTableCell align="left">
+                  <IconButton
+                    sx={{ marginLeft: "10px" }}
+                    aria-label="edit"
+                    onClick={() => onToggleEditMode(job.id)}
+                  >
+                    <EditIcon sx={{ fontSize: "2.5rem" }} />
+                  </IconButton>
 
-                <IconButton
-                  sx={{ marginLeft: "0px" }}
-                  aria-label="edit"
-                  onClick={() => onDelete(job.id)}
-                >
-                  <DeleteIcon sx={{ fontSize: "2.5rem" }} />
-                </IconButton>
-              </StyledTableCell>
+                  <IconButton
+                    sx={{ marginLeft: "0px" }}
+                    aria-label="edit"
+                    onClick={() => onDelete(job.id)}
+                  >
+                    <DeleteIcon sx={{ fontSize: "2.5rem" }} />
+                  </IconButton>
+                </StyledTableCell>
 
-              <StyledTableCell align="left">{job.position}</StyledTableCell>
+                <StyledTableCell align="left">{job.position}</StyledTableCell>
 
-              <StyledTableCell align="left">{job.organization}</StyledTableCell>
-              <StyledTableCell align="left">{job.date}</StyledTableCell>
+                <StyledTableCell align="left">
+                  {job.organization}
+                </StyledTableCell>
+                <StyledTableCell align="left">{job.date}</StyledTableCell>
 
-              <StyledTableCell align="left">
-                {job.link !== undefined ? (
-                  <a href={job.link} target="_blank" rel="noopener noreferrer">
-                    <div className="links">
-                      Link
-                      <BsBoxArrowUpRight
-                        size={15}
-                        style={{ marginTop: "-0.3rem" }}
-                      />
-                    </div>
-                  </a>
-                ) : null}
-              </StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </CustomTable>
+                <StyledTableCell align="left">
+                  {job.link !== undefined ? (
+                    <a
+                      href={job.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div className="links">
+                        Link
+                        <BsBoxArrowUpRight
+                          size={15}
+                          style={{ marginTop: "-0.3rem" }}
+                        />
+                      </div>
+                    </a>
+                  ) : null}
+                </StyledTableCell>
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </CustomTable>
+      )}
 
       <ConfirmationBox
         dialog={dialog}
