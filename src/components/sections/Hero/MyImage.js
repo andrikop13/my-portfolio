@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { responsive } from "@config";
 import image from "@assets/images/myself.jpg";
+import { useEffect, useRef, useState } from "react";
+import { CSSTransition } from "react-transition-group";
 
 const ImageContainer = styled.div`
   @media (max-width: ${responsive.phone[1]}rem) {
@@ -9,10 +11,11 @@ const ImageContainer = styled.div`
 
   & .img-wrapper {
     position: relative;
+    transition: all 0.5s;
 
     & .hero-img {
-      animation: leftRotation 1s ;
-      -webkit-animation: leftRotation 1s;
+      animation: leftRotation 1.2s ;
+      -webkit-animation: leftRotation 1.2s;
       transform: rotate(-10deg);
       width: 29rem;
       position: relative;
@@ -20,11 +23,12 @@ const ImageContainer = styled.div`
       transition: var(--transition);
       mix-blend-mode: multiply;
       filter: grayscale(100%) contrast(1);
+      transition: all 0.5s 
     }
 
     &::before {
-      animation: leftRotation 1s ;
-      -webkit-animation: leftRotation 1s ;
+      animation: leftRotation 1.2s ;
+      -webkit-animation: leftRotation 1.2s ;
       transform: rotate(-10deg);
       top: 0px;
       left: 0px;
@@ -35,8 +39,8 @@ const ImageContainer = styled.div`
     }
 
     &::after {
-      animation: rightRotation 1s ;
-      -webkit-animation: rightRotation 1s;
+      animation: rightRotation 1.2s ;
+      -webkit-animation: rightRotation 1.2s;
       transform: rotate(10deg);
       border: 2px solid var(--green);
       top: -3.25%;
@@ -77,18 +81,22 @@ const ImageContainer = styled.div`
 
   @keyframes rightRotation {
     from {
+      opacity: 0;
       transform: rotate(0deg);
     }
     to {
+      opacity: 1;
       transform: rotate(10deg);
     }
   }
 
   @keyframes leftRotation {
     from {
+      opacity: 0;
       transform: rotate(0deg);
     }
     to {
+      opacity: 1;
       transform: rotate(-10deg);
     }
   }
@@ -107,12 +115,31 @@ const ImageContainer = styled.div`
 `;
 
 const MyImage = () => {
+  const [stageTime, setStageTime] = useState(false);
+  const ref = useRef();
+
+  useEffect(() => {
+    setTimeout(() => {
+      setStageTime(true);
+    }, 100);
+  });
+
+  const transProps = {
+    in: stageTime,
+    classNames: "fadedown",
+    timeout: 0,
+  };
+
   return (
-    <ImageContainer>
-      <div className="img-wrapper">
-        <img src={image} className="hero-img" alt="My Profile"></img>
-      </div>
-    </ImageContainer>
+    stageTime && (
+      <CSSTransition nodeRef={ref} {...transProps}>
+        <ImageContainer>
+          <div className="img-wrapper">
+            <img src={image} className="hero-img" alt="My Profile"></img>
+          </div>
+        </ImageContainer>
+      </CSSTransition>
+    )
   );
 };
 
