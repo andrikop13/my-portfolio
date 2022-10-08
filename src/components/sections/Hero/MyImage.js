@@ -3,6 +3,7 @@ import { responsive } from "@config";
 import image from "@assets/images/myself.jpg";
 import { useEffect, useRef, useState } from "react";
 import { CSSTransition } from "react-transition-group";
+import LazyLoad from "react-lazyload";
 
 const ImageContainer = styled.div`
   @media (max-width: ${responsive.phone[1]}rem) {
@@ -32,7 +33,7 @@ const ImageContainer = styled.div`
       left: 0px;
       background-color: var(--green);
       width: 100%;
-      height: 98%;
+      height: 98.9%;
       mix-blend-mode: screen;
     }
 
@@ -119,20 +120,22 @@ const MyImage = () => {
   useEffect(() => {
     setTimeout(() => {
       setStageTime(true);
-    }, 250);
+    }, 350);
   });
 
   const transProps = {
     in: stageTime,
     classNames: "fadedown",
-    timeout: 200,
+    timeout: 400,
   };
 
   return (
     <CSSTransition nodeRef={ref} {...transProps}>
       <ImageContainer>
         <div className="img-wrapper">
-          <img src={image} className="hero-img" alt="My Profile"></img>
+          <LazyLoad>
+            <img src={image} className="hero-img" alt="My Profile"></img>
+          </LazyLoad>
         </div>
       </ImageContainer>
     </CSSTransition>

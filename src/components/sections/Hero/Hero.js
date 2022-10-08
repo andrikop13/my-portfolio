@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { MyImage } from "@components/sections";
 import { useEffect, useState } from "react";
-import { Reveal, Roll, Slide } from "react-reveal";
+import { Roll } from "react-reveal";
 
 const Hero = () => {
   const [imageReady, setImageReady] = useState(false);
