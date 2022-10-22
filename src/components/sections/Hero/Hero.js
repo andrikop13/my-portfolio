@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { MyImage } from "@components/sections";
-import { useEffect, useState } from "react";
-import { Roll } from "react-reveal";
+import { useState, useEffect } from "react";
 
 const Hero = () => {
   const [imageReady, setImageReady] = useState(false);
@@ -9,7 +8,7 @@ const Hero = () => {
   useEffect(() => {
     setTimeout(() => {
       setImageReady(true);
-    }, 600);
+    }, 300);
   });
 
   const handleScrolling = (id) => {
@@ -43,13 +42,7 @@ const Hero = () => {
             <div>Contact me!</div>
           </Link>
         </div>
-        <div className="hero__image-box">
-          {imageReady && (
-            <Roll right>
-              <MyImage />
-            </Roll>
-          )}
-        </div>
+        <div className="hero__image-box">{imageReady && <MyImage />}</div>
       </div>
     </section>
   );

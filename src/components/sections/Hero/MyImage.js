@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import { responsive } from "@config";
-import image from "@assets/images/myself.jpg";
-import { useEffect, useRef, useState } from "react";
-import { CSSTransition } from "react-transition-group";
-import LazyLoad from "react-lazyload";
+import { myProfileImgUrl } from "@config";
+import { myProfileGitHubUrl } from "@config";
+import { Roll } from "react-reveal";
 
 const ImageContainer = styled.div`
   @media (max-width: ${responsive.phone[1]}rem) {
@@ -17,7 +16,8 @@ const ImageContainer = styled.div`
       animation: leftRotation 1s ;
       -webkit-animation: leftRotation 1s;
       transform: rotate(-10deg);
-      width: 29rem;
+      width: 290px;
+      height: 320px;
       position: relative;
       border-radius: var(--border-radius);
       mix-blend-mode: multiply;
@@ -26,27 +26,25 @@ const ImageContainer = styled.div`
     }
 
     &::before {
-      animation: leftRotation 1s ;
-      -webkit-animation: leftRotation 1s ;
+      animation: leftRotation 1s;
+      -webkit-animation: leftRotation 1s;
       transform: rotate(-10deg);
-      top: 0px;
-      left: 0px;
       background-color: var(--green);
       width: 100%;
-      height: 98.9%;
-      mix-blend-mode: screen;
+      height: 99%;
+      z-index: -1;
     }
 
     &::after {
-      animation: rightRotation 1s ;
+      animation: rightRotation 1s;
       -webkit-animation: rightRotation 1s;
       transform: rotate(10deg);
-      border: 2px solid var(--green);
-      top: -3.25%;
-      left: -3.5%;
-      width: 107%;
-      height: 105%;
-      z-index: -1;
+      border: 3px solid var(--green);
+      top: -4.3%;
+      left: -4.75%;
+      width: 109.25%;
+      height: 107.5%;
+      z-index: -2;
     }
 
     &::before,
@@ -54,7 +52,7 @@ const ImageContainer = styled.div`
       content: "";
       display: block;
       position: absolute;
-      border-radius: var(--border-radius);
+      border-radius: 2px;
       transition: all 0.25s;
     }
 
@@ -64,7 +62,7 @@ const ImageContainer = styled.div`
 
       &:after {
         transform: rotate(0deg);
-        box-shadow: inset 0 0 0 3px var(--green);
+        box-shadow: inset 0 0 0 4px var(--green);
       }
 
       &:before{
@@ -74,6 +72,7 @@ const ImageContainer = styled.div`
       .hero-img {
         transform: rotate(0deg);
         filter: none;
+        border-radius: 1px;
         mix-blend-mode: normal;
       }
   }
@@ -102,43 +101,33 @@ const ImageContainer = styled.div`
 
   @media (max-width: 75rem) {
     & .hero-img {
-      width: 28rem;
+      width: 260px;
+      height: 290px
     }
   }
 
   @media (max-width: ${responsive.tabletLandscape[1]}) {
     & .hero-img {
-      width: 26rem;
+      width: 270px;
+      height: 300px
     }
   }
 `;
 
 const MyImage = () => {
-  const [stageTime, setStageTime] = useState(false);
-  const ref = useRef();
-
-  useEffect(() => {
-    setTimeout(() => {
-      setStageTime(true);
-    }, 350);
-  });
-
-  const transProps = {
-    in: stageTime,
-    classNames: "fadedown",
-    timeout: 400,
-  };
-
   return (
-    <CSSTransition nodeRef={ref} {...transProps}>
+    <Roll right>
       <ImageContainer>
         <div className="img-wrapper">
-          <LazyLoad>
-            <img src={image} className="hero-img" alt="My Profile"></img>
-          </LazyLoad>
+          <img
+            src={myProfileImgUrl}
+            onError={(e) => (e.target.src = myProfileGitHubUrl)}
+            className="hero-img"
+            alt="My Profile"
+          ></img>
         </div>
       </ImageContainer>
-    </CSSTransition>
+    </Roll>
   );
 };
 
