@@ -56,4 +56,10 @@ module.exports = {
   ],
 
   myLocationLatLon: [38.2466, 21.7346],
+
+  myProfileImgUrl:
+    "https://res.cloudinary.com/ds6z8fknm/image/upload/v1666633093/myself_sm_r9eon4.webp",
+
+  myProfileGitHubUrl:
+    "https://raw.githubusercontent.com/andrikop13/my-portfolio/firebase-platform/src/assets/images/myself_sm.webp",
 };
