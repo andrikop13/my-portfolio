@@ -23,19 +23,28 @@ const About = () => {
           </p>
 
           <p className="u-margin-bottom-small">
-            All these years, i've had the privilege of working at an innovative
-            company called{" "}
+            I started my career at{" "}
             <a
               href="https://meazon.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
               Meazon S.A.
-            </a>
-            , where we built web services and IoT devices, such as smart meters,
-            smart plugs, light controllers, water meters and sensors, for energy
-            management and efficiency. My main focus is building interactive,
-            responsive and functional web applications.
+            </a>{" "}
+            and we worked together for 3.5 years , building web services and IoT
+            devices, such as smart meters, smart plugs and light controllers,
+            for energy management and efficiency. Last months, i have beeen
+            working for a constantly evolving, at a global level tech company
+            called{" "}
+            <a
+              href="https://agileactors.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Agile Actors.
+            </a>{" "}
+            My main focus is building interactive, responsive and functional web
+            applications.
           </p>
           <p className="u-margin-bottom-small">
             I also graduated from the{" "}
