@@ -31,7 +31,7 @@ const About = () => {
             >
               Meazon S.A.
             </a>{" "}
-            and we worked together for 3.5 years , building web services and IoT
+            and we worked together for 3.5 years, building web services and IoT
             devices, such as smart meters, smart plugs and light controllers,
             for energy management and efficiency. Last months, i have beeen
             working for a constantly evolving, at a global level tech company
@@ -76,7 +76,7 @@ const About = () => {
             <ul>
               <li>Typescript</li>
               <li>Angular</li>
-              <li>PySpark</li>
+              <li>Nest.js</li>
             </ul>
           </div>
         </div>
