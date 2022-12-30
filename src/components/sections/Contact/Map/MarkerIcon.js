@@ -1,12 +1,12 @@
 const MarkerIcon = `data:image/svg+xml;utf8,${encodeURIComponent(`<?xml version="1.0" encoding="iso-8859-1"?>
 <svg
-xmlns:dc="http://purl.org/dc/elements/1.1/"
-xmlns:cc="http://creativecommons.org/ns#"
-xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-xmlns:svg="http://www.w3.org/2000/svg"
-xmlns="http://www.w3.org/2000/svg"
-xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+xmlns:dc="https://purl.org/dc/elements/1.1/"
+xmlns:cc="https://creativecommons.org/ns#"
+xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:svg="https://www.w3.org/2000/svg"
+xmlns="https://www.w3.org/2000/svg"
+xmlns:sodipodi="https://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+xmlns:inkscape="https://www.inkscape.org/namespaces/inkscape"
 width="5.6444445mm"
 height="9.847393mm"
 viewBox="0 0 20 34.892337"
@@ -45,7 +45,7 @@ sodipodi:docname="Map Pin.svg">
       rdf:about="">
      <dc:format>image/svg+xml</dc:format>
      <dc:type
-        rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        rdf:resource="https://purl.org/dc/dcmitype/StillImage" />
      <dc:title></dc:title>
    </cc:Work>
  </rdf:RDF>
