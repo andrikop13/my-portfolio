@@ -120,8 +120,8 @@ const MyImage = () => {
       <ImageContainer>
         <div className="img-wrapper">
           <img
-            src={myProfileImgUrl}
-            onError={(e) => (e.target.src = myProfileGitHubUrl)}
+            src={myProfileGitHubUrl}
+            onError={(e) => (e.target.src = myProfileImgUrl)}
             className="hero-img"
             alt="My Profile"
           ></img>
