@@ -2,7 +2,7 @@ const MyLogo = (props) => {
   return (
     <svg
       id="myLogo"
-      xmlns="http://www.w3.org/2000/svg"
+      xmlns="https://www.w3.org/2000/svg"
       shapeRendering="geometricPrecision"
       textRendering="geometricPrecision"
       viewBox="0 0 300 300"

@@ -11,15 +11,15 @@ const About = () => {
             Hello, my name is Andreas Andrikopoulos and I am an electrical
             engineer graduate from the{" "}
             <a
-              href="http://www.ece.upatras.gr/index.php/en/"
+              href="https://www.ece.upatras.gr/index.php/en/"
               target="_blank"
               rel="noopener noreferrer"
             >
               Department of Electrical and Computer Engineering{" "}
             </a>{" "}
             at the Polytechnic school of Patras. My involvement in software
-            engineering started in 2018, when I decided in the last semester of
-            university courses to apply for an internship at an IT company.
+            engineering started in 2018, when I decided to apply for an
+            internship at an IT company.
           </p>
 
           <p className="u-margin-bottom-small">
@@ -29,22 +29,22 @@ const About = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Meazon S.A.
+              Meazon S.A
             </a>{" "}
             and we worked together for 3.5 years, building web services and IoT
-            devices, such as smart meters, smart plugs and light controllers,
-            for energy management and efficiency. Last months, i have beeen
-            working for a constantly evolving, at a global level tech company
-            called{" "}
+            devices, such as smart meters, smart plugs and light controllers for
+            energy management. For the past few months, i have beeen working for
+            a constantly evolving tech company called{" "}
             <a
               href="https://agileactors.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Agile Actors.
+              Agile Actors
             </a>{" "}
-            My main focus is building interactive, responsive and functional web
-            applications.
+            that specializes in software and data engineering, user experience
+            and agile coaching. My main focus is building interactive,
+            responsive and functional web applications.
           </p>
           <p className="u-margin-bottom-small">
             I also graduated from the{" "}
