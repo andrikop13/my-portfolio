@@ -246,6 +246,18 @@
     & .login-sidebar {
       max-width: 100%;
       height: auto;
-    }
+  }
+}
+}
+
+@media only screen and (min-width: 1600px) {
+  .project-container {
+    padding: 0 14em
+  }
+}
+
+@media only screen and (min-width: 1850px) {
+  .project-container {
+    padding: 0 19em
   }
 }

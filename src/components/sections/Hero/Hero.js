@@ -8,7 +8,7 @@ const Hero = () => {
   useEffect(() => {
     setTimeout(() => {
       setImageReady(true);
-    }, 300);
+    }, 600);
   });
 
   const handleScrolling = (id) => {
