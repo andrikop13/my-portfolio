@@ -88,7 +88,9 @@ const ProjectList = () => {
       {projects.length && (
         <CustomTable columns={columns} createNewItem={createNewProject}>
           <TableBody>
-            {projects.map((project) => (
+            {[...projects].sort((a, b) => {
+              return new Date(b.date).getTime() - new Date(a.date).getTime()
+            }).map((project) => (
               <StyledTableRow key={project.id}>
                 <StyledTableCell align="left">
                   <IconButton

@@ -65,6 +65,12 @@ const ProjectForm = () => {
   } = useInput(isValidUrl, currentProject ? currentProject.github : "");
 
   const {
+    value: dateValue,
+    isValid: dateIsValid,
+    valueChangeHandler: dateChangeHandler,
+  } = useInput(isNotEmpty, currentProject ? currentProject.date : new Date());
+
+  const {
     value: descValue,
     isValid: descIsValid,
     valueChangeHandler: descChangeHandler,
@@ -72,7 +78,7 @@ const ProjectForm = () => {
 
   // Check if form is valid
   let formIsValid =
-    titleIsValid && subtitleIsValid && descIsValid && linkIsValid && gitIsValid;
+    titleIsValid && subtitleIsValid && descIsValid && linkIsValid && gitIsValid && dateIsValid;
 
   const submitProject = (e) => {
     e.preventDefault();
@@ -99,6 +105,7 @@ const ProjectForm = () => {
             technologies_used: tools.data.filter((tool) => tool !== ""),
             link: linkValue,
             github: gitValue,
+            date: dateValue
           },
           currentProject ? projectId : null
         )
@@ -159,6 +166,9 @@ const ProjectForm = () => {
             github={gitValue}
             githubChange={gitChangeHandler}
             gitIsValid={gitIsValid}
+            dateValue = {dateValue}
+            dateChange = {dateChangeHandler}
+            dateIsValid = {dateIsValid}
           />
 
           <br />
