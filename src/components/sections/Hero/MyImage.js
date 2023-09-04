@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { responsive } from "@config";
-import { myself } from '@assets';
+import { myself } from "@assets";
 import { Roll } from "react-reveal";
 
 const ImageContainer = styled.div`
@@ -9,7 +9,6 @@ const ImageContainer = styled.div`
   }
 
   & .img-wrapper {
-    position: relative;
 
     & .hero-img {
       animation: leftRotation 1s ;
@@ -118,11 +117,7 @@ const MyImage = () => {
     <Roll right>
       <ImageContainer>
         <div className="img-wrapper">
-          <img
-            src={myself}
-            className="hero-img"
-            alt="My Profile"
-          ></img>
+          <img src={myself} className="hero-img" alt="My Profile"></img>
         </div>
       </ImageContainer>
     </Roll>
