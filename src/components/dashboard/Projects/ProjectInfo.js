@@ -5,10 +5,14 @@ import {
   InputAdornment,
   InputLabel,
   OutlinedInput,
+  TextField
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useNavigate } from "react-router-dom";
 import { Box } from "@mui/system";
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
 
 const fontSize = { fontSize: "var(--fonts-mui-size)" };
 
@@ -30,6 +34,9 @@ const ProjectInfo = ({
   github,
   githubChange,
   gitIsValid,
+  dateValue,
+  dateChange,
+  dateIsValid
 }) => {
   const navigate = useNavigate();
   const onAddTool = () => {
@@ -49,7 +56,7 @@ const ProjectInfo = ({
     const toolsBack = [...tools.data];
     toolsBack[index] = e.target.value;
 
-    setTools((prevState) => ({
+    setTools(() => ({
       data: toolsBack,
     }));
   };
@@ -79,7 +86,7 @@ const ProjectInfo = ({
         </Grid>
       </Grid>
       <Grid container spacing={5} style={{ padding: "25px 40px 5px 40px" }}>
-        <Grid item md={3}>
+        <Grid item md={2.4}>
           <FormControl variant="outlined" required fullWidth={true}>
             <InputLabel htmlFor="outlined-adornment-password">
               Project Title
@@ -94,7 +101,7 @@ const ProjectInfo = ({
           </FormControl>
         </Grid>
 
-        <Grid item md={3}>
+        <Grid item md={2.4}>
           <FormControl variant="outlined" required fullWidth={true}>
             <InputLabel htmlFor="outlined-adornment-password">
               Project Subtitle
@@ -109,7 +116,7 @@ const ProjectInfo = ({
           </FormControl>
         </Grid>
 
-        <Grid item md={3}>
+        <Grid item md={2.4}>
           <FormControl variant="outlined" fullWidth={true}>
             <InputLabel htmlFor="outlined-adornment-password">
               Project Link
@@ -124,7 +131,7 @@ const ProjectInfo = ({
           </FormControl>
         </Grid>
 
-        <Grid item md={3}>
+        <Grid item md={2.4}>
           <FormControl variant="outlined" fullWidth={true}>
             <InputLabel htmlFor="outlined-adornment-password">
               Github Link
@@ -136,6 +143,22 @@ const ProjectInfo = ({
               error={!gitIsValid}
               sx={fontSize}
             />
+          </FormControl>
+        </Grid>
+
+        <Grid item md={2.4}>
+          <FormControl variant="outlined" fullWidth={true}>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <DatePicker
+                label="Project Start Date"
+                openTo="year"
+                value={dateValue}
+                onChange={dateChange}
+                error={!dateIsValid}
+                renderInput={(params) => <TextField {...params} />}
+                sx={fontSize} />
+            </LocalizationProvider>
+
           </FormControl>
         </Grid>
 

@@ -7,14 +7,17 @@ import { ProjectItem } from "@components/sections";
 const Projects = () => {
   const [showMore, setShowMore] = useState(false);
   let projects = useSelector((state) => state.projects.list);
+  const projectsSorted = [...projects].sort((a, b) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime()
+  })
 
   const handleMoreProjects = () => {
     setShowMore((prevState) => !prevState);
   };
 
   const PROJECTS_LIMIT = 3;
-  const firstThree = projects.slice(0, PROJECTS_LIMIT);
-  const projectsToShow = showMore ? projects : firstThree;
+  const firstThree = projectsSorted.slice(0, PROJECTS_LIMIT);
+  const projectsToShow = showMore ? projectsSorted : firstThree;
 
   return (
     <section className="section-projects" id="projects">
