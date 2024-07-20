@@ -14,7 +14,7 @@ const ImageContainer = styled.div`
       animation: leftRotation 1s ;
       -webkit-animation: leftRotation 1s;
       transform: rotate(-10deg);
-      width: 290px;
+      width: 300px;
       height: 320px;
       position: relative;
       border-radius: var(--border-radius);
@@ -99,14 +99,14 @@ const ImageContainer = styled.div`
 
   @media (max-width: 75rem) {
     & .hero-img {
-      width: 260px;
+      width: 270px;
       height: 290px
     }
   }
 
   @media (max-width: ${responsive.tabletLandscape[1]}) {
     & .hero-img {
-      width: 270px;
+      width: 280px;
       height: 300px
     }
   }
